@@ -1,3 +1,8 @@
 <div class="pagenavi">
-<%- mutheme_pagenavi() %>
+<%- 
+    paginator({
+        prev_text: __('prev_page'),
+        next_text: __('next_page')
+    }) 
+%>
 </div>

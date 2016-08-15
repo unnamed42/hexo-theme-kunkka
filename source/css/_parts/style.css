@@ -1,67 +1,6 @@
-
-
-.container {
-    margin: 0 auto;
-    width: 980px;
-}
-
-
-
 .wp-zan.zaned,
 .wp-zan:hover {
     color: #5895be !important;
-}
-
-#content .container {
-    padding-top: 40px;
-    padding-bottom: 40px;
-}
-
-#primary {
-    float: left;
-    width: 40pc;
-    min-height: 25pc
-}
-
-#primary.full-page {
-    float: none;
-    width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-
-.breadcrumb-navigation {
-    margin-bottom: 20px;
-    font-size: 12px;
-    color: #999;
-}
-
-.breadcrumb-navigation a {
-    color: #777;
-    text-decoration: underline
-}
-
-.breadcrumb-navigation a:hover {
-    color: #5895be
-}
-
-.breadcrumb-navigation .breadcrumb-arrow {
-    color: #aaa;
-    margin: 0 2px;
-}
-
-.breadcrumb-navigation .text {
-    padding-left: 10px
-}
-
-
-
-.post-content, .post-content p {
-    margin: 0 0 9pt;
-    line-height: 1.8;
-    word-break: break-all
 }
 
 body.full-content .post-body p,
@@ -76,11 +15,11 @@ body.full-content .post-body img,
     height: auto;
 }
 
-.post-content small {
-    padding-top: 20px;
-    font-weight: 700;
-    font-size: 13px;
-    line-height: 1.2em
+#primary.full-page {
+    float: none;
+    width: 750px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 body.full-content .post-body h3,
@@ -124,25 +63,7 @@ body.full-content .post-body ul li ul li
 
 
 
-.pagenavi {
-    color: #4a4a4a;
-    list-style: none;
-    line-height: 24px
-}
 
-.page-numbers {
-    display: inline-block;
-    margin: 0 5px 2px 0;
-    padding: 0 8px;
-    border: 1px solid #ddd;
-    color: #555;
-    zoom: 1
-}
-
-.page-numbers.current, .page-numbers:hover {
-    background: #f8f8f8;
-    border-bottom-color: #5895be
-}
 
 .post-compass {
     padding-bottom: 20px;
@@ -176,12 +97,10 @@ body.full-content .post-body ul li ul li
 @media screen and (max-width: 769px) {
 
 
-    .container {
-        padding-right: 15px;
-        padding-left: 15px;
+#primary.full-page {
+        float: none;
         width: auto
     }
-
     .post {
         border-bottom-color: #f5f5f5;
     }
@@ -198,17 +117,6 @@ body.full-content .post-body ul li ul li
         padding-left: 105px;
         height: 85px;
     }
-
-    .post-content img {
-        width: 100%;
-        height: auto
-    }
-
-    #primary, #primary.full-page {
-        float: none;
-        width: auto
-    }
-
 
 
     #sidebar, .global-nav, .search-form {
@@ -258,14 +166,6 @@ body.full-content .post-body ul li ul li
     }
     */
 
-    .global-custom-nav {
-        margin-top: 10px;
-        width: 100%;
-        padding: 5px 15px;
-        border-top: 1px solid #eee;
-    }
-
-
     .mobile-menu-button {
         position: absolute;
         text-align: center;
@@ -277,184 +177,10 @@ body.full-content .post-body ul li ul li
         font-size: 20px;
     }
 
-
-
-    #content .container {
-        padding-top: 20px;
-        padding-bottom: 0
-    }
-
-    .pagenavi {
-        padding-bottom: 30px;
-    }
-
-    .page-numbers {
-        height: 32px;
-        line-height: 32px;
-        padding: 0px 11px;
-        text-align: center;
-        font-size: 18px;
-    }
-
-
-
     .hermit {
         margin-left: -15px;
         margin-right: -15px;
         border-left: none;
         border-right: none;
     }
-
-
-
-    .breadcrumb-navigation {
-        margin-bottom: 10px;
-    }
-}
-
-body.blue a,
-body.blue a:hover,
-body.blue .widget a:hover,
-body.blue .post-title a:hover,
-body.blue .post-meta a:hover,
-body.blue .comment-reply-link:hover,
-body.blue .global-custom-nav ul li.current-menu-item a,
-body.blue .global-nav .gnli.current .gna,
-body.blue .global-nav .gnli.current .gna:hover,
-body.blue .top-menu ul li a:hover,
-body.blue .global-nav .gna:hover,
-body.blue .search-submit:hover {
-    color: #177ee6;
-}
-
-body.blue .page-numbers.current,
-body.blue .page-numbers:hover {
-    border-bottom-color: #177ee6;
-}
-
-body.blue .wp-zan:hover,
-body.blue .wp-zan.zaned {
-    color: #177ee6 !important;
-}
-
-body.blue .tab-categories li a:hover,
-body.blue .tab-tags a:hover {
-    background: #177ee6;
-    color: #fff;
-}
-
-body.blue .page-numbers,
-body.red .page-numbers,
-body.green .page-numbers {
-    color: #555;
-}
-
-body.blue .comment-floor a,
-body.blue .comment-reply-link,
-body.red .comment-floor a,
-body.red .comment-reply-link,
-body.green .comment-floor a,
-body.green .comment-reply-link {
-    color: #999;
-}
-
-body.blue .breadcrumb-navigation a,
-body.red .breadcrumb-navigation a,
-body.green .breadcrumb-navigation a {
-    color: #777;
-}
-
-body.blue .post-title a,
-body.red .post-title a,
-body.green .post-title a {
-    color: #444;
-}
-
-body.blue .post-meta a,
-body.red .post-meta a,
-body.green .post-meta a {
-    color: #777;
-}
-
-body.blue .widget a,
-body.red .widget a,
-body.green .widget a,
-body.blue .archives a,
-body.red .archives a,
-body.green .archives a{
-    color: #666;
-}
-
-body.blue .tab-categories li a,
-body.blue .tab-tags a,
-body.blue .post-tags a,
-body.red .tab-categories li a,
-body.red .tab-tags a,
-body.red .post-tags a,
-body.green .tab-categories li a,
-body.green .tab-tags a,
-body.green .post-tags a {
-    color: #333;
-}
-
-body.green a,
-body.green a:hover,
-body.green .widget a:hover,
-body.green .post-title a:hover,
-body.green .post-meta a:hover,
-body.green .comment-reply-link:hover,
-body.green .global-custom-nav ul li.current-menu-item a,
-body.green .global-nav .gnli.current .gna,
-body.green .global-nav .gnli.current .gna:hover,
-body.green .top-menu ul li a:hover,
-body.green .global-nav .gna:hover,
-body.green .search-submit:hover {
-    color: #37c936;
-}
-
-body.green .page-numbers.current,
-body.green .page-numbers:hover {
-    border-bottom-color: #37c936;
-}
-
-body.green .wp-zan:hover,
-body.green .wp-zan.zaned {
-    color: #37c936 !important;
-}
-
-body.green .tab-categories li a:hover,
-body.green .tab-tags a:hover {
-    background: #37c936;
-    color: #fff;
-}
-
-body.red a,
-body.red a:hover,
-body.red .widget a:hover,
-body.red .post-title a:hover,
-body.red .post-meta a:hover,
-body.red .comment-reply-link:hover,
-body.red .global-custom-nav ul li.current-menu-item a,
-body.red .global-nav .gnli.current .gna,
-body.red .global-nav .gnli.current .gna:hover,
-body.red .top-menu ul li a:hover,
-body.red .global-nav .gna:hover,
-body.red .search-submit:hover {
-    color: #dd4b39;
-}
-
-body.red .page-numbers.current,
-body.red .page-numbers:hover {
-    border-bottom-color: #dd4b39;
-}
-
-body.red .wp-zan:hover,
-body.red .wp-zan.zaned {
-    color: #dd4b39 !important;
-}
-
-body.red .tab-categories li a:hover,
-body.red .tab-tags a:hover {
-    background: #dd4b39;
-    color: #fff;
 }

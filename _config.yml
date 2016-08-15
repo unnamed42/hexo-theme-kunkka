@@ -1,5 +1,26 @@
-disable_global_navigation: false
+nav:
+  - title: 归档
+    url: archives/index.html
+    icon: fa-archive
+    description: 
+  - title: 关于
+    url: about/index.html
+    icon: fa-user
+    description: 
+
+notice:
+  enabled: false
+  content: 
+    - 
+
+global_navigation: true
 tag_number: 25
 full_content: false
 cdn: 
 placeholder: 
+recent_posts: true
+
+links:
+  - title: Tony
+    url: https://tonyzzx.github.io
+    description: 美国留学的高富帅

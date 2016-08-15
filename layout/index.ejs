@@ -2,6 +2,13 @@
 layout: layout
 ---
 <div id="primary">
+    <% if(theme.notice.enabled) { %>
+    <div id="notice">
+        <% theme.notice.content.forEach(function(string) { %>
+        <%- markdown(string) %>
+        <% }); %>
+    </div>
+    <% } %>
     <div id="postlist">
     <% page.posts.each(function(post){ %>
     <%- partial('_partial/post_preview',{post: post}) %>

@@ -1,0 +1,10 @@
+<% if(theme.links.length) { %>
+<div class="widget widget-links">
+    <h3><%- __('links') %></h3>
+    <ul>
+    <% theme.links.forEach(function(link){ %>
+        <li><a class="tooltipped tooltipped-n" href="<%- link['url'] %>" aria-label="<%= link['description'] %>"><%= link['title'] %></a></li>
+    <% }); %>
+    </ul>
+</div>
+<% }%>

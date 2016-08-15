@@ -49,11 +49,9 @@ layout: layout
         </div>
         <div class="post-tags">
         <% if(page.tags.length) { %>
-            <% var arr = []; %>
             <% page.tags.forEach(function(tag){ %>
-                <% arr.push("<a href=\"" + config.root + tag.path + "\" title=\"" + tag.name + "\" rel=\"tag\">" + tag.name + "</a>") %>
+            <a href="<%- config.root %><%- tag.path %>" title="<%= tag.name %>" rel="tag" class="fa fa-tag"><%= tag.name %></a>
             <% }); %>
-            Tags:<%- arr.join(__(',')) %>
         <% } else { %>
             <%- __('no_tags') %>
         <% } %>

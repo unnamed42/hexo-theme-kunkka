@@ -14,10 +14,12 @@
     .container {
         height: 30px;
         line-height: 30px;
+        margin-left: 80px;
         @media screen and (max-width: 769px) {
             position: relative;
             height: auto;
             padding: 10px 0;
+            margin-left: 0px;
         }
     }
     @media screen and (max-width: 769px) {
@@ -34,7 +36,7 @@
     float: left;
     margin-right: 40px;
     display: block;
-    width: auto; /*102px*/
+    width: 102px;
     height: 30px;
     .brand-logo {
         border-radius: 3px;
@@ -114,5 +116,11 @@
         display: inline-block;
         &.current-menu-item a {color: #5895be;}
     }
-    @media screen and (max-width: 769px) {float: none;}
+    @media screen and (max-width: 769px) {
+        float: none;
+        margin-top: 10px;
+        width: 100%;
+        padding: 5px 15px;
+        border-top: 1px solid #eee;
+    }
 }
