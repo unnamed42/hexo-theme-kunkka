@@ -3,7 +3,7 @@ pre, .highlight {
     margin: 20px 0;
     padding: 15px;
     overflow: auto;
-    font-size: 13px;
+    font-size: 16px;
     color: $highlight-foreground;
     line-height: 1.6;
 }
@@ -61,11 +61,11 @@ pre code {
 
 pre {
     .comment {color: $highlight-comment;}
-    .variable, .attribute, .tag, .regexp, .ruby .constant, .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype, .css .id, .css .class, .css .pseudo {color: $highlight-red;}
-    .number, .preprocessor, .built_in, .literal, .params, .constant, .command {color: $highlight-orange}
+    .variable, .template-variable, .attribute, .tag, .name, .regexp, .ruby .constant, .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype, .css .id, .css .class, .css .pseudo, .selector-id, .selector-class, .deletion {color: $highlight-red;}
+    .number, .preprocessor, .built_in, .literal, .params, .constant, .command, .meta, .link, .type {color: $highlight-orange;}
     .ruby .class .title, .css .rules .attribute {color: $highlight-green;}
-    .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata, .special, .number, .formula {color: $highlight-green;}
+    .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata, .special, .number, .formula, .bullet, .addition {color: $highlight-green;}
     .title, .css .hexcolor {color: $highlight-aqua;}
-    .function, .python .decorator, .python .title, .ruby .function .title, .ruby .title .keyword, .perl .sub, .javascript .title, .coffeescript .title {color: $highlight-blue;}
-    .keyword, .javascript .function {color: $highlight-purple;}
+    .function, .python .decorator, .python .title, .ruby .function .title, .ruby .title .keyword, .perl .sub, .javascript .title, .coffeescript .title, .section {color: $highlight-blue;}
+    .keyword, .javascript .function, .selector-tag {color: $highlight-purple;}
 }
