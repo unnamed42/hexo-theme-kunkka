@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="<%= config.lang %>">
+
+<!-- Head tag -->
+<%- partial('_partial/header') %>
+
+<body class="<%- body_class() %>">
+    <%- partial('_partial/nav') %>
+    <div id="content">
+        <div class="container clearfix">
+            <!-- Main Content -->
+            <%- body %>
+            <%- partial('_partial/sidebar') %>
+        </div>
+    </div>
+    <!-- Footer -->
+    <%- partial('_partial/footer') %>
+    <%- partial('_partial/after_footer') %>
+</body>
+
+</html>

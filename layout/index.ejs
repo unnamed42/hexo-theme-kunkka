@@ -1,0 +1,11 @@
+---
+layout: layout
+---
+<div id="primary">
+    <div id="postlist">
+    <% page.posts.each(function(post){ %>
+    <%- partial('_partial/post_preview',{post: post}) %>
+    <% }); %>
+    </div>
+<%- partial('_partial/pagination') %>
+</div>

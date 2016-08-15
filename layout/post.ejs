@@ -1,0 +1,64 @@
+---
+layout: layout
+---
+<div id="primary">
+    <div class="breadcrumb-navigation">
+        <a rel="bookmark" href="<%- config.root %>"><%- __('home') %></a>
+        <span class="breadcrumb-arrow"></span>
+        <% if(page.categories.length) { %>
+        <% var arr = []; %>
+        <% page.categories.forEach(function(category){ %>
+            <% arr.push("<a href=\"" + config.root + category.path + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
+        <% }); %>
+        <%- arr.join(',') %>
+        <% } else { %>
+        <%- __('uncategorized') %>
+        <% } %>
+        <span class="breadcrumb-arrow"></span>
+        <%- page.title %>
+    </div>
+    <div class="single-post">
+        <div class="post-header">
+            <h2 class="post-title">
+                <a href="<%- config.root %><%- page.path %>" title="<%- page.title %>"><%- page.title %></a>
+            </h2>
+        </div>
+        <div class="post-meta">
+            <ul class="inline-ul">
+                <li class="inline-li">
+                    <%- page.date.format(config.date_format) %>
+                </li>
+                <li class="inline-li">
+                    <span class="post-span">·</span>
+                </li>
+                <li class="inline-li">
+                <% if(page.categories.length) { %>
+                <% var arr = []; %>
+                <% page.categories.forEach(function(category){ %>
+                    <% arr.push("<a href=\"" + config.root + category.path + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
+                <% }); %>
+                <%- arr.join(',') %>
+                <% } else { %>
+                <%- __('uncategorized') %>
+                <% } %>
+                </li>
+            </ul>
+        </div>
+        <div class="post-body clearfix">
+            <div class="post-content"><%- page.content || body %></div>
+        </div>
+        <div class="post-tags">
+        <% if(page.tags.length) { %>
+            <% var arr = []; %>
+            <% page.tags.forEach(function(tag){ %>
+                <% arr.push("<a href=\"" + config.root + tag.path + "\" title=\"" + tag.name + "\" rel=\"tag\">" + tag.name + "</a>") %>
+            <% }); %>
+            Tags:<%- arr.join(__(',')) %>
+        <% } else { %>
+            <%- __('no_tags') %>
+        <% } %>
+        </div>
+    </div>
+    <%- partial('_partial/comments') %>
+</div>
+<!-- #primary -->

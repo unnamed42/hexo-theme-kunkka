@@ -1,0 +1,27 @@
+<head>
+    <title>
+    <% if(page.archive) { %>
+        <%= page.year || page.month || __('archive') %> - 
+    <% } else if (page.title || page.category || page.tag) { %>
+        <%= page.title || page.category || page.tag %> - 
+    <% } %>
+    <%= config.title || (config.author + "\'s Blog") %>
+    </title>
+    
+    <meta name="keywords" content="<%= page.keywords || '' %>">
+    <meta name="description" content="<%= page.description || '' %>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    
+    <% if(theme.favicon) { %>
+    <link rel="Shortcut Icon" href="<%- theme.favicon %>" type="image/x-icon"/>
+    <% } %>
+    
+    <%- css('css/help.css') %>
+    <%- css('css/main.css') %>
+    
+    <%- js('js/jquery.min.js') %>
+    <%- js('js/base.min.js') %>
+    <%- js('js/all.min.js') %>
+</head>

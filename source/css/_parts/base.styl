@@ -1,0 +1,105 @@
+*, :after, :before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, html, iframe, img, input, li, ol, p, select, table, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+    -webkit-text-size-adjust: 100%;
+}
+
+img {border: 0 none;}
+
+body {
+    background: #fff;
+    color: #444;
+    font: $BodyFont;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    @media screen and (max-width: 769px) {font-size: 1pc;}
+}
+
+li, ul {list-style: none;}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, td, th {
+    vertical-align: top;
+    text-align: left;
+    font-weight: 400;
+}
+
+input, textarea {
+    margin: 0;
+    padding: 3px;
+    border: 1px solid #bdc7d8;
+}
+
+blockquote {
+    display: block;
+    padding: 0 0 0 10px;
+    border-left: 3px solid #d0e5f2;
+    vertical-align: baseline;
+    font-style: normal;
+    font-size: 100%;
+    line-height: 22px;
+}
+
+h1, h2, h3, h4, h5, h6 {clear: both;}
+
+hr {
+    margin: 2.4em auto;
+    border: none;
+    border-top: 1px solid #d9d9d9;
+    position: relative;
+}
+
+a {
+    outline: 0;
+    text-decoration: none;
+    color: #5895be;
+    &:hover {
+        color: #5895be;
+        text-decoration: underline;
+    }
+}
+
+::-webkit-scrollbar-track-piece {
+    width: 13px;
+    border-right: 1px solid #eee;
+    border-left: 1px solid #e4e4e4;
+    background-color: #f0f0f0;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #fff);
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+    position: relative;
+    min-height: 25px;
+    border-radius: 9999px;
+    background-color: #c2c2c2;
+    background-clip: padding-box;
+    &:vertical {
+        border-top: 0 solid transparent;
+        border-right: 2px solid transparent;
+        border-bottom: 0 solid transparent;
+        border-left: 3px solid transparent;
+    }
+    &:horizontal {
+        border-top: 3px solid transparent;
+        border-right: 0 solid transparent;
+        border-bottom: 2px solid transparent;
+        border-left: 0 solid transparent;
+    }
+    &:active {background-color: #7d7d7d;}
+}

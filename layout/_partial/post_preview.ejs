@@ -1,0 +1,62 @@
+<% var post_class = 'post'; %>
+<% if(!theme.full_content && post.thumbnail) { %>
+    <% post_class += ' post-has-thumbnail'; %>
+<% } %>
+<div class="<%= post_class %>">
+    <div class="post-header">
+        <h2 class="post-title">
+            <a href="<%- config.root %><%- post.path %>" title="<%- post.title %>"><%- post.title %></a>
+        </h2>
+    </div>
+    <div class="post-meta">
+        <ul class="inline-ul">
+            <li class="inline-li">
+                <%- post.date.format(config.date_format) %>
+            </li>
+            <% if(post.categories.length) { %>
+            <li class="inline-li">
+                <span class="post-span">·</span>
+            </li>
+            <li class="inline-li">
+                <% if(post.categories.length) { %>
+                <% var arr = []; %>
+                <% post.categories.forEach(function(category){ %>
+                    <% arr.push("<a href=\"" + config.root + category.path + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
+                <% }); %>
+                <%- arr.join(',') %>
+                <% } else { %>
+                <%- __('uncategorized') %>
+                <% } %>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+    <div class="post-body">
+    <% if (theme.full_content) { %>
+        <%- post.content %>
+    <% } else { %>
+        <% if (post.thumbnail) { %>
+        <div class="post-thumbnail">
+            <a href="<%- config.root %><%- post.path %>" rel="bookmark">
+                <img class="lazy"
+                     src="<%- theme.cdn || '' %><%- theme.placeholder %>"
+                     data-original="<%- theme.cdn || '' %><%- post.thumbnail %>"
+                     alt="<%- post.title %>" width="130" height="130"/>
+            </a>
+        </div>
+        <% } %>
+        <div class="post-content">
+        <% if(post.excerpt) { %>
+            <%- post.excerpt %>
+        <% } else { %>
+            <% var br = post.content.indexOf('\n') %>
+            <% if(br < 0) { %>
+                <%- post.content %>
+            <% } else { %>
+            <p><%- strip_html(post.content.substring(0, br)) %></p>
+            <% } %>
+        <% } %>
+        </div>
+    <% } %>
+    </div>
+</div>

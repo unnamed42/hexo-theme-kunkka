@@ -1,0 +1,228 @@
+#comments {
+    width: 100%;
+    padding: 4px 5px;
+    min-height: 70px;
+    outline: none;
+    border: 1px solid #ccc;
+    vertical-align: middle;
+    font: $BodyFont;
+    padding-bottom: 50px;
+    .live {margin-left: 70px;}
+    .children {
+        position: relative;
+        z-index: 5;
+        margin-left: 70px;
+        .children, .live {margin-left: 0;}
+        .children {
+            padding: 0;
+            border: 0;
+            background: 0;
+        }
+        &:after, &:before {
+            position: absolute;
+            top: -15px;
+            left: 5px;
+            z-index: 99;
+            width: 0;
+            border: solid transparent;
+            content: "";
+            display: none;
+        }
+        &:before {
+            z-index: 100;
+            border-color: hsla(0, 0%, 100%, 0);
+            border-width: 8px;
+            border-bottom-color: #fff;
+        }
+        &:after {
+            top: -17px;
+            left: 4px;
+            border-color: hsla(0, 0%, 100%, 0);
+            border-width: 9px;
+            border-bottom-color: #e5e5e5;
+        }
+    }
+    @media screen and (max-width: 769px) {padding-bottom: 0;}
+}
+
+.comments-title {
+    font-weight: 400;
+    font-size: 1pc;
+    font-size: 1.142857143rem;
+    a {
+        color: #444;
+        text-decoration: none;
+    }
+}
+
+.comment-body {
+    position: relative;
+    padding-right: 30px;
+    padding-left: 70px;
+    min-height: 55px;
+    .comment-text {
+        padding-bottom: 10px;
+        line-height: 24px;
+        word-break: break-all;
+        img {vertical-align: middle;}
+    }
+}
+
+.comment-children-body {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    border-top: 1px solid #ededed;
+    .comment-avatar {top: 15px;}
+    .comment-data a {
+        color: #444;
+        &:hover {color: #5895be;}
+    }
+    
+}
+
+.comment-floor {
+    position: absolute;
+    top: 0;
+    top: 10px;
+    right: 0;
+    display: block;
+    color: #666;
+    a {
+        color: #999;
+        &:hover {color: #5895be;}
+    }
+}
+
+.comment-avatar {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.comment-date {
+    color: #999;
+    padding-left: 15px;
+}
+
+.comment-reply-link{
+    color: #999;
+    &:hover {
+        color: #5895be;
+    }
+}
+
+.comment-to {color: #999}
+
+.comment.depth-1 {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ededed;
+}
+
+.comment-reply {padding-bottom: 10px;}
+
+.comment-topnav {margin-bottom: 30px;}
+
+.comments-data {
+    padding-top: 20px;
+    padding-bottom: 15px;
+}
+
+.comment-content {
+    &, p {
+        margin: 0 0 9pt;
+        line-height: 1.8;
+        word-break: break-all;
+    }
+}
+
+#submit-button {float: right;}
+
+.comment-icon {display: none;}
+
+.bypostauthor .comment-author, .bypostauthor .comment-author a {color: #ff7f3e;}
+
+.new-comment {
+    margin-top: -24px;
+    padding-top: 24px;
+    background: #fafafa;
+}
+
+.children.new-comment {
+    margin-top: 0;
+    padding-top: 0
+}
+
+#respond {
+    margin-bottom: 30px;
+    h3 {
+        color: #666;
+        font-size: 9pt
+    }
+    p {margin-bottom: 8px;}
+    
+}
+
+#cancel-comment-reply {
+    position: absolute;
+    right: 0;
+    a {
+        text-decoration: none;
+        font-size: 13px;
+    }
+}
+
+#author_info {
+    input {
+        margin-right: 10px;
+        padding: 6px;
+        width: 140px;
+        border: 1px solid #ddd;
+        font: 9pt;
+        -webkit-appearance: none;
+    }
+    label small {
+        position: relative;
+        color: #777;
+        font-size: 14px;
+        width: 38px;
+        display: inline-block;
+    }
+}
+
+#author_error {
+    float: left;
+    padding-left: 20px;
+    font-size: 9pt;
+    line-height: 24px;
+}
+
+#submit {
+    margin-top: 10px;
+    font-size: 14px;
+    padding: 6px 10px;
+    border: 1px solid #ddd;
+    background: #fff;
+    color: #59493f;
+    cursor: pointer;
+    -webkit-appearance: none;
+    &:hover {
+        background-color: #f0f0f0;
+        color: #59493f;
+    }
+    @media screen and (max-width: 769px) {width: 100%;}
+}
+
+#author_footer {
+    z-index: 99;
+    margin-top: 8px;
+    height: 28px;
+    font-size: 14px;
+}
+
+.author_hide {display: none;}
+
+#comment_form {position: relative;}
+
+#edit_author {cursor: pointer;}

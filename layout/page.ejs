@@ -1,0 +1,19 @@
+---
+layout: layout
+---
+<div id="primary">
+    <div <%- post_class() %>>
+        <div class="post-header">
+            <h2 class="post-title">
+                <a href="<%- config.root %><%- page.path %>" title="<%- page.title %>"><%- page.title %></a>
+            </h2>
+        </div>
+        <div class="post-body clearfix">
+            <div class="post-content">
+                <%- page.content || body %>
+            </div>
+        </div>
+    </div>
+    <%- partial('_partial/comments') %>
+</div>
+<!-- #primary -->
