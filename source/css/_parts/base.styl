@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, html, iframe, img, input, li, ol, p, select, table, td, textarea, th, ul {
+blockquote, body, button, dd, div, dl, dt, form, h1, h2, h3, h4, h5, h6, html, iframe, img, input, p, select, table, td, textarea, th, ul {
     margin: 0;
     padding: 0;
     -webkit-text-size-adjust: 100%;
@@ -42,16 +42,25 @@ input, textarea {
 }
 
 blockquote {
-    display: block;
-    padding: 0 0 0 10px;
-    border-left: 3px solid #d0e5f2;
-    vertical-align: baseline;
-    font-style: normal;
-    font-size: 100%;
-    line-height: 22px;
+    display:block;
+    background: #fff;
+    padding: 15px 20px 15px 45px;
+    margin: 0 0 20px;
+    position: relative;
+    font-family: $SerifFont
+    font-size: 16px;
+    line-height: 1.2;
+    color: #666;
+    text-align: justify;
+    border-left: 15px solid #d0e5f2;
+    border-right: 2px solid #d0e5f2;
+    -webkit-box-shadow: 2px 2px 15px #ccc;
+       -moz-box-shadow: 2px 2px 15px #ccc;
+            box-shadow: 2px 2px 15px #ccc;
+    &:after {content: "";}
 }
 
-h1, h2, h3, h4, h5, h6 {clear: both;}
+/*h1, h2, h3, h4, h5, h6 {clear: both;}*/
 
 hr {
     margin: 2.4em auto;

@@ -45,6 +45,11 @@ layout: layout
             </ul>
         </div>
         <div class="post-body clearfix">
+            <% if(page.toc) { %>
+            <div id="toc" class="toc-article">
+                <%- toc(page.content) %>
+            </div>
+            <% } %>
             <div class="post-content"><%- page.content || body %></div>
         </div>
         <div class="post-tags">
