@@ -1,0 +1,12 @@
+<ul class="pager"<% if(theme.duoshuo_shortname) { %> style="margin-bottom: 6em;"<% } %>>
+<% if (page.prev){ %>
+    <li class="previous">
+        <a href="<%- config.root %><%- page.prev.path %>" title="<%- page.prev.title %>" class="tooltipped tooltipped-n" aria-label="<%- page.prev.title %>"><i class="fa fa-chevron-left"></i> <%- __('prev_post')%></a>
+    </li>
+    <% } %>
+    <% if (page.next){ %>
+    <li class="next">
+        <a href="<%- config.root %><%- page.next.path %>" title="<%- page.next.title %>" class="tooltipped tooltipped-n" aria-label="<%- page.next.title %>"><%- __('next_post')%> <i class="fa fa-chevron-right"></i></a>
+    </li>
+    <% } %>
+</ul>

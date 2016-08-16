@@ -7,11 +7,14 @@ archive: 归档
 tags: 标签
 links: 友情链接
 recent_posts: 最近更新的文章
+recent_comments: 最新评论
 days_ago: 天前
 search: 输入关键词
 no_tags: 未设置标签
 prev_page: 上一页
 next_page: 下一页
+prev_post: 上一篇文章
+next_post: 下一篇文章
 navigation: 导航
 to_top: 送你上天
 \,: ，

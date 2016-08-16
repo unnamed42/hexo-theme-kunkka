@@ -1,0 +1,39 @@
+.pager {
+    padding: 0 !important;
+    padding-left: 0;
+    margin: 20px 0;
+    text-align: center;
+    list-style: none;
+    &:before, &:after {
+        display: table;
+        content: " ";
+        box-sizing: border-box;
+    }
+    .previous {
+        > a, > span {float: left;}
+    }
+    .next {
+        > a, > span {float: right;}
+    }
+    li {
+        display: inline;
+        > a, > span {
+            line-height: 1.7;
+            text-transform: uppercase;
+            font-size: 13px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 0;
+            @media only screen and (min-width: 768px) {
+                font-size: 14px;
+                padding: 15px 25px;
+            }
+        }
+        > a {
+            color: #404040;
+            &:hover, &:focus {text-decoration: none;}
+        }
+    }
+}

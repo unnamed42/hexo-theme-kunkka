@@ -13,6 +13,9 @@ notice:
   content: 
     - 
 
+duoshuo_shortname: unnamed42-github
+duoshuo_share: true
+
 global_navigation: true
 tag_number: 25
 full_content: false

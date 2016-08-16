@@ -1,0 +1,19 @@
+<% if(theme['duoshuo_shortname']) { %>
+<!-- Duoshuo start -->
+<div class="comment">
+    <div class="ds-thread"
+        data-thread-key="<%= page.path %>"
+        data-title="<%= page.title %>"
+        data-url="<%= page.permalink %>" >
+    </div>
+</div>
+<!-- Duoshuo end -->
+<% } %>
+
+<% if(theme['disqus_username']) { %>
+<!-- disqus start -->
+<div class="comment">
+    <div id="disqus_thread" class="disqus-thread"></div>
+</div>
+<!-- disqus end -->
+<% } %>
