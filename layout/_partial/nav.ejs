@@ -70,8 +70,8 @@
                 </li>
                 <% if(theme.nav.length) { %>
                 <% theme.nav.forEach(function(item) { %>
-                <li class="gnli">
-                    <a class="gna" href="<%- config.root %><%- item.url %>" title="<%= item.description || '' %>">
+                <li class="gnli<% if(is_current(item.url)) { %> current<% } %>">
+                    <a class="gna" href="<%- url_for(item.url) %>" title="<%= item.description || '' %>">
                         <span class="fa <%- item.icon %>"></span><%= item.title %>
                     </a>
                 </li>
