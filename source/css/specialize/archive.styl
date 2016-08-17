@@ -3,6 +3,16 @@ ol, li, ul {list-style: none;}
 .post-content {
     float: right;
     width: 550px;
+    .archive-time {
+        display: block;
+        margin: 20px 0;
+        padding: 5px 0;
+        border-bottom: 1px solid #ededed;
+        color: #666;
+        font-size: 14px;
+        padding-bottom: 10px;
+        &:after {content: none;}
+    }
 }
 
 #archives h3 {padding-bottom: 10px;}
@@ -16,6 +26,7 @@ ol, li, ul {list-style: none;}
     font-style: normal;
     line-height: 18px;
     &:hover {background: #eee;}
+
 }
 
 #archive-nav {
