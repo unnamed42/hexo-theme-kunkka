@@ -5,7 +5,7 @@
         <ul class="list">
             <% site.posts.sort('updated', -1).limit(8).each(function(post){ %>
             <li>
-                <p><a href="<%- config.root %><%- post.path %>" class="tooltipped tooltipped-n" aria-label="<%= post.title || __('untitled') %>"><%= post.title || __('untitled') %></a></p>
+                <p><a href="<%- url_for(post.path) %>" class="tooltipped tooltipped-n" aria-label="<%= post.title || __('untitled') %>"><%= post.title || __('untitled') %></a></p>
                 <p><%= __('updated') + __(':') %>
                 <span><%= post.updated.format('YYYY-MM-D h:m a') %></span></p>
             </li>

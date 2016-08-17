@@ -5,7 +5,7 @@ layout: layout
     <div <%- post_class() %>>
         <div class="post-header">
             <h2 class="post-title">
-                <a href="<%- config.root %><%- page.path %>" title="<%- page.title %>"><%- page.title %></a>
+                <a href="<%- url_for(page.path) %>" title="<%- page.title %>"><%- page.title %></a>
             </h2>
         </div>
         <div class="post-body clearfix">

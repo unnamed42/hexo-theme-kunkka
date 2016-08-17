@@ -14,6 +14,15 @@
     <meta name="renderer" content="webkit|ie-comp|ie-stand">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     
+    <% var feed = ''; %>
+    <% if(config.feed) { %>
+        <% feed = config.feed.type; %>
+        <% if(feed == 'rss2') { %>
+            <% feed = 'rss'; %>
+        <% } %>
+    <link rel="alternate" type="<%- feed %>" hrel="<%- url_for(config.feed.path) %>">
+    <% } %>
+    
     <% if(theme.favicon) { %>
     <link rel="Shortcut Icon" href="<%- theme.favicon %>" type="image/x-icon"/>
     <% } %>

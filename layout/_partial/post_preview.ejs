@@ -5,7 +5,7 @@
 <div class="<%= post_class %>">
     <div class="post-header">
         <h2 class="post-title">
-            <a href="<%- config.root %><%- post.path %>" title="<%- post.title %>"><%- post.title %></a>
+            <a href="<%- url_for(post.path) %>" title="<%- post.title %>"><%- post.title %></a>
         </h2>
     </div>
     <div class="post-meta">
@@ -21,7 +21,7 @@
                 <% if(post.categories.length) { %>
                 <% var arr = []; %>
                 <% post.categories.forEach(function(category){ %>
-                    <% arr.push("<a href=\"" + config.root + category.path + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
+                    <% arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
                 <% }); %>
                 <%- arr.join(',') %>
                 <% } else { %>
@@ -37,7 +37,7 @@
     <% } else { %>
         <% if (post.thumbnail) { %>
         <div class="post-thumbnail">
-            <a href="<%- config.root %><%- post.path %>" rel="bookmark">
+            <a href="<%- url_for(post.path) %>" rel="bookmark">
                 <img class="lazy"
                      src="<%- theme.cdn || '' %><%- theme.placeholder %>"
                      data-original="<%- theme.cdn || '' %><%- post.thumbnail %>"

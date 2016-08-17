@@ -16,6 +16,8 @@ notice:
 duoshuo_shortname: unnamed42-github
 duoshuo_share: true
 
+busuanzi: true
+
 global_navigation: true
 tag_number: 25
 full_content: false
@@ -27,3 +29,6 @@ links:
   - title: Tony
     url: https://tonyzzx.github.io
     description: 美国留学的高富帅
+  - title: 不知
+    url: http://maokwen.tk
+    description: 谜之小伙伴

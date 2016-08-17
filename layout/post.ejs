@@ -8,7 +8,7 @@ layout: layout
         <% if(page.categories.length) { %>
         <% var arr = []; %>
         <% page.categories.forEach(function(category){ %>
-            <% arr.push("<a href=\"" + config.root + category.path + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
+            <% arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
         <% }); %>
         <%- arr.join(',') %>
         <% } else { %>
@@ -20,7 +20,7 @@ layout: layout
     <div class="single-post">
         <div class="post-header">
             <h2 class="post-title">
-                <a href="<%- config.root %><%- page.path %>" title="<%- page.title %>"><%- page.title %></a>
+                <a href="<%- url_for(page.path) %>" title="<%- page.title %>"><%- page.title %></a>
             </h2>
         </div>
         <div class="post-meta">
@@ -35,13 +35,21 @@ layout: layout
                 <% if(page.categories.length) { %>
                 <% var arr = []; %>
                 <% page.categories.forEach(function(category){ %>
-                    <% arr.push("<a href=\"" + config.root + category.path + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
+                    <% arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
                 <% }); %>
                 <%- arr.join(',') %>
                 <% } else { %>
                 <%- __('uncategorized') %>
                 <% } %>
                 </li>
+                <% if(theme.busuanzi) { %>
+                <li class="inline-li">
+                    <span class="post-span">·</span>
+                </li>
+                <li class="inline-li">
+                    <span id="busuanzi_value_page_pv"></span> Views
+                </li>
+                <% } %>
             </ul>
         </div>
         <div class="post-body clearfix">
@@ -55,7 +63,7 @@ layout: layout
         <div class="post-tags">
         <% if(page.tags.length) { %>
             <% page.tags.forEach(function(tag){ %>
-            <a href="<%- config.root %><%- tag.path %>" title="<%= tag.name %>" rel="tag" class="fa fa-tag"><%= tag.name %></a>
+            <a href="<%- url_for(tag.path) %>" title="<%= tag.name %>" rel="tag" class="fa fa-tag"><%= tag.name %></a>
             <% }); %>
         <% } else { %>
             <%- __('no_tags') %>
