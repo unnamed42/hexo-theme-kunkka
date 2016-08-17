@@ -80,12 +80,7 @@
                 <% } %>
             </ul>
         </div>
-        <form method="get" class="search-form" action="<%= config.title %>/">
-            <input type="text" name="s" class="search-input" placeholder="<%- __('search') %>" />
-            <button type="submit" class="search-submit">
-                <span class="mutheme-search"></span>
-            </button>
-        </form>
+        <%- partial('_widget/search') %>
         <div class="mobile-menu-button"></div>
     </div>
 </div>
