@@ -1,6 +1,7 @@
 function stripper(string) {
     var html = $("<div>" + string + "</div>");
     html.find("script,style").remove();
+    $(".gutter",html).remove();
     return html.html();
 }
 
