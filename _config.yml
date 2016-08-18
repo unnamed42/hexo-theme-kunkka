@@ -13,6 +13,8 @@ notice:
   content: 
     - 
 
+mobile_menu: true
+
 duoshuo_shortname: unnamed42-github
 duoshuo_share: true
 

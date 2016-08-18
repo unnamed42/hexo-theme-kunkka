@@ -4,7 +4,7 @@
 <!-- Head tag -->
 <%- partial('_partial/head') %>
 
-<body class="<%- body_class() %>">
+<body class="<%- trim(partial('_scripts/body_class')) %>">
     <%- partial('_partial/nav') %>
     <div id="content">
         <div class="container clearfix">

@@ -19,14 +19,27 @@
     padding-bottom: 30px;
     border-bottom: 1px solid #eee;
     &:last-child {border-bottom: none;}
+    @media screen and (max-width: 769px) {border-bottom-color: #f5f5f5;}
 }
 
-.post-has-thumbnail .post-body {
-    position: relative;
-    overflow: hidden;
-    padding-left: 150px;
-    height: 130px;
-    p {margin-top: -4px;}
+.post-has-thumbnail {
+    .post-body {
+        position: relative;
+        overflow: hidden;
+        padding-left: 150px;
+        height: 130px;
+        p {margin-top: -4px;}
+        @media screen and (max-width: 769px) {
+            padding-left: 105px;
+            height: 85px;
+        }
+    }
+    &, & a, & img, & a:after {
+        @media screen and (max-width: 769px) {
+            width: 85px;
+            height: 85px;
+        }
+    }
 }
 
 .post-thumbnail {

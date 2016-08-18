@@ -1,7 +1,8 @@
-<% var post_class = 'post'; %>
-<% if(!theme.full_content && post.thumbnail) { %>
-    <% post_class += ' post-has-thumbnail'; %>
-<% } %>
+<% 
+   var post_class = 'post';
+   if(!theme.full_content && post.thumbnail) {post_class += ' post-has-thumbnail';}
+   if(theme.full_content) {post_class += 'full-content';}
+%>
 <div class="<%= post_class %>">
     <div class="post-header">
         <h2 class="post-title">
