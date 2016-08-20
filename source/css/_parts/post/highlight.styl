@@ -24,7 +24,8 @@ pre code {
 }
 
 .highlight {
-    border-radius: 5px;
+    border-radius: 10px;
+    border: 3px solid #eee;
     pre {
         border: none;
         margin: 0;
@@ -58,15 +59,43 @@ pre code {
         padding-right: 20px;
     }
     .line {height: 20px;}
-}
-
-pre {
     .comment {color: $highlight-comment;}
-    .variable, .template-variable, .attribute, .tag, .name, .regexp, .ruby .constant, .xml .tag .title, .xml .pi, .xml .doctype, .html .doctype, .css .id, .css .class, .css .pseudo, .selector-id, .selector-class, .deletion {color: $highlight-red;}
+    .variable, .template-variable, .attribute, .tag, .name, .regexp, .deletion, .selector-id, .selector-class, {color: $highlight-red;}
     .number, .preprocessor, .built_in, .literal, .params, .constant, .command, .meta, .link, .type {color: $highlight-orange;}
-    .ruby .class .title, .css .rules .attribute {color: $highlight-green;}
-    .string, .value, .inheritance, .header, .ruby .symbol, .xml .cdata, .special, .number, .formula, .bullet, .addition {color: $highlight-green;}
-    .title, .css .hexcolor {color: $highlight-aqua;}
-    .function, .python .decorator, .python .title, .ruby .function .title, .ruby .title .keyword, .perl .sub, .javascript .title, .coffeescript .title, .section {color: $highlight-blue;}
-    .keyword, .javascript .function, .selector-tag {color: $highlight-purple;}
+    .string, .value, .inheritance, .header, .special, .number, .formula, .bullet, .addition {color: $highlight-green;}
+    .title {color: $highlight-aqua;}
+    .function, .section {color: $highlight-blue;}
+    .keyword, .selector-tag {color: $highlight-purple;}
+    &.css {
+        .id, .class, .pseudo {color: $highlight-red;}
+        .rule .attribute {color: $highlight-green;}
+        .hexcolor {color: $highlight-aqua;}
+        .tag {color: $highlight-purple;}
+    }
+    &.ruby {
+        .constant {color: $highlight-red;}
+        .class .title {color: $highlight-green;}
+        .function .title, .title .keyword {color: $highlight-blue;}
+        .symbol {color: $highlight-green;}
+    }
+    &.python {
+        .decorator, .title {color: $highlight-blue;}
+    }
+    &.xml {
+        .tag .title, .pi, .doctype {color: $highlight-red;}
+        .cdata {color: $highlight-green;}
+    }
+    &.perl {
+        .sub {color: $highlight-blue;}
+    }
+    &.javascript {
+        .title {color: $highlight-blue;}
+        .function {color: $highlight-purple;}
+    }
+    &.coffeescript {
+        .title {color: $highlight-blue;}
+    }
+    &.html {
+        .doctype {color: $highlight-red;}
+    }
 }
