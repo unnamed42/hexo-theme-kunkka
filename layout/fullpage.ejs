@@ -22,7 +22,7 @@ layout: false
                 </div>
                 <% } %>
                 <% page.posts.forEach(function(post){ %>
-                <div class="<%- post_class() %>">
+                <div>
                     <div class="post-header">
                         <h2 class="post-title">
                             <a href="<%- url_for(post.path) %>" title="<%- post.title %>"><%- post.title %></a>
