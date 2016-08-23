@@ -1,5 +1,5 @@
 <% 
-   var body_class = '';
+   var body_class = page.class || ' ';
    if(theme.mobile_menu) {body_class += "mobile-menu-open";}
    
    if(is_home()) {body_class = "home blog";}
