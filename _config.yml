@@ -14,18 +14,20 @@ notice:
     - 
 
 mobile_menu: true
+global_navigation: true
 
 duoshuo_shortname: unnamed42-github
-duoshuo_share: true
+disqus_shortname: 
+
+search: true
 
 busuanzi: true
 
-global_navigation: true
 tag_number: 25
 full_content: false
+
 cdn: 
 placeholder: 
-recent_posts: true
 
 links:
   - title: Tony
