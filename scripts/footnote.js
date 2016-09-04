@@ -53,7 +53,7 @@ function renderFootnotes(text) {
   // add footnotes at the end of the content
   if (footnotes.length) {
     text += '<div id="fn-list"><ol>' + html + '</ol></div>';
-    text += "<script src=\"js/footnote.js\"></script>";
+    text += "<script src=\"js/footnote.min.js\"></script>";
   }
   return text;
 }
