@@ -1,0 +1,30 @@
+#backtoTop {
+    background-color: #eee;
+    border-radius: 100%;
+    bottom: 10%;
+    height: 48px;
+    width: 48px;
+    position: fixed;
+    right: -100px;
+    -webkit-transition: 0.5s;
+       -moz-transition: 0.5s;
+            transition: 0.5s;
+    &.display {right: 10px;}
+}
+
+.percentage {
+    font-size: 16px;
+    height: 48px;
+    line-height: 48px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 48px;
+    color: #555;
+    cursor: pointer;
+    &:before {content:attr(data-percent);}
+    &:hover:before {
+        content: "↑";
+        font-size: 20px;
+    }
+}
