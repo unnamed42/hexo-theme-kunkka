@@ -1,17 +1,83 @@
-#fn-pop {
-    position: absolute;
-    width: 20em;
-    background: #F7F6EE;
-    padding: 0em 1em 0em 1em;
-    border: solid 1px;
-    font-size: 90%;
-    font-family: $BodyFont;
-    line-height: 1.4;
-    opacity: 0.95;
-    -webkit-border-radius: 0.5em;
-       -moz-border-radius: 0.5em;
-            border-radius: 0.5em;
-    /* left and top are calculated dynamically */
-} 
-
 #fn-list {display: none;}
+
+/* Style from https://github.com/codrops/TooltipStylesInspiration */
+.post-content sup {
+    display: inline;
+    position: relative;
+    &:hover {
+        a:after { pointer-events: auto;}
+        .fn-content {
+            pointer-events: auto;
+            opacity: 1;
+            -webkit-transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+            transform: translate3d(0,0,0) rotate3d(0,0,0,0);
+        }
+    }
+    > a {
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 700;
+        padding: 0 10px;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 360px;
+            height: 20px;
+            bottom: 100%;
+            left: 50%;
+            pointer-events: none;
+            -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+    }
+}
+
+/* Tooltip */
+
+.fn-content {
+    position: absolute;
+    display: inline-block;
+    z-index: 14;
+    width: 360px;
+    left: 50%;
+    margin: 0 0 20px -180px;
+    bottom: 100%;
+    line-height: 1.4;
+    box-shadow: -5px -5px 15px rgba(48,54,61,0.2);
+    border-radius: 0.5em;
+    background: #2a3035;
+    opacity: 0;
+    cursor: default;
+    pointer-events: none;
+    -webkit-transform: translate3d(0,-10px,0);
+    transform: translate3d(0,-10px,0);
+    -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s;
+    /* Arrow */
+    &:after {
+        content: '';
+        top: 100%;
+        left: 50%;
+        border: solid transparent;
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: transparent;
+        border-top-color: #2a3035;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+}
+
+
+/* Tooltip content*/
+.fn-text {
+    line-height: 1.35;
+    display: inline-block;
+    padding: 1.31em 1.21em 1.21em;
+    font-size: 14.5px;
+    color: #fff;
+    z-index: 8;
+    a {font-weight: bold;}
+}
