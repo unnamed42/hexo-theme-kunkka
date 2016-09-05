@@ -2,6 +2,8 @@
 
 /* Style from https://github.com/codrops/TooltipStylesInspiration */
 .post-content sup {
+    vertical-align: super;
+    font-size: smaller;
     display: inline;
     position: relative;
     &:hover {
@@ -17,7 +19,6 @@
         cursor: pointer;
         display: inline-block;
         font-weight: 700;
-        padding: 0 10px;
         &:after {
             content: '';
             position: absolute;
@@ -31,8 +32,6 @@
         }
     }
 }
-
-/* Tooltip */
 
 .fn-content {
     position: absolute;
@@ -70,8 +69,6 @@
     }
 }
 
-
-/* Tooltip content*/
 .fn-text {
     line-height: 1.35;
     display: inline-block;
