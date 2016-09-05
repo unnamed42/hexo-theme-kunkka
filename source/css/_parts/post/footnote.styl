@@ -1,12 +1,12 @@
-#fn-list {display: none;}
+.footnotes-sep, .footnotes {display: none;}
 
 /* Style from https://github.com/codrops/TooltipStylesInspiration */
-.post-content sup {
+.footnote-ref {
     vertical-align: super;
     font-size: smaller;
     display: inline;
     position: relative;
-    &:hover {
+    &.active {
         a:after { pointer-events: auto;}
         .fn-content {
             pointer-events: auto;
@@ -72,7 +72,7 @@
 .fn-text {
     line-height: 1.35;
     display: inline-block;
-    padding: 1.31em 1.21em 1.21em;
+    padding: 1.31em 1.21em 0;
     font-size: 14.5px;
     color: #fff;
     z-index: 8;

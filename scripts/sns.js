@@ -1,10 +1,4 @@
-function escapeHtml(unsafe) {
-    return unsafe.replace(/&/g, "&amp;")
-                 .replace(/</g, "&lt;")
-                 .replace(/>/g, "&gt;")
-                 .replace(/"/g, "&quot;")
-                 .replace(/'/g, "&#039;");
- }
+var escapeHtml = require('hexo-util').escapeHTML;
 
 hexo.extend.tag.register('sns',function(args){
     
