@@ -4,10 +4,9 @@
         display: block;
         position: absolute;
         text-align: center;
-        line-height: 50px;
         width: 50px;
         height: 50px;
-        top: 0px;
+        top: 5px;
         right: 0px;
         font-size: 20px;
     }
@@ -15,7 +14,13 @@
 
 @media screen and (max-width: 769px) {
     body.mobile-menu-open {
-        .global-custom-nav, .search-form {display: block;}
+        .search-form {display: block;}
+        .global-nav, .global-custom-nav {
+            display: block;
+            padding: 5px 15px 0 15px;
+            border-top: 1px solid #eee;
+            float: none;
+        }
         #header {
             /*height: 100%;*/
             background: rgba(255,255,255,.5);

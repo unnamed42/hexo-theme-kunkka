@@ -5,16 +5,19 @@
 }
 
 #header {
-    position: relative;
+    position: absolute;
     z-index: 90;
-    padding: 20px 0;
+    width: 100%;
+    height: 55px;
+    padding: 10px 0;
+    background-color: #fff;
     border-bottom: 1px solid #ededed;
     box-shadow: 0 1px 0 0 hsla(0, 0%, 62%, .2) inset;
     -ms-box-shadow: 0 1px 0 0 hsla(0, 0%, 62%, .2) inset;
     .container {
         height: 30px;
         line-height: 30px;
-        margin-left: 80px;
+        /*margin-left: 80px;*/
         @media screen and (max-width: 769px) {
             position: relative;
             height: auto;
@@ -39,13 +42,10 @@
     width: 102px;
     height: 30px;
     .brand-logo {
-        border-radius: 3px;
-        background: black;
-        color: white;
-        padding-bottom: 3px;
-        padding-left: 5px;
-        padding-right: 5px;
-        padding-top: 1px;
+        color: #666;
+        padding: 1px 5px 3px 5px;
+        font-family: $LogoFont;
+        font-size: 20px;
         margin-right: 5px;
     }
     @media screen and (max-width: 769px) {
@@ -56,6 +56,7 @@
 
 .global-nav {
     display: block;
+    float: left;
     .gnul {display: block;}
     .gnli {
         display: inline-block;
@@ -79,7 +80,47 @@
         min-width: 14px;
         margin-right: 5px;
     }
-    @media screen and (max-width: 769px) {display: none;}
+}
+
+/* Responsive dropdown menu design */
+@media screen and (max-width: 769px) {
+    .global-nav {
+        float: right;
+        &:before {
+            display: block;
+            position: absolute;
+            text-align: center;
+            line-height: 50px;
+            width: 50px;
+            height: 50px;
+            top: 0;
+            right: 0;
+            font-size: 20px;
+        }
+        .gnul {
+            display: none;
+            &.collapse {
+                position: relative;
+                display: block;
+                border: none;
+                background: white;
+                box-shadow: rgba(0, 0, 0, 0.2) 0 1px 4px;
+                border-radius: 2px;
+                width: 130px;
+                float: right;
+                margin-right: 15px;
+            }
+            .gna {line-height: 28px;}
+            .gnli {
+                display: block;
+                width: 100%;
+                margin-right: 15px;
+                margin-left: 15px;
+            }
+            .dropdown {display: none;}
+        }
+        
+    }
 }
 
 .top-menu ul li {
@@ -111,7 +152,7 @@
         font-size: 18px;
     }
 }
-
+/*
 .global-custom-nav {
     ul li {
         display: inline-block;
@@ -124,4 +165,4 @@
         padding: 5px 15px;
         border-top: 1px solid #eee;
     }
-}
+}*/

@@ -1,24 +1,25 @@
 <div id="header">
     <div class="container clearfix">
-        <h2 class="logo" <%- !(theme.logo)?'style=\"width: auto;\"':'' %>>
+        <div class="logo" <%- !(theme.logo)?'style=\"width: auto;\"':'' %>>
             <a href="<%- config.root %>" title="<%= config.title %>" rel="home" style="text-decoration: none;">
                 <% if(theme.logo) { %>
                 <img src="<%- theme.logo %>" alt="<%= config.title %>" width="102" height="30"/>
                 <% } else { %>
                 <span class="brand-logo">
                     <% if(config.title) { %>
-                    <%= config.title %></span>
+                    <%= config.title %>
                     <% } else { %>
-                    <%= config.author %></span>'s Blog
+                    <%= trim(config.author) %>'s Blog
                     <% } %>
                 <% } %>
+                </span>
             </a>
-        </h2>
-        <div class="global-nav left">
+        </div>
+        <div class="global-nav">
             <ul class="gnul">
                 <li class="gnli <% if(is_home()) { %> current<% } %>">
                     <a class="gna" href="<%- config.root %>" title="<%= config.title %>">
-                        <span><%- __('home') %></span>
+                        <span class="fa fa-home"></span><span><%- __('home') %></span>
                     </a>
                 </li>
                 <% if (theme.global_navigation) { %>
@@ -81,6 +82,5 @@
             </ul>
         </div>
         <%- partial('_widget/search') %>
-        <div class="mobile-menu-button"></div>
     </div>
 </div>
