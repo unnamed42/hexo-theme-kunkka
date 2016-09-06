@@ -87,15 +87,18 @@
     .global-nav {
         float: right;
         &:before {
-            display: block;
             position: absolute;
             text-align: center;
-            line-height: 50px;
             width: 50px;
             height: 50px;
             top: 0;
             right: 0;
-            font-size: 20px;
+            display: inline-block;
+            font: normal normal normal 20px\/50px FontAwesome;
+            text-rendering: auto;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            content: "\f0c9"; /* fa-bars */
         }
         .gnul {
             display: none;
