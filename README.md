@@ -39,7 +39,6 @@ notice:
   content: 
     - 
 
-mobile_menu: true
 global_navigation: true
 
 duoshuo_shortname:
@@ -61,9 +60,8 @@ links:
     description: My only friend
 ```
 
-+ **nav** - Add some entries to your navbar. `url` should be a relative link, and `icon` must exist in [FontAwesome](http://fontawesome.io/icons/).
++ **nav** - Add extra entries to your navbar. `url` should be a relative link, and `icon` must exist in [FontAwesome](http://fontawesome.io/icons/).
 + **notice** - When enabled, add a global notice bar to your blog. One string per line, and you can use markdown syntax.
-+ **mobile_menu** - When enabled, add a menu icon when displayed in mobile devices.
 + **global_navigation** - Must be `true` if you don't want your navbar gone.
 + **duoshuo_shortname** - [Duoshuo](http://duoshuo.com/) shortname of yours.
 + **disqus_shortname** - [Disqus](https://disqus.com/) shortname of yours.
@@ -83,7 +81,8 @@ Syntax:
 ```plain
 {% sns [icon] [text] [url] %}
 ```
-`icon` must exist in [FontAwesome](http://fontawesome.io/icons/). The third argument `url` is optional.
+`icon` must exist in [FontAwesome](http://fontawesome.io/icons/). The third argument `url` is optional, it will make the whole icon clickable.
+
 You can use this in your posts and pages.
 
 #### Search page
@@ -98,3 +97,9 @@ Then add
 layout: search
 ```
 to its front-matter section.
+
+#### Footnote
+
+To use footnote, you have to replace your markdown renderer to `hexo-renderer-markdown-it`, and enable the `markdown-it-footnote` plugin first.
+
+We have made a special style for footnotes, just for you to enjoy.

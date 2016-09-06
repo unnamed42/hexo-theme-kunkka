@@ -1,12 +1,11 @@
 <% 
    var body_class = page.class || ' ';
-   if(theme.mobile_menu) {body_class += "mobile-menu-open";}
    
-   if(is_home()) {body_class = "home blog";}
-   else if(is_post()) {body_class = "single";}
-   else if(is_archive()) {body_class = "archive page-archive";}
-   else if(is_category()) {body_class = "archive page-category";}
-   else if(is_tag()) {body_class = "archive page-tag";}
-   else {body_class = "page";}
+   if(is_home()) {body_class += "home blog";}
+   else if(is_post()) {body_class += "single";}
+   else if(is_archive()) {body_class += "archive page-archive";}
+   else if(is_category()) {body_class += "archive page-category";}
+   else if(is_tag()) {body_class += "archive page-tag";}
+   else {body_class += "page";}
 %>
 <%- body_class %>
