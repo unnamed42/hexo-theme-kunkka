@@ -11,16 +11,20 @@ pre, .highlight {
 pre, code {font-family: $CodeFont;}
 
 code {
-    word-break: break-all;
+    display: inline;
+    margin: 0 5px;
+    padding: 1px 5px;
+    border: 1px solid #ccc;
+    word-break: keep-all;
     background: #eee;
     text-shadow: 0 1px #fff;
-    padding: 0 0.3em;
 }
 
 pre code {
+    border: none;
     background: none;
     text-shadow: none;
-    padding: 0;
+    padding: 0 0.3em;
 }
 
 .highlight {
