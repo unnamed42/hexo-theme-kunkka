@@ -3,6 +3,17 @@
     &.selected {
         .dropdown-arrow1, .dropdown-arrow2, .submenu {display: block;}
     }
+    > a {
+        padding-left: 17px;
+        position: relative;
+        &:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*line-height: 30px;*/
+            vertical-align: middle;
+        }
+    }
 }
 
 .dropdown-arrow1, .dropdown-arrow2 {

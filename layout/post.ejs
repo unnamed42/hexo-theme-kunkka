@@ -1,20 +1,25 @@
 ---
 layout: layout
 ---
+<% 
+   var categories = '';
+   if(page.categories.length){
+       var arr = [];
+       page.categories.forEach(function(category){
+           arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>");
+       });
+       categories = arr.join(',');
+   } else {
+       categories = __('uncategorized');
+   }
+%>
+
 <div id="primary">
     <div class="breadcrumb-navigation">
         <a rel="bookmark" href="<%- config.root %>"><%- __('home') %></a>
-        <span class="breadcrumb-arrow"></span>
-        <% if(page.categories.length) { %>
-        <% var arr = []; %>
-        <% page.categories.forEach(function(category){ %>
-            <% arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
-        <% }); %>
-        <%- arr.join(',') %>
-        <% } else { %>
-        <%- __('uncategorized') %>
-        <% } %>
-        <span class="breadcrumb-arrow"></span>
+        <span class="breadcrumb-arrow fa fa-angle-right"></span>
+        <%- categories %>
+        <span class="breadcrumb-arrow fa fa-angle-right"></span>
         <%- page.title %>
     </div>
     <div class="single-post">
@@ -28,20 +33,14 @@ layout: layout
                 <li class="inline-li">
                     <%- page.date.format(config.date_format) %>
                 </li>
+                <% if(page.categories.length) { %>
                 <li class="inline-li">
                     <span class="post-span">·</span>
                 </li>
                 <li class="inline-li">
-                <% if(page.categories.length) { %>
-                <% var arr = []; %>
-                <% page.categories.forEach(function(category){ %>
-                    <% arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
-                <% }); %>
-                <%- arr.join(',') %>
-                <% } else { %>
-                <%- __('uncategorized') %>
-                <% } %>
+                    <%- categories %>
                 </li>
+                <% } %>
                 <% if(theme.busuanzi) { %>
                 <li class="inline-li">
                     <span class="post-span">·</span>
