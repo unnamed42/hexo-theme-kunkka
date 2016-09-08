@@ -35,9 +35,8 @@ nav:
     description: 
 
 notice:
-  enabled: false
-  content: 
-    - 
+  - "**Notice** one"
+  - "~~Notice~~ two"
 
 global_navigation: true
 
@@ -61,11 +60,11 @@ links:
 ```
 
 + **nav** - Add extra entries to your navbar. `url` should be a relative link, and `icon` must exist in [FontAwesome](http://fontawesome.io/icons/).
-+ **notice** - When enabled, add a global notice bar to your blog. One string per line, and you can use markdown syntax.
++ **notice** - Add a global notice bar to your blog, one string per line, and you can use markdown syntax. If you don't want any notices, just leave it empty.
 + **global_navigation** - Must be `true` if you don't want your navbar gone.
 + **duoshuo_shortname** - [Duoshuo](http://duoshuo.com/) shortname of yours.
 + **disqus_shortname** - [Disqus](https://disqus.com/) shortname of yours.
-+ **search** - [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). **Requires `hexo-generator-search` being installed**.
++ **search** - [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). **Requires `hexo-generator-search` installed**.
 + **busuanzi** - Enable the [busuanzi](http://busuanzi.ibruce.info/) visit count when set to `true`.
 + **tag_number** - Set the maximum number of tags displayed in navigation area.
 + **full_content** - Display the whole post content in preview page when set to `true`.

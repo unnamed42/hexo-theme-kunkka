@@ -8,10 +8,7 @@ nav:
     icon: fa-user
     description: 
 
-notice:
-  enabled: false
-  content: 
-    - 
+notice: 
 
 global_navigation: true
 

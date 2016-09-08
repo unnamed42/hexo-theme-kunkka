@@ -1,0 +1,7 @@
+<% if(theme.notice) { %>
+<div id="notice">
+<% theme.notice.forEach(function(string) { %>
+    <%- markdown(string) %>
+<% }); %>
+</div>
+<% } %> 
