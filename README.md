@@ -86,16 +86,13 @@ You can use this in your posts and pages.
 
 #### Search page
 
-To use the search page, you need to enable `search` first. Then create a page:
+We have an isolated page for displaying search results. Our search engine is [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). To use this, install
+
 ```bash
-hexo new page search
+npm install hexo-generator-search --save
 ```
 
-Then add
-```yaml
-layout: search
-```
-to its front-matter section.
+dependency first, then set `search` in theme config to true.
 
 #### Footnote
 

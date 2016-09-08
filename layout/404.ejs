@@ -1,9 +1,30 @@
 ---
-layout: layout
+layout: base
 ---
-<div id="primary">
-    <div id="postlist">
-        <p><%- __('not_found') %></p>
-        <p><%- __('please_try_search') %></p>
+<%- css('css/specialize/404') %>
+<% 
+   var home = "<a href=\"" + config.root + "\" target=\"_blank\" rel=\"external\">" + __('home') + "</a>";
+   var seconds = "<span id=\"second\">5</span>" + __('seconds');
+%>
+<div id="content" class="not-found">
+    <div class="container clearfix">
+        <div id="wrapper">
+            <h1 id="not-found-title"><%= __('page_non_exist') %></h1>
+            <p id="count-down"><%- __('jump_back_home',seconds,home) %></p>
+        </div>
+        <img id="wasted" src="http://img.mp.itc.cn/upload/20160825/5361be0fb77e42acb70a28f4907495a2_th.jpg"></img>
     </div>
 </div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+    var sec = 5;
+    var timer = setInterval(function() { 
+        $('#second').text(sec--);
+        if (sec == 0) {
+            clearInterval(timer);
+            location.href = '<%- config.root %>';
+        }
+    }, 1000);
+});
+</script>

@@ -3,24 +3,16 @@ layout: layout
 ---
 <style>
 .search-keyword {color: #cf0000;font-weight: bold;}
+#no-match {display: block;}
+#no-match.matched {display: none;}
 </style>
 
 <div id="primary">
-    <div id="search-result">
-    </div>
+    <div id="search-result"></div>
+    <h2 id="no-match"><%- __('no_match') %></h2>
 </div>
 <!-- #primary -->
 <%- js('js/search.min.js') %>
 <script type="text/javascript">
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
 $(document).ready(function(){searchFunc('<%- url_for(config.search.path) %>',getParameterByName('s'),'search-result')});
 </script>

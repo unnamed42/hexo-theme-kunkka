@@ -1,0 +1,29 @@
+---
+layout: false
+---
+<!DOCTYPE html>
+<html lang="<%= config.lang %>">
+
+<% 
+   var body_class = page.class || ' ';
+   
+   if(is_home()) {body_class += "home blog";}
+   else if(is_post()) {body_class += "single";}
+   else if(is_archive()) {body_class += "archive page-archive";}
+   else if(is_category()) {body_class += "archive page-category";}
+   else if(is_tag()) {body_class += "archive page-tag";}
+   else {body_class += "page";}
+%>
+
+<!-- Head tag -->
+<%- partial('_partial/head',{cache: !config.relative_link}) %>
+
+<body class="<%- trim(body_class) %>">
+    <%- partial('_partial/nav') %>
+    <%- body || page.content %>
+    <!-- Footer -->
+    <%- partial('_partial/footer',{cache: !config.relative_link}) %>
+    <%- partial('_partial/after_footer',{cache: !config.relative_link}) %>
+</body>
+
+</html>
