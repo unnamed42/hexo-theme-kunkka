@@ -138,7 +138,7 @@
     outline: none;
     border: 1px solid #ccc;
     vertical-align: middle;
-    font: $BodyFont;
+    font: $MainFont;
     padding-bottom: 50px;
     .live {margin-left: 70px;}
     .children {
@@ -359,3 +359,71 @@
 #comment_form {position: relative;}
 
 #edit_author {cursor: pointer;}
+
+.btn {
+    font-family: $MainFontFamily;
+    line-height: 1.7;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 0;
+    padding: 15px 25px;
+}
+
+.btn-lg {
+    font-size: 16px;
+    padding: 25px 35px;
+}
+
+.btn-default:hover,
+.btn-default:focus {
+    background-color: #0085a1;
+    border: 1px solid #0085a1;
+    color: white;
+}
+
+.top-menu ul li {
+    display: inline-block;
+    margin-right: 25px;
+    margin-right: 15px;
+    zoom: 1;
+    a {
+        display: block;
+        height: 30px;
+        outline: 0;
+        color: #666;
+        text-decoration: none;
+        font-size: 14px;
+        &:hover {color: #5895be;}
+    }
+    &.archive a, &.about a {
+        padding-left: 18px;
+        position: relative;
+        &:before {
+            position: absolute;
+            left: 0;
+            line-height: 30px;
+        }
+    }
+    &.archive a:before {content: "\e904";}
+    &.about a:before {
+        content: "\e7fd";
+        font-size: 18px;
+    }
+}
+
+
+.global-custom-nav {
+    ul li {
+        display: inline-block;
+        &.current-menu-item a {color: #5895be;}
+    }
+    @media screen and (max-width: 769px) {
+        float: none;
+        margin-top: 10px;
+        width: 100%;
+        padding: 5px 15px;
+        border-top: 1px solid #eee;
+    }
+}

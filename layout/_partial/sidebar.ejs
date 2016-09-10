@@ -1,6 +1,10 @@
 <div id="sidebar">
 <%- partial('_widget/recent_comments') %>
-<%- partial('_widget/recent_posts') %>
-<%- partial('_widget/links') %>
+<% if (site.posts.length){ %>
+<div class="widget recent-posts"></div>
+<% } %>
+<% if(theme.links) { %>
+<div class="widget widget-links"></div>
+<% }%>
 </div>
 <!-- end #sidebar -->

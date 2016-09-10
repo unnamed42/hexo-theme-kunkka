@@ -1,3 +1,5 @@
+'use strict'; 
+
 var escapeHtml = require('hexo-util').escapeHTML;
 
 hexo.extend.tag.register('sns',function(args){

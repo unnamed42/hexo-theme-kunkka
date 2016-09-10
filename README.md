@@ -74,13 +74,13 @@ links:
 
 ## Features
 
-#### SNS Icon
+#### SNS Label
 
 Syntax:
 ```plain
 {% sns [icon] [text] [url] %}
 ```
-`icon` must exist in [FontAwesome](http://fontawesome.io/icons/). The third argument `url` is optional, it will make the whole icon clickable.
+`icon` must exist in [FontAwesome](http://fontawesome.io/icons/). The third argument `url` is optional, it will make the whole element clickable.
 
 You can use this in your posts and pages.
 
@@ -96,6 +96,10 @@ dependency first, then set `search` in theme config to true.
 
 #### Footnote
 
-To use footnote, you have to replace your markdown renderer to `hexo-renderer-markdown-it`, and enable the `markdown-it-footnote` plugin first.
+To use footnote, you have to switch your markdown renderer to `hexo-renderer-markdown-it`, and enable the `markdown-it-footnote` plugin first.
 
 We have made a special style for footnotes, just for you to enjoy.
+
+#### Separated widgets
+
+HTML contents of widgets are generated inside `[path_to_site]/public/componets` folder, especially the `recent_posts` widget. They're loaded dynamically using jQuery. Thanks to this, there's no need to generate all posts over and over on single post modification.
