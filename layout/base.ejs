@@ -7,8 +7,6 @@ layout: false
 <% 
    var body_class = page.class || ' ';
    
-   body_class += theme.color_theme || '';
-   
    if(is_home()) {body_class += "home blog";}
    else if(is_post()) {body_class += "single";}
    else if(is_archive()) {body_class += "archive page-archive";}

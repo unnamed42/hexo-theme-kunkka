@@ -1,48 +1,33 @@
 ---
-layout: false
+layout: base
 ---
 <% // Fullpage 全宽页面 %>
-<!DOCTYPE html>
-<html lang="<%= config.lang %>">
-
-<!-- Head tag -->
-<%- partial('_partial/head') %>
-
-<body class="<%- body_class() %>">
-    <%- partial('_partial/nav') %>
-    <div id="content">
-        <div class="container clearfix">
-            <!-- Main Content -->
-            <div id="primary" class="full-page">
-                <% if(theme.notice.enabled) { %>
-                <div id="notice">
-                    <% theme.notice.content.forEach(function(string) { %>
-                    <%- markdown(string) %>
-                    <% }); %>
-                </div>
-                <% } %>
-                <% page.posts.forEach(function(post){ %>
-                <div>
-                    <div class="post-header">
-                        <h2 class="post-title">
-                            <a href="<%- url_for(post.path) %>" title="<%- post.title %>"><%- post.title %></a>
-                        </h2>
-                    </div>
-                    <div class="post-body clearfix">
-                        <div class="post-content">
-                            <%- post.content %>
-                        </div>
-                    </div>
-                </div>
+<div id="content">
+    <div class="container clearfix">
+        <!-- Main Content -->
+        <div id="primary" class="full-page">
+            <% if(theme.notice.enabled) { %>
+            <div id="notice">
+                <% theme.notice.content.forEach(function(string) { %>
+                <%- markdown(string) %>
                 <% }); %>
             </div>
-            <!-- #primary -->
+            <% } %>
+            <% page.posts.forEach(function(post){ %>
+            <div>
+                <div class="post-header">
+                    <h2 class="post-title">
+                        <a href="<%- url_for(post.path) %>" title="<%- post.title %>"><%- post.title %></a>
+                    </h2>
+                </div>
+                <div class="post-body clearfix">
+                    <div class="post-content">
+                        <%- post.content %>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
         </div>
+        <!-- #primary -->
     </div>
-    <!-- Footer -->
-    <%- partial('_partial/footer') %>
-    <%- partial('_partial/after_footer') %>
-</body>
-
-</html>
-    
+</div>

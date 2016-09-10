@@ -50,6 +50,11 @@ busuanzi: true
 tag_number: 25
 full_content: false
 
+# Provided colors: red, green, blue, purple
+color_theme: blue
+
+old_browser: false
+
 cdn: 
 placeholder: 
 
@@ -68,6 +73,8 @@ links:
 + **busuanzi** - Enable the [busuanzi](http://busuanzi.ibruce.info/) visit count when set to `true`.
 + **tag_number** - Set the maximum number of tags displayed in navigation area.
 + **full_content** - Display the whole post content in preview page when set to `true`.
++ **color_theme** - Determines the color of nearly all anchors. If empty, will use a default color instead.
++ **old_browser** - Downgrade jQuery to version 1.12.x to support out-dated browsers, such as IE6.
 + **cdn** - cdn of your own. It's a global setting.
 + **placeholder** - The default thumbnail image of a post, set to empty if you don't want this.
 + **links** - Links to your friends.

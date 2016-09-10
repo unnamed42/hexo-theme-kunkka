@@ -22,8 +22,10 @@ busuanzi: true
 tag_number: 25
 full_content: false
 
-# Provided colors: red, green, blue
-color_theme: 
+# Provided colors: red, green, blue, purple
+color_theme: purple
+
+old_browser: false
 
 cdn: 
 placeholder: 
