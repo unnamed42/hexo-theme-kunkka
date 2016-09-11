@@ -23,12 +23,31 @@ tag_number: 25
 full_content: false
 
 # Provided colors: red, green, blue, purple
-color_theme: purple
+color_theme: 
 
 old_browser: false
 
 cdn: 
 placeholder: 
+
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero | publicdomain
+# Available size: 88x31 | 80x15
+creative_commons: 
+    enabled: true
+    icon: by-nc-sa
+    size: "80x15"
+
+buttons:
+  base: true
+  border: false
+  borderless: false
+  raised: false
+  3d: false
+  glowing: false
+  dropdown: false
+  group: false
+  wrapper: false
+  shadow: false
 
 links:
   - title: Tony

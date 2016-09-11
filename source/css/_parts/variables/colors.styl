@@ -11,16 +11,17 @@ $highlight-aqua         = #66cccc
 $highlight-blue         = #6699cc
 $highlight-purple       = #cc99cc
 
+colors = {
+    green: #37c936,
+    red: #dd4b39,
+    purple: #858,
+    blue: #177ee6
+}
+
 $anchor-color = hexo-config("color_theme")
 
-if($anchor-color == "blue") {
-    $anchor-color = #177ee6
-} else if($anchor-color == "green") {
-    $anchor-color = #37c936
-} else if($anchor-color == "red") {
-    $anchor-color = #dd4b39
-} else if($anchor-color == "purple") {
-    $anchor-color = #858
+if($anchor-color) {
+    $anchor-color = colors[$anchor-color]
 } else {
     $anchor-color = #5895be
 }

@@ -58,6 +58,25 @@ old_browser: false
 cdn: 
 placeholder: 
 
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero | publicdomain
+# Available size: 88x31 | 80x15
+creative_commons: 
+    enabled: true
+    icon: by-nc-sa
+    size: "80x15"
+
+buttons:
+  base: true
+  border: false
+  borderless: false
+  raised: false
+  3d: false
+  glowing: false
+  dropdown: false
+  group: false
+  wrapper: false
+  shadow: false
+
 links:
   - title: Friend1
     url: https://www.friend1.com
@@ -77,6 +96,8 @@ links:
 + **old_browser** - Downgrade jQuery to version 1.12.x to support out-dated browsers, such as IE6.
 + **cdn** - cdn of your own. It's a global setting.
 + **placeholder** - The default thumbnail image of a post, set to empty if you don't want this.
++ **creative_commons** - The Creative Commons icon. When disabled, the footer license will be copyright. 
++ **buttons** - Some beautiful [button styles](http://www.bootcss.com/p/buttons/). For each entry, set to `true` if you want the corresponding styles, but `base` should be enabled to use them. For any problem about usage, please visit their site [this](http://www.bootcss.com/p/buttons/) or [this](https://github.com/alexwolfe/Buttons/).
 + **links** - Links to your friends.
 
 ## Features
@@ -93,13 +114,13 @@ You can use this in your posts and pages.
 
 #### Search page
 
-We have an isolated page for displaying search results. Our search engine is [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). To use this, install
+We have an isolated page for displaying search results. Our search engine is [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). To use this, install dependency first:
 
 ```bash
 npm install hexo-generator-search --save
 ```
 
-dependency first, then set `search` in theme config to true.
+then set `search` in theme config to true.
 
 #### Footnote
 

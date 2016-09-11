@@ -1,8 +1,20 @@
 <!-- #content -->
 <div id="footer">
     <div class="container">
-        <p>&copy; 2016 <%= config.title %> All Rights Reserved. <a href="http://mufeng.me/">Kunkka
-                theme</a> powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        <p>
+        <% if(theme.creative_commons.enabled) { %>
+            <span class="cc-license motion-element" itemprop="license">
+                <a href="https://creativecommons.org/licenses/<%- theme.creative_commons.icon %>/4.0" class="cc-opacity" target="_blank">
+                <img src="https://mirrors.creativecommons.org/presskit/buttons/<%- theme.creative_commons.size %>/svg/<%- theme.creative_commons.icon %>.svg" alt="Creative Commons" />
+                </a>
+            </span>
+            <%- new Date().getFullYear() %> <%= config.title %>.
+        <% } else { %>
+            &copy; <%- new Date().getFullYear() %> <%= config.title %> All Rights Reserved. 
+        <% } %>
+        Theme - <a href="http://mufeng.me/">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.
+        </p>
+
     </div>
 </div>
 <!-- #footer -->
