@@ -4,9 +4,7 @@
 
 <% if(theme.duoshuo_shortname) { %>
 <script type="text/javascript">
-    var _user = '<%= theme['duoshuo_shortname'] %>';
-    // duoshuo comment query.
-    var duoshuoQuery = {short_name: _user };
+    var duoshuoQuery = {short_name: '<%- theme.duoshuo_shortname %>' };
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
@@ -16,6 +14,19 @@
          || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
 </script>
+<% } %>
+
+<% if(theme.disqus_shortname) { %>
+<script>
+(function() { 
+    var d = document, s = d.createElement('script');
+    s.src = 'https://<%- theme.disqus_shortname %>.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+})();
+</script>
+<%- js('js/disqus.js') %>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <% } %>
 
 <% if(theme.busuanzi) { %>
