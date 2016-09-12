@@ -7,6 +7,9 @@ nav:
     url: about/index.html
     icon: fa-user
     description: 
+  - title: 订阅
+    url: atom.xml
+    icon: fa-rss
 
 notice: 
 
