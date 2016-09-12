@@ -1,0 +1,9 @@
+shadow_gen(nums,color){
+    arr = ''
+    for i in nums
+        join(', ',arr,s('%spx %spx %s',i,i,color))
+    return arr
+}
+
+body
+ text-shadow: shadow_gen(0..85,'#fff') 
