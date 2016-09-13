@@ -1,3 +1,5 @@
+keywords: 
+
 nav:
   - title: 归档
     url: archives/index.html
@@ -12,8 +14,11 @@ nav:
     icon: fa-rss
 
 notice: 
+  - "`hexo-math`挂掉了（也许是我配置错误），公式显示会不正常"
 
 global_navigation: true
+
+sidebar: true
 
 duoshuo_shortname: unnamed42-github
 

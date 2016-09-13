@@ -17,10 +17,9 @@
     <%= config.title || (config.author + "\'s Blog") %>
     </title>
     
-    <meta name="keywords" content="<%= page.keywords || '' %>">
-    <meta name="description" content="<%= page.description || '' %>">
+    <meta name="keywords" content="<%= theme.keywords || '' %>">
+    <meta name="description" content="<%= config.description || '' %>">
     <meta name="author" content="<%= config.author || '' %>">
-    
     
     <% 
        var feed = '';

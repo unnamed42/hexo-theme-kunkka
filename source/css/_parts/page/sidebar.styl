@@ -1,23 +1,9 @@
-.avatar {
-    border-radius: 50%;
-    position: relative;
-    &:after {
-        position: absolute;
-        content: '';
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        border: 1px solid rgba(0, 0, 0, .05);
-    }
-}
-
 #sidebar {
     float: right;
     padding-left: 40px;
 }
 
-#sidebar, #sidebar-fixed {width: 25%;}
+#sidebar, #sidebar-fixed {width: 30%;}
 
 #sidebar-fixed.fixed {
     position: fixed;
@@ -63,21 +49,4 @@
     margin-right: 10px;
     margin-bottom: 5px;
     zoom: 1;
-}
-
-.widget-popular {
-    min-height: 30px;
-    span {padding-left: 10px;}
-}
-
-.widget-comment {
-    .avatar {
-        width: 16px;
-        height: 16px;
-    }
-    li {
-        padding-bottom: 10px;
-        margin-bottom: 10px;
-        border-bottom: 1px solid #f0f0f0;
-    }
 }

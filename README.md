@@ -24,6 +24,8 @@ hexo clean && hexo g
 ## Configuration
 
 ```yaml
+keywords: 
+
 nav:
   - title: 归档
     url: archives/index.html
@@ -39,6 +41,8 @@ notice:
   - "~~Notice~~ two"
 
 global_navigation: true
+
+sidebar: true
 
 duoshuo_shortname:
 
@@ -86,10 +90,11 @@ links:
     url: https://www.friend1.com
     description: My only friend
 ```
-
++ **keywords** - Keywords to sum up your site, should be delimited by comma. It will help search engines better find your site.
 + **nav** - Add extra entries to your navbar. `url` should be a relative link, and `icon` must exist in [FontAwesome](http://fontawesome.io/icons/).
 + **notice** - Add a global notice bar to your blog, one string per line, and you can use markdown syntax. If you don't want any notices, just leave it empty.
 + **global_navigation** - Must be `true` if you don't want your navbar gone.
++ **sidebar** - Set to false to disable sidebar.
 + **duoshuo_shortname** - [Duoshuo](http://duoshuo.com/) shortname of yours.
 + **disqus_shortname** - [Disqus](https://disqus.com/) shortname of yours.
 + **disqus_api_key** - Disqus API Key of yours, you need to [register](https://disqus.com/api/applications/register/) to get it. To use the recent posts widget for disqus, this entry must be set.

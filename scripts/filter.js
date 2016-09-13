@@ -1,16 +1,17 @@
 'use strict';
 
 hexo.extend.filter.register('after_generate',function(){
-    var duoshuo = hexo.theme.config.duoshuo_shortname,
-        buttons = hexo.theme.config.buttons,
-        disqus = hexo.theme.config.disqus_shortname,
-        d_api = hexo.theme.config.disqus_api_key;
+    var theme = hexo.theme.config,
+        duoshuo = theme.duoshuo_shortname,
+        buttons = theme.buttons,
+        disqus = theme.disqus_shortname,
+        d_api = theme.disqus_api_key;
     
-    if(!duoshuo || duoshuo.length == 0){
+    if(!duoshuo) {
         hexo.route.remove('js/duoshuo.min.js');
     }
     
-    if(!buttons.base || !buttons.dropdown){
+    if(!buttons.base || !buttons.dropdown) {
         hexo.route.remove('js/buttons.min.js');
     }
     

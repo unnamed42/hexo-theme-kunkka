@@ -131,6 +131,38 @@
 
 .about-wrap .feature-section {padding-bottom: 20px;}
 
+.avatar {
+    border-radius: 50%;
+    position: relative;
+    &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border: 1px solid rgba(0, 0, 0, .05);
+    }
+}
+
+.widget-popular {
+    min-height: 30px;
+    span {padding-left: 10px;}
+}
+
+.widget-comment {
+    .avatar {
+        width: 16px;
+        height: 16px;
+    }
+    li {
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+}
+
+
 #comments {
     width: 100%;
     padding: 4px 5px;
