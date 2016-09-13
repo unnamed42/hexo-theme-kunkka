@@ -6,7 +6,11 @@
         display: none;
         max-width: 280px;
         padding: 5px 10px;
-        font: $TooltipFont;
+        font-style: normal;
+        font-variant: normal;
+        font-size: 11px;
+        font-family: $TooltipFont;
+        line-height: 1.5em;
         color: #fff;
         text-align: center;
         text-decoration: none;
@@ -53,7 +57,6 @@
         word-wrap: normal;
         white-space: pre-line;
         border-collapse: separate;
-        @media screen and (min-width: 0\0) {width: 250px;}
     }
     &.tooltipped-s:after, &.tooltipped-n:after {
         right: auto;

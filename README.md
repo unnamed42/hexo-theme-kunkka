@@ -92,7 +92,7 @@ links:
 + **global_navigation** - Must be `true` if you don't want your navbar gone.
 + **duoshuo_shortname** - [Duoshuo](http://duoshuo.com/) shortname of yours.
 + **disqus_shortname** - [Disqus](https://disqus.com/) shortname of yours.
-+ **disqus_api_key** - Disqus API Key of yours, you need to register for this. To use the recent posts widget, this entry must be set.
++ **disqus_api_key** - Disqus API Key of yours, you need to [register](https://disqus.com/api/applications/register/) to get it. To use the recent posts widget for disqus, this entry must be set.
 + **search** - [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). **Requires `hexo-generator-search` installed**.
 + **busuanzi** - Enable the [busuanzi](http://busuanzi.ibruce.info/) visit count when set to `true`.
 + **tag_number** - Set the maximum number of tags displayed in navigation area.
@@ -102,7 +102,7 @@ links:
 + **cdn** - cdn of your own. It's a global setting.
 + **placeholder** - The default thumbnail image of a post, set to empty if you don't want this.
 + **creative_commons** - The Creative Commons icon. When disabled, the footer license will be copyright. 
-+ **buttons** - Some beautiful [button styles](http://www.bootcss.com/p/buttons/). For each entry, set to `true` if you want the corresponding styles, but `base` should be enabled to use them. For any problem about usage, please visit their site [this](http://www.bootcss.com/p/buttons/) or [this](https://github.com/alexwolfe/Buttons/).
++ **buttons** - Some beautiful [button styles](http://www.bootcss.com/p/buttons/). For each entry, set to `true` if you want the corresponding styles, but `base` should be enabled to use them. For any problems about usage, please visit their site [this](http://www.bootcss.com/p/buttons/) or [this](https://github.com/alexwolfe/Buttons/).
 + **links** - Links to your friends.
 
 ## Features
