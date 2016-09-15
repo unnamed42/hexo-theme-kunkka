@@ -1,49 +1,54 @@
+/* Style from http://codepen.io/eksch/full/jPPPPp/ */
+
 .pagenavi {
-    display: block;
-    list-style: none;
-    margin-top: 25px;
-    padding: 25px 0 0;
+    padding-top: 25px;
     font-size: 14px;
     text-align: center;
-    .page-number {
-        display: inline-block;
-        margin: 0 5px 5px 0;
+    a {
+        color: #555;
+        &:hover {text-decoration: none;}
     }
-    a, span {
+    .page-number, .space {
         display: inline-block;
         line-height: 25px;
-        padding: 5px 9px;
-        border: 1px solid #DDD;
-        text-align: center;
-        color: #555;
-        &:hover {
-            background: #F8F8F8;
-            border-bottom-color: $anchor-color;
+        height: 40px;
+        width: 40px;
+        padding: 0;
+        margin: 0;
+        box-shadow: inset 0px -2px 0px 0px #bbb;
+        &:hover {box-shadow: inset 0px -4px 0px 0px #bbb;}
+        &:focus {
+            border: 1.5px solid #bbb;
+            border-radius: 3px;
         }
-        &.prev {
-            float: left;
-            &:before {
-                font-family: "FontAwesome";
-                content: "\f100";
-                padding-right: 0.3em;
-            }
-        }
-        &.next {
-            float: right;
-            &:after {
-                font-family: "FontAwesome";
-                content: "\f101";
-                padding-left: 0.3em;
-            }
-        }
-        &.extend:hover {text-decoration: none;}
     }
     .current {
-        background: #F8F8F8;
-        border-bottom-color: $anchor-color;
+        box-shadow: inset 0px -4px 0px 0px $anchor-color;
+        color: $anchor-color;
+        font-weight: bold;
+        &:hover {
+            box-shadow: inset 0px -4px 0px 0px $anchor-color;
+            cursor: default;
+        }
     }
     .space {
-        border: none;
-        padding: 5px 5px;
+        box-shadow: inset 0px -2px 0px 0px #e6e6e6;
+        &:hover {
+            box-shadow: inset 0px -2px 0px 0px #e6e6e6;
+            cursor: default;
+        }
+    }
+    .extend {
+        margin: 15px;
+        &.next:after {
+            font-family: "FontAwesome";
+            content: "\f101";
+            padding-left: 0.3em;
+        }
+        &.prev:before {
+            font-family: "FontAwesome";
+            content: "\f100";
+            padding-right: 0.3em;
+        }
     }
 }

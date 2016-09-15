@@ -14,7 +14,8 @@ nav:
     icon: fa-rss
 
 notice: 
-  - "`hexo-math`挂掉了（也许是我配置错误），公式显示会不正常"
+  - "`hexo-math`挂掉了（也许是我配置错误），公式显示会不正常。"
+  - "如果有谁能告诉我为什么我`$.ajax()`的jsonp总是400, 感激不尽。"
 
 global_navigation: true
 
@@ -37,17 +38,22 @@ full_content: false
 # Provided colors: red, green, blue, purple
 color_theme: 
 
-old_browser: false
-
 cdn: 
 placeholder: 
 
-# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero | publicdomain
-# Available size: 88x31 | 80x15
-creative_commons: 
-    enabled: true
-    icon: by-nc-sa
-    size: "80x15"
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero 
+creative_commons: by-sa
+
+sns: 
+  github: unnamed42
+  twitter:
+  facebook:
+  linkedin:
+  googleplus_id: "101538012089625781458"
+  steam_id:
+  weibo:
+  zhihu: huang-wen-rui-74
+  tieba: Xelnagaman
 
 buttons:
   base: true

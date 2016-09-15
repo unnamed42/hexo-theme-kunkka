@@ -28,8 +28,18 @@
             border-radius: 0;
         }
         > a {
-            color: #404040;
-            &:hover, &:focus {text-decoration: none;}
+            color: #fff;
+            border: 2px solid #404040;
+            border-radius: 3px;
+            background-color: #404040;
+            -webkit-transition: all 0.2s ease;
+               -moz-transition: all 0.2s ease;
+                    transition: all 0.2s ease;
+            &:hover, &:focus {
+                text-decoration: none;
+                color: #404040;
+                background-color: #fff;
+            }
         }
     }
 }

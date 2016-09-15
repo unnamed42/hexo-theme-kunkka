@@ -1,5 +1,5 @@
 ---
-layout: layout
+layout: base
 ---
 <% 
    var categories = '';
@@ -14,62 +14,67 @@ layout: layout
    }
 %>
 
-<div id="primary">
-    <div class="breadcrumb-navigation">
-        <a rel="bookmark" href="<%- config.root %>"><%- __('home') %></a>
-        <span class="breadcrumb-arrow fa fa-angle-right"></span>
-        <%- categories %>
-        <span class="breadcrumb-arrow fa fa-angle-right"></span>
-        <%- page.title %>
-    </div>
-    <div class="single-post">
-        <div class="post-header">
-            <h2 class="post-title">
-                <a href="<%- url_for(page.path) %>" title="<%- page.title %>"><%- page.title %></a>
-            </h2>
-        </div>
-        <div class="post-meta">
-            <ul class="inline-ul">
-                <li class="inline-li">
-                    <%- page.date.format(config.date_format) %>
-                </li>
-                <% if(page.categories.length) { %>
-                <li class="inline-li">
-                    <span class="post-span">·</span>
-                </li>
-                <li class="inline-li">
-                    <%- categories %>
-                </li>
-                <% } %>
-                <% if(theme.busuanzi) { %>
-                <li class="inline-li">
-                    <span class="post-span">·</span>
-                </li>
-                <li class="inline-li">
-                    <span id="busuanzi_value_page_pv"></span> Views
-                </li>
-                <% } %>
-            </ul>
-        </div>
-        <div class="post-body clearfix">
-            <% if(page.toc) { %>
-            <div id="toc" class="toc-article">
-                <%- toc(page.content) %>
+<div id="content">
+    <div class="container clearfix">
+        <div id="primary" class="<% if(page.toc) { %>has-toc<% } else { %>no-toc<% } %>">
+            <div class="breadcrumb-navigation">
+                <a rel="bookmark" href="<%- config.root %>"><%- __('home') %></a>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <%- categories %>
+                <span class="breadcrumb-arrow fa fa-angle-right"></span>
+                <%- page.title %>
             </div>
-            <% } %>
-            <div class="post-content"><%- page.content || body %></div>
+            <div class="single-post">
+                <div class="post-header">
+                    <h2 class="post-title">
+                        <a href="<%- url_for(page.path) %>" title="<%- page.title %>"><%- page.title %></a>
+                    </h2>
+                </div>
+                <div class="post-meta">
+                    <ul class="inline-ul">
+                        <li class="inline-li">
+                            <%- page.date.format(config.date_format) %>
+                        </li>
+                        <% if(page.categories.length) { %>
+                        <li class="inline-li">
+                            <span class="post-span">·</span>
+                        </li>
+                        <li class="inline-li">
+                            <%- categories %>
+                        </li>
+                        <% } %>
+                        <% if(theme.busuanzi) { %>
+                        <li class="inline-li">
+                            <span class="post-span">·</span>
+                        </li>
+                        <li class="inline-li">
+                            <span id="busuanzi_value_page_pv"></span> Views
+                        </li>
+                        <% } %>
+                    </ul>
+                </div>
+                <div class="post-body clearfix">
+                    <div class="post-content"><%- page.content || body %></div>
+                </div>
+                <div class="post-tags">
+                <% if(page.tags.length) { %>
+                    <% page.tags.forEach(function(tag){ %>
+                    <a href="<%- url_for(tag.path) %>" title="<%= tag.name %>" rel="tag" class="fa fa-tag"><%= tag.name %></a>
+                    <% }); %>
+                <% } else { %>
+                    <%- __('no_tags') %>
+                <% } %>
+                </div>
+                <%- partial('_partial/pager') %>
+            </div>
+            <%- partial('_partial/comments') %>
         </div>
-        <div class="post-tags">
-        <% if(page.tags.length) { %>
-            <% page.tags.forEach(function(tag){ %>
-            <a href="<%- url_for(tag.path) %>" title="<%= tag.name %>" rel="tag" class="fa fa-tag"><%= tag.name %></a>
-            <% }); %>
-        <% } else { %>
-            <%- __('no_tags') %>
+        <!-- #primary -->
+        <% if(page.toc) { %>
+        <div id="toc">
+            <%- toc(page.content,{list_number: false}) %>
+        </div>
+        <%- js('js/toc.min.js') %>
         <% } %>
-        </div>
-        <%- partial('_partial/pager') %>
     </div>
-    <%- partial('_partial/comments') %>
 </div>
-<!-- #primary -->

@@ -1,27 +1,27 @@
-.toc-article {
-    border: 1px solid #bbb;
-    border-radius: 7px;
-    margin: 1.1em 0 0 2em;
-    padding: 0.7em 0.7em 0 0.7em;
-}
-
-.toc-title {
-    font-size: 120%;
-}
-
 #toc {
     line-height: 1em;
-    float: right;
-    clear: both;
-    a {color: #999;}
+    position: fixed;
+    right: 5%;
+    width: 20%;
+    top: 90px;
+    .toc-link {color: #999;}
     .toc {
         padding: 0;
         margin: 0.5em;
         line-height: 1.8em;
         li {list-style-type: none;}
     }
-    .toc-child {
-        margin-left: 1em;
-        padding-left: 0;
+    .toc-item {
+        .toc-child {
+            margin-left: 1em;
+            padding-left: 0;
+            /*display: none;
+            &.active {display: block;}*/
+        }
+        /*&.active .toc-link {
+            color: $anchor-color;
+            border-left: 2px solid $anchor-color;
+        }*/
     }
+    
 }

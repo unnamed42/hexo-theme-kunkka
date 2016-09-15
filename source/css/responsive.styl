@@ -24,14 +24,12 @@ body {font-size: 1pc;}
 }    
 
 #primary {
-    float: none;
-    width: auto;
-    &.full-page {
+    &, &.full-page, &.has-toc, &.no-toc {
         float: none;
         width: auto;
     }
 }
-    
+
 #header {
     padding: 0;
     /*position: fixed;
@@ -40,7 +38,7 @@ body {font-size: 1pc;}
     top: 0;
     background: #fff;*/
 }
-    
+
 .logo {
     float: none;
     margin-left: 15px;
@@ -106,27 +104,23 @@ body {font-size: 1pc;}
 }
 
 .pager li {
-    > a, > span {
-        font-size: 14px;
-        padding: 15px 25px;
-    }
+    > a, > span {font-size: 14px;}
 }
     
 .pagenavi {
     padding-bottom: 30px;
-    .page-number {
+    .page-number, .space {
         height: 32px;
         line-height: 32px;
         padding: 0px 11px;
-        text-align: center;
         font-size: 18px;
     }
 }
     
 .breadcrumb-navigation {margin-bottom: 10px;}
     
-#sidebar {display: none;}
-    
+#sidebar, #toc {display: none;}
+
 .search-input, .search-submit {background: transparent;}
     
 .search-form {

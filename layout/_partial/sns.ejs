@@ -1,0 +1,34 @@
+<%
+   var sns_settings = {
+       "github": {"url":"https://github.com/", "icon":"fa-github"},
+       "twitter": {"url":"https://twitter.com/", "icon":"fa-twitter"},
+       "facebook": {"url":"https://www.facebook.com/", "icon":"fa-facebook"},
+       "linkedin": {"url":"https://www.linkedin.com/in/", "icon":"fa-linkedin"},
+       "googleplus_id": {"url":"https://plus.google.com/u/0/", "icon":"fa-google-plus"},
+       "steam_id": {"url":"https://steamcommunity.com/id/", "icon":"fa-steam"},
+       "weibo": {"url":"http://weibo.com/", "icon":"fa-weibo"},
+       "zhihu": {"url":"https://www.zhihu.com/people/", "icon":"知"},
+       "tieba": {"url":"http://tieba.baidu.com/home/main/?un=", "icon":"贴"}
+   };
+%>
+
+<% if(theme.sns) { %>
+<div class="sns-icons">
+    <% Object.keys(theme.sns).forEach(function(item) { %>
+        <% var username = theme.sns[item]; %>
+        <% if(username) { %>
+            <% var url = sns_settings[item].url, icon = sns_settings[item].icon; %>
+    <span class="sns-icon fa-stack">
+        <a target="_blank" href="<%- printf(url + "{0}",username) %>">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <% if(icon.match(/fa-\w+/g)) { %>
+            <i class="fa <%- icon %> fa-stack-1x fa-inverse"></i>
+            <% } else { %>
+            <i class="fa fa-stack-1x fa-inverse"><%- icon %></i>
+            <% } %>
+        </a>
+    </span>
+        <% } %>
+    <% }); %>
+</div>
+<% } %>

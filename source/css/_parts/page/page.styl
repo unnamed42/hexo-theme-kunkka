@@ -28,6 +28,12 @@
     float: left;
     width: hexo-config('sidebar')? 70%: 100%;
     min-height: 25pc;
+    &.no-toc {
+        float: none;
+        width:auto;
+        margin-left: 20px;
+    }
+    &.has-toc {width: 75%;}
 }
 
 .post-content {

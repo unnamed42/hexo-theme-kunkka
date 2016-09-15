@@ -462,3 +462,89 @@
         border-top: 1px solid #eee;
     }
 }
+
+.pager > a {
+    color: #fff;
+    border: 2px solid #404040;
+    border-radius: 3px;
+    background-color: #404040;
+    -webkit-transition: all 0.2s ease;
+       -moz-transition: all 0.2s ease;
+            transition: all 0.2s ease;
+    &:hover, &:focus {
+        text-decoration: none;
+        color: #404040;
+        background-color: #fff;
+    }
+}
+
+.pagenavi {
+    display: block;
+    list-style: none;
+    margin-top: 25px;
+    padding: 25px 0 0;
+    font-size: 14px;
+    text-align: center;
+    .page-number {
+        display: inline-block;
+        margin: 0 5px 5px 0;
+    }
+    a, span {
+        display: inline-block;
+        line-height: 25px;
+        padding: 5px 9px;
+        border: 1px solid #DDD;
+        text-align: center;
+        color: #555;
+        &:hover {
+            background: #F8F8F8;
+            border-bottom-color: $anchor-color;
+        }
+        &.prev {
+            float: left;
+            &:before {
+                font-family: "FontAwesome";
+                content: "\f100";
+                padding-right: 0.3em;
+            }
+        }
+        &.next {
+            float: right;
+            &:after {
+                font-family: "FontAwesome";
+                content: "\f101";
+                padding-left: 0.3em;
+            }
+        }
+        &.extend:hover {text-decoration: none;}
+    }
+    .current {
+        background: #F8F8F8;
+        border-bottom-color: $anchor-color;
+    }
+    .space {
+        border: none;
+        padding: 5px 5px;
+    }
+}
+
+#toc {
+    line-height: 1em;
+    float: right;
+    border: 1px solid #bbb;
+    border-radius: 7px;
+    margin: 1.1em 0 0 2em;
+    padding: 0.7em 0.7em 0 0.7em;
+    a {color: #999;}
+    .toc {
+        padding: 0;
+        margin: 0.5em;
+        line-height: 1.8em;
+        li {list-style-type: none;}
+    }
+    .toc-child {
+        margin-left: 1em;
+        padding-left: 0;
+    }
+    .toc-title {font-size: 120%;}
+}
