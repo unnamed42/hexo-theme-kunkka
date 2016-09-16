@@ -18,10 +18,10 @@ colors = {
     blue: #177ee6
 }
 
-$anchor-color = hexo-config("color_theme")
+$color-theme = hexo-config("color_theme")
 
-if($anchor-color) {
-    $anchor-color = colors[$anchor-color]
+if($color-theme) {
+    $color-theme = colors[$color-theme]
 } else {
-    $anchor-color = #5895be
+    $color-theme = #5895be
 }

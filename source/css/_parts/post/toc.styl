@@ -4,7 +4,18 @@
     right: 5%;
     width: 20%;
     top: 90px;
-    .toc-link {color: #999;}
+    .toc-text {white-space: nowrap;}
+    for i in (1..6) {
+        .toc-level-{i} .toc-text {margin-left: i em;}
+    }
+    .toc-link {
+        color: #999;
+        &:hover {
+            color: $color-theme;
+            border-left: 1px solid $color-theme;
+            text-decoration: none;
+        }
+    }
     .toc {
         padding: 0;
         margin: 0.5em;
@@ -13,15 +24,16 @@
     }
     .toc-item {
         .toc-child {
-            margin-left: 1em;
+            margin-left: 0;
             padding-left: 0;
-            /*display: none;
-            &.active {display: block;}*/
+            display: none;
         }
-        /*&.active .toc-link {
-            color: $anchor-color;
-            border-left: 2px solid $anchor-color;
-        }*/
+        &.active {
+            > .toc-link {
+                color: $color-theme;
+                border-left: 2px solid $color-theme;
+            }
+            .toc-child {display: block;}
+        }
     }
-    
 }

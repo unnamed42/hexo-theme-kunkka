@@ -34,7 +34,7 @@ tag_number: 25
 full_content: false
 
 # Provided colors: red, green, blue, purple
-color_theme: 
+color_theme: blue
 
 cdn: 
 placeholder: 
