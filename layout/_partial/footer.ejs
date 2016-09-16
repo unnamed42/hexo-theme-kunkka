@@ -1,19 +1,27 @@
+<% 
+   var year = '';
+   if(theme.since){
+       year = theme.since + '-';
+   }
+   year += new Date().getFullYear() + ' ' + config.title + '.';
+%>
 <!-- #content -->
 <div id="footer">
     <div class="container">
         <p><% if(theme.creative_commons) { %>
             <span class="cc-license">
                 <a href="https://creativecommons.org/licenses/<%- theme.creative_commons %>/4.0" target="_blank" title="Creative Commons license <%- theme.creative_commons %>">
+                <i class="cc cc-cc"></i>
                 <% theme.creative_commons.split('-').forEach(function(icon){ %>
                     <i class="cc cc-<%- icon %>"></i>
                 <% }); %>
                 </a>
             </span>
-            <%- new Date().getFullYear() %> <%= config.title %>.
+            <%= year %>
         <% } else { %>
-            &copy; <%- new Date().getFullYear() %> <%= config.title %> All Rights Reserved. 
+            &copy; <%= year %> All Rights Reserved. 
         <% } %></p>
-        <p>Themed by <a href="http://mufeng.me/">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
+        <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
         <%- partial('_partial/sns') %>
     </div>
 </div>
