@@ -14,8 +14,6 @@ nav:
     icon: fa-rss
 
 notice: 
-  - "`hexo-math`挂掉了（也许是我配置错误），公式显示会不正常。"
-  - "如果有谁能告诉我为什么我`$.ajax()`的jsonp总是400, 感激不尽。"
 
 global_navigation: true
 
@@ -25,7 +23,7 @@ duoshuo_shortname: unnamed42-github
 
 # Register at https://disqus.com/api/applications to get disqus_api_key
 # Use the API Key, not the API Secret
-disqus_shortname: 
+disqus_shortname: # unnamed42-github 
 disqus_api_key: #"1PwNiUJfZNlIZGUH0d0ZfKyOBXhdTclO1F9BJqRJDjcrJ5JVGe45C7YAQO0L5lFc"
 
 search: true
@@ -40,6 +38,8 @@ color_theme:
 
 cdn: 
 placeholder: 
+
+mathjax: true
 
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero 
 creative_commons: by-sa

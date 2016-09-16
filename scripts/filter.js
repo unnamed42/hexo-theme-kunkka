@@ -16,7 +16,7 @@ hexo.extend.filter.register('after_generate',function(){
     }
     
     if(!disqus || !d_api) {
-        hexo.route.remove('js/disqus.js');
+        hexo.route.remove('js/disqus.min.js');
     }
 }); 
 
