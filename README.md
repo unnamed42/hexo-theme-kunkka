@@ -69,6 +69,8 @@ color_theme: blue
 cdn: 
 placeholder: 
 
+mathjax: true
+
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero | publicdomain
 creative_commons: by-sa
 
@@ -116,6 +118,7 @@ links:
 + **color_theme** - Determines the color of nearly all anchors. If empty, will use a default color instead.
 + **cdn** - cdn of your own. It's a global setting.
 + **placeholder** - The default thumbnail image of a post, set to empty if you don't want this.
++ **mathjax** - Enables [MathJax](https://www.mathjax.org/) support.
 + **creative_commons** - The Creative Commons icon. When disabled, the footer license will be copyright. 
 + **sns** - SNS links. Fill in your personal informations and you will see the links inside the footer. Currently, you can not add extra entries.
 + **buttons** - Some beautiful [button styles](http://www.bootcss.com/p/buttons/). For each entry, set to `true` if you want the corresponding style, but `base` should be enabled to use them. For any problems about usage, please visit their site [this](http://www.bootcss.com/p/buttons/) or [this](https://github.com/alexwolfe/Buttons/).
