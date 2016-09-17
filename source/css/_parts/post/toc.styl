@@ -26,14 +26,14 @@
         .toc-child {
             margin-left: 0;
             padding-left: 0;
-            display: none;
+            if(hexo-config('toc.collapse')){display: none;}
         }
         &.active {
             > .toc-link {
                 color: $color-theme;
                 border-left: 2px solid $color-theme;
             }
-            .toc-child {display: block;}
+            .toc-child {if(hexo-config('toc.collapse')){display: block;}}
         }
     }
 }
