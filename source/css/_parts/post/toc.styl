@@ -3,7 +3,9 @@
     position: fixed;
     right: 5%;
     width: 20%;
+    height: 90%;
     top: 90px;
+    overflow: hidden;
     .toc-text {white-space: nowrap;}
     for i in (1..6) {
         .toc-level-{i} .toc-text {margin-left: i em;}
@@ -20,6 +22,9 @@
         padding: 0;
         margin: 0.5em;
         line-height: 1.8em;
+        overflow: scroll;
+        width: 102%;
+        height: 101%;
         li {list-style-type: none;}
     }
     .toc-item {
