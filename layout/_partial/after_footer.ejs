@@ -1,6 +1,6 @@
 <!-- Totop -->
 <%- partial('_partial/totop') %>
-<%- js('js/totop.min.js') %>
+<script src="/js/totop.min.js" type="text/javascript" async></script>
 
 <% if(theme.mathjax) { %>
 <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
@@ -47,7 +47,7 @@
     (d.head || d.body).appendChild(s);
 })();
 </script>
-<%- js('js/disqus.min.js') %>
+<script src="/js/disqus.min.js" type="text/javascript" async></script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <% } %>
 

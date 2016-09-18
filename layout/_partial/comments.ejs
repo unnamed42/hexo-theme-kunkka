@@ -1,21 +1,19 @@
 <% if(page.comments) { %>
-<% if(theme['duoshuo_shortname']) { %>
-<!-- Duoshuo start -->
-<div class="comment">
+<div id="comments">
+    <% if(theme['duoshuo_shortname']) { %>
+    <!-- Duoshuo start -->
     <div class="ds-thread"
         data-thread-key="<%= page.path %>"
         data-title="<%= page.title %>"
         data-url="<%= page.permalink %>" >
     </div>
-</div>
-<!-- Duoshuo end -->
-<% } %>
+    <!-- Duoshuo end -->
+    <% } %>
 
-<% if(theme['disqus_shortname']) { %>
-<!-- disqus start -->
-<div class="comment">
+    <% if(theme['disqus_shortname']) { %>
+    <!-- disqus start -->
     <div id="disqus_thread" class="disqus-thread"></div>
+    <!-- disqus end -->
+    <% } %>
 </div>
-<!-- disqus end -->
-<% } %>
 <% } %>
