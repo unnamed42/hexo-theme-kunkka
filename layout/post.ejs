@@ -54,7 +54,12 @@ layout: base
                     </ul>
                 </div>
                 <div class="post-body clearfix">
-                    <div class="post-content"><%- page.content || body %></div>
+                    <div class="post-content">
+                        <% page.photos.forEach(function(link){ %>
+                        <img src="<%- url_for(link) %>">
+                        <% }); %>
+                        <%- page.content || body %>
+                    </div>
                 </div>
                 <div class="post-tags">
                 <% if(page.tags.length) { %>
