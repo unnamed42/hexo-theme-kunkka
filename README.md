@@ -31,6 +31,8 @@ keywords:
 
 since: 
 
+favicon: 
+
 nav:
   - title: 归档
     url: archives/index.html
@@ -71,8 +73,11 @@ placeholder:
 
 mathjax: true
 
-# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero | publicdomain
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
 creative_commons: by-sa
+
+toc:
+  collapse: false
 
 sns: 
   github: 
@@ -104,6 +109,7 @@ links:
 ```
 + **keywords** - Keywords to sum up your site, should be delimited by comma. It will help search engines better find your site.
 + **since** - Year when your site established. Used for footer license message generation.
++ **favicon** - Icon of your site.
 + **nav** - Add extra entries to your navbar. `url` should be a relative link, and `icon` must exist in [FontAwesome](http://fontawesome.io/icons/).
 + **notice** - Add a global notice bar to your blog, one string per line, and you can use markdown syntax. If you don't want any notices, just leave it empty.
 + **global_navigation** - Must be `true` if you don't want your navbar gone.
@@ -120,6 +126,7 @@ links:
 + **placeholder** - The default thumbnail image of a post, set to empty if you don't want this.
 + **mathjax** - Enables [MathJax](https://www.mathjax.org/) support.
 + **creative_commons** - The Creative Commons icon. When disabled, the footer license will be copyright. 
++ **toc** - **collapse** - Set to false if you don't want to hide toc of contents not displayed currently.
 + **sns** - SNS links. Fill in your personal informations and you will see the links inside the footer. Currently, you can not add extra entries.
 + **buttons** - Some beautiful [button styles](http://www.bootcss.com/p/buttons/). For each entry, set to `true` if you want the corresponding style, but `base` should be enabled to use them. For any problems about usage, please visit their site [this](http://www.bootcss.com/p/buttons/) or [this](https://github.com/alexwolfe/Buttons/).
 + **links** - Links to your friends.
@@ -138,13 +145,13 @@ You can use this in your posts and pages.
 
 #### Search page
 
-We have an isolated page for displaying search results. Our search engine is [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). To use this, install dependency first:
+We have an isolated page used for showing search results. Our search engine is [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). To use this, install dependency first:
 
 ```bash
 npm install hexo-generator-search --save
 ```
 
-then set `search` in theme config to true.
+have it configured, then set `search` in theme config to true.
 
 #### Footnote
 
