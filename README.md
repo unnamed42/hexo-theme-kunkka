@@ -31,7 +31,7 @@ keywords:
 
 since: 
 
-favicon: 
+favicon: false
 
 nav:
   - title: 归档
@@ -109,7 +109,7 @@ links:
 ```
 + **keywords** - Keywords to sum up your site, should be delimited by comma. It will help search engines better find your site.
 + **since** - Year when your site established. Used for footer license message generation.
-+ **favicon** - Icon of your site.
++ **favicon** - Icon of your site. Set to true to use it, but put an icon `favicon.ico` in `[path_to_blog]/source` folder first.
 + **nav** - Add extra entries to your navbar. `url` should be a relative link, and `icon` must exist in [FontAwesome](http://fontawesome.io/icons/).
 + **notice** - Add a global notice bar to your blog, one string per line, and you can use markdown syntax. If you don't want any notices, just leave it empty.
 + **global_navigation** - Must be `true` if you don't want your navbar gone.
@@ -161,4 +161,4 @@ We have made a special style for footnotes, just for you to enjoy.
 
 #### Separated widgets
 
-HTML contents of widgets are generated inside `[path_to_site]/public/componets` folder, especially the `recent_posts` widget. They're loaded dynamically using jQuery. Thanks to this, there's no need to generate all posts over and over on single post modification.
+HTML contents of widgets are generated inside `[path_to_blog]/public/componets` folder, especially the `recent_posts` widget. They're loaded dynamically using jQuery. Thanks to this, there's no need to generate all posts over and over on single post modification.

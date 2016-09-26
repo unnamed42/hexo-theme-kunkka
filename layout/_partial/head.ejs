@@ -20,10 +20,10 @@
     <meta name="description" content="<%= config.description || '' %>">
     <meta name="author" content="<%= config.author || '' %>">
     
-    <% var feed = config.feed %>
-    <link rel="alternate" type="<%- feed=="rss2" ? "rss" : feed %>" hrel="<%- url_for(config.feed.path) %>">
+    <% var feed = (config.feed.type == "rss2" ? "rss" : config.feed.type); %>
+    <link rel="alternate" type="application/<%- feed %>+xml" hrel="<%- url_for(config.feed.path) %>">
     
-    <% if(theme.favicon) { %><link rel="Shortcut Icon" href="<%- theme.favicon %>" type="image/x-icon"/><% } %>
+    <% if(theme.favicon) { %><link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon"><% } %>
     
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="/css/responsive.css" rel="stylesheet" type="text/css" media="screen and (max-width: 768px)">
