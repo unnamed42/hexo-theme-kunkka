@@ -33,7 +33,7 @@ layout: layout
                     <div class="brick">
                         <a href="<%- url_for(post.path) %>">
                             <span class="time"><%- post.date.month() + 1 %>-<%- post.date.date() %></span>
-                            <%- post.title %>
+                            <%= post.title %>
                         </a>
                     </div> <% //输出文章日期和标题 %>
     <% }); %>

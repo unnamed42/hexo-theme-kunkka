@@ -1,33 +1,20 @@
 ---
 layout: base
 ---
-<% 
-   var categories = '';
-   if(page.categories.length){
-       var arr = [];
-       page.categories.forEach(function(category){
-           arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>");
-       });
-       categories = arr.join(',');
-   } else {
-       categories = __('uncategorized');
-   }
-%>
-
 <div id="content">
     <div class="container clearfix">
         <div id="primary" class="<% if(page.toc) { %>has-toc<% } else { %>no-toc<% } %>">
             <div class="breadcrumb-navigation">
-                <a rel="bookmark" href="<%- config.root %>"><%- __('home') %></a>
+                <a rel="bookmark" href="<%- config.root %>"><%= __('home') %></a>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
-                <%- categories %>
+                <%- partial('_script/categories',{page:page}) %>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
-                <%- page.title %>
+                <%= page.title %>
             </div>
             <div class="single-post">
                 <div class="post-header">
                     <h2 class="post-title">
-                        <a href="<%- url_for(page.path) %>" title="<%- page.title %>"><%- page.title %></a>
+                        <a href="<%- url_for(page.path) %>" title="<%= page.title %>"><%= page.title %></a>
                     </h2>
                 </div>
                 <div class="post-meta">
@@ -40,7 +27,7 @@ layout: base
                             <span class="post-span">·</span>
                         </li>
                         <li class="inline-li">
-                            <%- categories %>
+                            <%- partial('_script/categories',{page:page}) %>
                         </li>
                         <% } %>
                         <% if(theme.busuanzi) { %>
@@ -67,7 +54,7 @@ layout: base
                     <a href="<%- url_for(tag.path) %>" title="<%= tag.name %>" rel="tag" class="fa fa-tag"><%= tag.name %></a>
                     <% }); %>
                 <% } else { %>
-                    <%- __('no_tags') %>
+                    <%= __('no_tags') %>
                 <% } %>
                 </div>
                 <%- partial('_partial/pager') %>
@@ -77,7 +64,7 @@ layout: base
         <!-- #primary -->
         <% if(page.toc) { %>
         <div id="toc">
-            <%- toc(page.content,{list_number: false}) %>
+            <%- toc_fix(page.content,{list_number: false}) %>
         </div>
         <script src="/js/toc.min.js" type="text/javascript" async></script>
         <% } %>

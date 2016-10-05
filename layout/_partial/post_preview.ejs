@@ -3,11 +3,11 @@
    if(!theme.full_content && post.thumbnail) {post_class += ' post-has-thumbnail';}
    if(theme.full_content) {post_class += 'full-content';}
 %>
-<div class="<%= post_class %>">
+<div class="<%- post_class %>">
     <div class="post-header">
         <h2 class="post-title">
-            <% if(post.link) { %><a href="<%- post.link %>" title="<%- post.link %>"><%- post.link %></a>
-            <% } else { %><a href="<%- url_for(post.path) %>" title="<%- post.title || __('untitled') %>"><%- post.title || __('untitled') %></a><% } %>
+            <% if(post.link) { %><a href="<%- post.link %>" title="<%= post.link %>"><%= post.link %></a>
+            <% } else { %><a href="<%- url_for(post.path) %>" title="<%= post.title || __('untitled') %>"><%= post.title || __('untitled') %></a><% } %>
         </h2>
     </div>
     <div class="post-meta">
@@ -20,15 +20,7 @@
                 <span class="post-span">·</span>
             </li>
             <li class="inline-li">
-                <% if(post.categories.length) { %>
-                <% var arr = []; %>
-                <% post.categories.forEach(function(category){ %>
-                    <% arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>") %>
-                <% }); %>
-                <%- arr.join(',') %>
-                <% } else { %>
-                <%- __('uncategorized') %>
-                <% } %>
+                <%- partial('_script/categories',{page:post}) %>
             </li>
             <% } %>
         </ul>
@@ -43,7 +35,7 @@
                 <img class="lazy"
                      src="<%- theme.cdn || '' %><%- theme.placeholder %>"
                      data-original="<%- theme.cdn || '' %><%- post.thumbnail %>"
-                     alt="<%- post.title %>" width="130" height="130"/>
+                     alt="<%= post.title %>" width="130" height="130"/>
             </a>
         </div>
         <% } %>

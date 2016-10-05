@@ -2,17 +2,17 @@ keywords:
 
 since: 2015
 
+logo: 
+
 favicon: false
 
 nav:
   - title: 归档
     url: archives/index.html
     icon: fa-archive
-    description: 
   - title: 关于
     url: about/index.html
     icon: fa-user
-    description: 
   - title: 订阅
     url: atom.xml
     icon: fa-rss

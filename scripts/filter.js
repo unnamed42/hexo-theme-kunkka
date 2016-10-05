@@ -22,10 +22,10 @@ hexo.extend.filter.register('after_generate',function(){
 
 hexo.extend.filter.register('after_post_render',function(data){
     
-    if(data.content.indexOf("#fn") != -1){
-        data.content += "<script src=\"/js/footnote.min.js\" type=\"text/javascript\" async></script>";
-    }
+    var html = "<script src=\"/js/footnote.min.js\" type=\"text/javascript\" async></script>";
+    
+    if(data.content.indexOf("#fn") != -1)
+        data.content = data.content.replace(/<\s*\/\s*head\s*>/,html + "</head>");
     
     return data;
 });
- 
