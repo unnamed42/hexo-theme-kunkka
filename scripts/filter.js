@@ -8,24 +8,24 @@ hexo.extend.filter.register('after_generate',function(){
         d_api = theme.disqus_api_key;
     
     if(!duoshuo) {
-        hexo.route.remove('js/duoshuo.min.js');
+        hexo.route.remove('js/duoshuo.js');
     }
     
     if(!buttons.base || !buttons.dropdown) {
-        hexo.route.remove('js/buttons.min.js');
+        hexo.route.remove('js/buttons.js');
     }
     
     if(!disqus || !d_api) {
-        hexo.route.remove('js/disqus.min.js');
+        hexo.route.remove('js/disqus.js');
     }
 }); 
 
-hexo.extend.filter.register('after_post_render',function(data){
+hexo.extend.filter.register('after_render:html',function(str,data){
     
     var html = "<script src=\"/js/footnote.min.js\" type=\"text/javascript\" async></script>";
     
-    if(data.content.indexOf("#fn") != -1)
-        data.content = data.content.replace(/<\s*\/\s*head\s*>/,html + "</head>");
+    if(str.indexOf("#fn") != -1)
+        str = str.replace(/<\s*\/\s*head\s*>/, html + "</head>");
     
-    return data;
+    return str;
 });

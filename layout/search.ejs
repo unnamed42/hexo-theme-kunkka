@@ -12,7 +12,7 @@ layout: layout
     <h2 id="no-match"><%= __('no_match') %></h2>
 </div>
 <!-- #primary -->
-<script src="/js/search.min.js" type="text/javascript" async></script>
+<script src="/js/search.js" type="text/javascript" async></script>
 <script type="text/javascript">
 $(document).ready(function(){searchFunc('<%- url_for(config.search.path) %>',getParameterByName('s'),'search-result')});
 </script>

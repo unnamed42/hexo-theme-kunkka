@@ -1,6 +1,6 @@
 <!-- Totop -->
 <%- partial('_partial/totop') %>
-<script src="/js/totop.min.js" type="text/javascript" async></script>
+<script src="/js/totop.js" type="text/javascript" async></script>
 
 <% if(theme.mathjax) { %>
 <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
@@ -29,7 +29,7 @@
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
-        ds.src = '/js/duoshuo.min.js';
+        ds.src = '/js/duoshuo.js';
         ds.charset = 'UTF-8';
         (document.getElementsByTagName('head')[0]
          || document.getElementsByTagName('body')[0]).appendChild(ds);
@@ -47,7 +47,7 @@
     (d.head || d.body).appendChild(s);
 })();
 </script>
-<script src="/js/disqus.min.js" type="text/javascript" async></script>
+<script src="/js/disqus.js" type="text/javascript" async></script>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <% } %>
 
