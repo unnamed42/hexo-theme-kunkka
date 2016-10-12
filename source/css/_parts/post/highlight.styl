@@ -1,8 +1,8 @@
 pre, .highlight {
-    background: $highlight-background;
+    background-color: $highlight-background;
     margin: 20px 0;
     padding: 15px;
-    overflow: auto;
+    overflow-x: auto;
     font-size: 16px;
     color: $highlight-foreground;
     line-height: 1.6em;
@@ -16,7 +16,7 @@ code {
     padding: 1px 5px;
     border: 1px solid #ccc;
     word-break: keep-all;
-    background: #eee;
+    background-color: #eee;
     text-shadow: 0 1px #fff;
 }
 
@@ -67,42 +67,14 @@ pre code {
         &.marked {color: $highlight-blue;}
     }
     .comment {color: $highlight-comment;}
-    .variable, .template-variable, .attribute, .tag, .name, .regexp, .deletion, .selector-id, .selector-class, {color: $highlight-red;}
-    .number, .preprocessor, .built_in, .literal, .params, .constant, .command, .meta, .link, .type {color: $highlight-orange;}
-    .string, .value, .inheritance, .header, .special, .number, .formula, .bullet, .addition {color: $highlight-green;}
-    .title {color: $highlight-aqua;}
-    .function, .section {color: $highlight-blue;}
+    .variable, .template-variable, .tag, .name, .regexp, .deletion, .selector-id, .selector-class {color: $highlight-red;}
+    .number, .preprocessor, .built_in, .builtin-name, .literal, .params, .constant, .command, .meta, .link, .type, .selector-pseudo, .doctype, .meta-keyword, .meta-string {color: $highlight-orange;}
+    .string, .symbol, .special, .number, .formula, .bullet, .addition {color: $highlight-green;}
+    .attribute, .attr, .quote {color: $highlight-yellow;}
+    .title, .function {color: $highlight-aqua;}
+    .section, .selector-attr, .template-tag {color: $highlight-blue;}
     .keyword, .selector-tag {color: $highlight-purple;}
-    &.css {
-        .id, .class, .pseudo {color: $highlight-red;}
-        .rule .attribute {color: $highlight-green;}
-        .hexcolor {color: $highlight-aqua;}
-        .tag {color: $highlight-purple;}
-    }
-    &.ruby {
-        .constant {color: $highlight-red;}
-        .class .title {color: $highlight-green;}
-        .function .title, .title .keyword {color: $highlight-blue;}
-        .symbol {color: $highlight-green;}
-    }
-    &.python {
-        .decorator, .title {color: $highlight-blue;}
-    }
-    &.xml {
-        .tag .title, .pi, .doctype {color: $highlight-red;}
-        .cdata {color: $highlight-green;}
-    }
-    &.perl {
-        .sub {color: $highlight-blue;}
-    }
-    &.javascript {
-        .title {color: $highlight-blue;}
-        .function {color: $highlight-purple;}
-    }
-    &.coffeescript {
-        .title {color: $highlight-blue;}
-    }
-    &.html {
-        .doctype {color: $highlight-red;}
-    }
+    .emphasis {font-style: italic;}
+    .strong {font-weight: bold;}
+    .subst {color: black;}
 }

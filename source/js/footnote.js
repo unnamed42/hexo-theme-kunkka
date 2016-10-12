@@ -35,8 +35,8 @@ $(document).ready(function(){
                     active = $(".footnote-ref.active");
                 if(!active.is(parent))
                     active.removeClass("active");
-                if(!parent.length){
-                    parent.hasClass(active)?parent.removeClass("active"):parent.addClass("active");
+                if(parent.length != 0){
+                    parent.toggleClass("active");
                 }
             }
         });

@@ -21,10 +21,12 @@ $(document).ready(function() {
             }, 100);
         }
     });
+    
     $(".global-nav").click(function() {
-        if ($(window).width() <= 769) {
-            var gnul = $(".gnul");
-            gnul.hasClass("collapse") ? gnul.removeClass("collapse") : gnul.addClass("collapse");
+        // to make this still effective on window resize,
+        // don't put the if-condition below out of click listener
+        if ($(window).width() < 768) {
+            $(this).children(".gnul").toggleClass("collapse");
         }
     });
 });

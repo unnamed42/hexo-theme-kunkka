@@ -22,9 +22,9 @@ hexo.extend.filter.register('after_generate',function(){
 
 hexo.extend.filter.register('after_render:html',function(str,data){
     
-    var html = "<script src=\"/js/footnote.min.js\" type=\"text/javascript\" async></script>";
+    var html = "<script src=\"/js/footnote.js\" type=\"text/javascript\" async></script>";
     
-    if(str.indexOf("#fn") != -1)
+    if(str.indexOf("footnote-ref") != -1)
         str = str.replace(/<\s*\/\s*head\s*>/, html + "</head>");
     
     return str;
