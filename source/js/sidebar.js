@@ -11,7 +11,7 @@ $(document).ready(function() {
                     diff = Math.ceil((now - time) / 864e5);
                 if(10 >= diff)
                     $(this).html(diff + suffix);
-            })
+            });
         }
     });
 });

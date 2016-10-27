@@ -23,18 +23,23 @@
 </script>
 <% } %>
 
-<% if(theme.duoshuo_shortname) { %>
+<% if(theme.duoshuo.shortname) { %>
 <script type="text/javascript">
-    var duoshuoQuery = {short_name: '<%- theme.duoshuo_shortname %>' };
+    var duoshuo_admin_id = "<%- theme.duoshuo.user_id %>";
+    var duoshuoQuery = {short_name: '<%- theme.duoshuo.shortname %>' };
     (function() {
         var ds = document.createElement('script');
         ds.type = 'text/javascript';ds.async = true;
-        ds.src = '/js/duoshuo.js';
+        ds.src = '//static.duoshuo.com/embed.js';
+        ds.id = "duoshuo-script";
         ds.charset = 'UTF-8';
         (document.getElementsByTagName('head')[0]
          || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
 </script>
+<%     if(theme.duoshuo.ua) { %>
+<script src="/js/duoshuo-hook.js" async></script>
+<%     } %>
 <% } %>
 
 <% if(theme.disqus_shortname) { %>

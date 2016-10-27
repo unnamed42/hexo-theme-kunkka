@@ -55,7 +55,10 @@ global_navigation: true
 
 sidebar: true
 
-duoshuo_shortname:
+duoshuo: 
+  shortname: 
+  ua: true
+  userid: 
 
 # Register at https://disqus.com/api/applications to get disqus_api_key
 # Use the API Key, not the API Secret
@@ -119,7 +122,9 @@ links:
 + **notice** - Add a global notice bar to your blog, one string per line, and you can use markdown syntax. If you don't want any notices, just leave it empty.
 + **global_navigation** - Must be `true` if you don't want your navbar gone.
 + **sidebar** - Set to false to disable sidebar.
-+ **duoshuo_shortname** - [Duoshuo](http://duoshuo.com/) shortname of yours.
++ **duoshuo** - **shortname** - [Duoshuo](http://duoshuo.com/) shortname of yours.
++ **duoshuo** - **ua** - Display the user agent information of reviewers.
++ **duoshuo** - **user_id** - Your [Duoshuo](http://duoshuo.com/) user *uid*, used for admin label in ua section. Only used when duoshuo.ua enabled.
 + **disqus_shortname** - [Disqus](https://disqus.com/) shortname of yours.
 + **disqus_api_key** - Disqus API Key of yours, you need to [register](https://disqus.com/api/applications/register/) to get it. To use the recent posts widget for disqus, this entry must be set.
 + **search** - [A jQuery-based Local Search Engine for Hexo](http://hahack.com/codes/local-search-engine-for-hexo/). **Requires `hexo-generator-search` installed**.

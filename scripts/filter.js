@@ -2,13 +2,13 @@
 
 hexo.extend.filter.register('after_generate',function(){
     var theme = hexo.theme.config,
-        duoshuo = theme.duoshuo_shortname,
+        duoshuo = Boolean(theme.duoshuo.shortname) && theme.duoshuo.ua,
         buttons = theme.buttons,
         disqus = theme.disqus_shortname,
         d_api = theme.disqus_api_key;
     
     if(!duoshuo) {
-        hexo.route.remove('js/duoshuo.js');
+        hexo.route.remove('js/duoshuo-hook.js');
     }
     
     if(!buttons.base || !buttons.dropdown) {
