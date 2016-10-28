@@ -20,8 +20,7 @@
     <meta name="description" content="<%= config.description || '' %>">
     <meta name="author" content="<%= config.author || '' %>">
     
-    <% var feed = (config.feed.type == "rss2" ? "rss" : config.feed.type); %>
-    <link rel="alternate" type="application/<%- feed %>+xml" hrel="<%- url_for(config.feed.path) %>">
+    <link rel="alternate" type="application/<%- config.feed.type.replace(/\d+/g,'') %>+xml" hrel="<%- url_for(config.feed.path) %>">
     
     <% if(theme.favicon) { %><link rel="Shortcut Icon" href="/favicon.ico" type="image/x-icon"><% } %>
     

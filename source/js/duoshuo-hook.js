@@ -29,10 +29,8 @@
             return rs;
         };
         
-        var cmtlist = templates.commentList;
-        
         templates.commentList = function (e) {
-            cmtlist(e); // run once first, one unknown function in origin function
+            //cmtlist(e); // run once first, one unknown function in origin function
             var list = e.list;
             var html = "";
             
@@ -42,7 +40,7 @@
                     html += "<li>";
                     html += '<p><a href="'+ a.thread.url + '#comments" class="tooltipped tooltipped-n" aria-label="于 '+ a.thread.title +' 中的评论">';
                     html += (a.message.length>18 ? a.message.substring(0,18) + "..." : a.message)+"</a></p>";
-                    html += '<p class="comment-meta">'+ templates.userAnchor(a.theAuthor)+ " " + time_text(a.created_at) + "</p>";
+                    html += '<p class="comment-meta">'+ templates.userAnchor(a.theAuthor)+ " " + templates.timeText(a.created_at) + "</p>";
                     html += "</li>";
                 }
             }
@@ -50,9 +48,6 @@
             return html;
         }
     }
-    
-    // not a DUOSHUO.templates nor DUOSHUO member
-    function time_text(e) {return e?'<span class="ds-time" datetime="'+e+'" title="'+DUOSHUO.fullTime(e)+'">'+DUOSHUO.fullTime(e)+"</span>":""}
     
     function ua(e) {
         var UA = [],
