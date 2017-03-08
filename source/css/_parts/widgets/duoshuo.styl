@@ -1,38 +1,227 @@
-#comments #ds-thread {
-    padding-left: 15px;
-    #ds-reset {
-        ul.ds-comments-tabs li.ds-tab a.ds-current {
-            border: 0px;
-            color: #6D6D6B;
-            text-shadow: none;
-            background: #F3F3F3;
-            &:hover {
-                color: #696a52;
-                background: #F2F2F2;
+if(hexo-config('duoshuo.shortname')) {
+    #comments #ds-thread {
+        padding-left: 15px;
+        #ds-reset {
+            ul.ds-comments-tabs li.ds-tab a.ds-current {
+                border: 0px;
+                color: #6D6D6B;
+                text-shadow: none;
+                background: #F3F3F3;
+                &:hover {
+                    color: #696a52;
+                    background: #F2F2F2;
+                }
+            }
+            .ds-highlight {
+                font-family: Microsoft YaHei, "Helvetica Neue", Helvetica, Arial, Sans-serif;/*评论字体*/
+                font-size: 100%;
+                color: #6D6D6B !important;
+                a&:hover {color: #696a52 !important;}
+            }
+            li.ds-post, #ds-hot-posts {overflow: visible;}
+            .ds-post-self {padding: 10px 0 10px 10px;}
+            li.ds-post, .ds-post-self {border: 0 !important;}
+            .ds-replybox {box-shadow: none;}
+            ul.ds-children {
+                .ds-avatar {
+                    top: 15px;
+                    left: -20px;
+                    padding: 5px;
+                    width: 36px;
+                    height: 36px;
+                    box-shadow: -1px 0 1px rgba(0,0,0,0.15) inset;
+                    border-radius: 46px;
+                    background: #F6F8FA;/*头像旁边圆圈颜色*/
+                }
+                .ds-replybox.ds-inline-replybox a.ds-avatar {
+                    left: 0;
+                    top: 0;
+                    padding: 0;
+                    width: 32px !important;
+                    height: 32px !important;
+                    background: none;
+                    box-shadow: none;
+                }
+                .ds-comment-body {padding-left: 15px;}
+            }
+            .ds-comment-body {
+                -webkit-transition-delay: initial;
+                -webkit-transition-duration: 0.4s;
+                -webkit-transition-property: all;
+                -webkit-transition-timing-function: initial;
+            /*    background: #FFFFFF;评论背景色，我这里没有设置，如果想要要设置取消注释即可*/
+                padding: 15px 15px 15px 47px;
+                border-radius: 5px;
+                box-shadow: #B8B9B9 0 1px 3px;
+                border: white 1px solid;
+                &:hover {
+                    background-color: #F1F1F1;
+                    -webkit-transition-delay: initial;
+                    -webkit-transition-duration: 0.4s;
+                    -webkit-transition-property: all;
+                    -webkit-transition-timing-function: initial;
+                }
+                p {color: #787968;}
+            }
+            .ds-comments {
+                border-bottom: 0px;
+                a.ds-user-name {
+                    font-weight: normal;
+                    color: #3D3D3D !important;
+                }
+                a.ds-user-name:hover {color: #D32 !important;}
+            }
+            .ds-powered-by {display: none;}
+            #ds-bubble {display: none !important;}
+            #ds-hot-posts {border: 0;}
+        }
+        .ds-avatar {
+            a {
+                display: inline-block;
+                padding: 1px;
+                width: 32px;
+                height: 32px;
+                border: 1px solid #b9baa6;
+                border-radius: 50%;
+                background-color: #fff !important;
+                &:hover {}   
+            }
+            > img {margin: 2px 0 0 2px;}
+        }
+        .ua, .os {
+            margin: 0 1px!important;
+            color:#FFFFFF!important;
+            /*text-transform: Capitalize!important;
+            float: right!important;
+            */
+            border-radius: 4px;
+            padding: 2px 5px!important;
+            white-space: nowrap;
+            line-height: 2em;
+            .fa {margin-right: 4px;}
+        }
+
+        .ua {
+            &.ie {
+                background-color: #428bca!important;
+                border-color: #357ebd!important;
+            }
+            &.firefox {
+                background-color: #f0ad4e!important;
+                border-color: #eea236!important;
+            }
+            &.maxthon {
+                background-color: #7373B9!important;
+                border-color: #7373B9!important;
+            }
+            &.ucweb {
+                background-color: #FF740F!important;
+                border-color: #d43f3a!important;
+            }
+            &.sogou {
+                background-color: #78ACE9!important;
+                border-color: #4cae4c!important;
+            }
+            &.explorer2345 {
+                background-color: #2478B8!important;
+                border-color: #4cae4c!important;
+            }
+            &.chrome2345 {
+                background-color: #F9D024!important;
+                border-color: #4cae4c!important;
+            }
+            &.mi {
+                background-color: #FF4A00!important;
+                border-color: #4cae4c!important;
+            }
+            &.lbbrowser {
+                background-color: #FC9D2E!important;
+                border-color: #4cae4c!important;
+            }
+            &.chrome {
+                background-color: #EE6252!important;
+                border-color: #4cae4c!important;
+            }
+            &.qq {
+                background-color: #3D88A8!important;
+                border-color: #4cae4c!important;
+            }
+            &.safari {
+                background-color: #E95620!important;
+                border-color: #4cae4c!important;
+            }
+            &.opera {
+                background-color: #d9534f!important;
+                border-color: #d43f3a!important;
+            }
+            &.admin {
+                background-color: #00a67c!important;
+                border-color: #01B171!important;
             }
         }
-        .ds-highlight {
-            font-family: Microsoft YaHei, "Helvetica Neue", Helvetica, Arial, Sans-serif;/*评论字体*/
-            font-size: 100%;
-            color: #6D6D6B !important;
-            a&:hover {color: #696a52 !important;}
-        }
-        li.ds-post, #ds-hot-posts {overflow: visible;}
-        .ds-post-self {padding: 10px 0 10px 10px;}
-        li.ds-post, .ds-post-self {border: 0 !important;}
-        .ds-replybox {box-shadow: none;}
-        ul.ds-children {
-            .ds-avatar {
-                top: 15px;
-                left: -20px;
-                padding: 5px;
-                width: 36px;
-                height: 36px;
-                box-shadow: -1px 0 1px rgba(0,0,0,0.15) inset;
-                border-radius: 46px;
-                background: #F6F8FA;/*头像旁边圆圈颜色*/
+
+        .os {
+            &.vista, &.win2000, &.windows, &.winxp, &.win7, &.win8, &.win8_1, &.win10 {
+                background-color: #39b3d7!important;
+                border-color: #46b8da!important;
             }
-            .ds-replybox.ds-inline-replybox a.ds-avatar {
+            &.android {
+                background-color: #98C13D!important;
+                border-color: #01B171!important;
+            }
+            &.ubuntu {
+                background-color: #DD4814!important;
+                border-color: #01B171!important;
+            }
+            &.linux {
+                background-color: #3A3A3A!important;
+                border-color: #1F1F1F!important;
+            }
+            &.mac {
+                background-color: #666666!important;
+                border-color: #1F1F1F!important;
+            }
+            &.unix {
+                background-color: #006600!important;
+                border-color: #1F1F1F!important;
+            }
+            &.nokia {
+                background-color: #014485!important;
+                border-color: #1F1F1F!important;
+            }
+        }
+
+        .ua.other, .os.other{
+            background-color: #ccc!important;
+            border: 1px solid #BBB!important;
+        }
+    }
+
+
+    #comments #ds-reset {
+        .ds-avatar {
+            top: 15px;
+            left: -20px;
+            padding: 5px;
+            width: 36px;
+            height: 36px;
+            box-shadow: -1px 0 1px rgba(0,0,0,0.15) inset;
+            border-radius: 46px;
+            background: #F6F8FA;/*头像旁边圆圈颜色*/
+            img {
+                width: 32px !important;
+                height: 32px !important;
+                border-radius: 32px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+                -webkit-transition: .8s all ease-in-out;
+                -moz-transition: .4s all ease-in-out;
+                -o-transition: .4s all ease-in-out;
+                -ms-transition: .4s all ease-in-out;
+                transition: .4s all ease-in-out;
+            }
+        }
+        .ds-replybox {
+            &.ds-inline-replybox a.ds-avatar {
                 left: 0;
                 top: 0;
                 padding: 0;
@@ -40,218 +229,31 @@
                 height: 32px !important;
                 background: none;
                 box-shadow: none;
+                img {
+                    width: 32px !important;
+                    height: 32px !important;
+                    border-radius: 50%;
+                }
             }
-            .ds-comment-body {padding-left: 15px;}
-        }
-        .ds-comment-body {
-            -webkit-transition-delay: initial;
-            -webkit-transition-duration: 0.4s;
-            -webkit-transition-property: all;
-            -webkit-transition-timing-function: initial;
-        /*    background: #FFFFFF;评论背景色，我这里没有设置，如果想要要设置取消注释即可*/
-            padding: 15px 15px 15px 47px;
-            border-radius: 5px;
-            box-shadow: #B8B9B9 0 1px 3px;
-            border: white 1px solid;
-            &:hover {
-                background-color: #F1F1F1;
-                -webkit-transition-delay: initial;
-                -webkit-transition-duration: 0.4s;
-                -webkit-transition-property: all;
-                -webkit-transition-timing-function: initial;
-            }
-            p {color: #787968;}
-        }
-        .ds-comments {
-            border-bottom: 0px;
-            a.ds-user-name {
-                font-weight: normal;
-                color: #3D3D3D !important;
-            }
-            a.ds-user-name:hover {color: #D32 !important;}
-        }
-        .ds-powered-by {display: none;}
-        #ds-bubble {display: none !important;}
-        #ds-hot-posts {border: 0;}
-    }
-    .ds-avatar {
-        a {
-            display: inline-block;
-            padding: 1px;
-            width: 32px;
-            height: 32px;
-            border: 1px solid #b9baa6;
-            border-radius: 50%;
-            background-color: #fff !important;
-            &:hover {}   
-        }
-        > img {margin: 2px 0 0 2px;}
-    }
-    .ua, .os {
-        margin: 0 1px!important;
-        color:#FFFFFF!important;
-        /*text-transform: Capitalize!important;
-        float: right!important;
-        */
-        border-radius: 4px;
-        padding: 2px 5px!important;
-        white-space: nowrap;
-        line-height: 2em;
-        .fa {margin-right: 4px;}
-    }
-
-    .ua {
-        &.ie {
-            background-color: #428bca!important;
-            border-color: #357ebd!important;
-        }
-        &.firefox {
-            background-color: #f0ad4e!important;
-            border-color: #eea236!important;
-        }
-        &.maxthon {
-            background-color: #7373B9!important;
-            border-color: #7373B9!important;
-        }
-        &.ucweb {
-            background-color: #FF740F!important;
-            border-color: #d43f3a!important;
-        }
-        &.sogou {
-            background-color: #78ACE9!important;
-            border-color: #4cae4c!important;
-        }
-        &.explorer2345 {
-            background-color: #2478B8!important;
-            border-color: #4cae4c!important;
-        }
-        &.chrome2345 {
-            background-color: #F9D024!important;
-            border-color: #4cae4c!important;
-        }
-        &.mi {
-            background-color: #FF4A00!important;
-            border-color: #4cae4c!important;
-        }
-        &.lbbrowser {
-            background-color: #FC9D2E!important;
-            border-color: #4cae4c!important;
-        }
-        &.chrome {
-            background-color: #EE6252!important;
-            border-color: #4cae4c!important;
-        }
-        &.qq {
-            background-color: #3D88A8!important;
-            border-color: #4cae4c!important;
-        }
-        &.safari {
-            background-color: #E95620!important;
-            border-color: #4cae4c!important;
-        }
-        &.opera {
-            background-color: #d9534f!important;
-            border-color: #d43f3a!important;
-        }
-        &.admin {
-            background-color: #00a67c!important;
-            border-color: #01B171!important;
-        }
-    }
-
-    .os {
-        &.vista, &.win2000, &.windows, &.winxp, &.win7, &.win8, &.win8_1, &.win10 {
-            background-color: #39b3d7!important;
-            border-color: #46b8da!important;
-        }
-        &.android {
-            background-color: #98C13D!important;
-            border-color: #01B171!important;
-        }
-        &.ubuntu {
-            background-color: #DD4814!important;
-            border-color: #01B171!important;
-        }
-        &.linux {
-            background-color: #3A3A3A!important;
-            border-color: #1F1F1F!important;
-        }
-        &.mac {
-            background-color: #666666!important;
-            border-color: #1F1F1F!important;
-        }
-        &.unix {
-            background-color: #006600!important;
-            border-color: #1F1F1F!important;
-        }
-        &.nokia {
-            background-color: #014485!important;
-            border-color: #1F1F1F!important;
-        }
-    }
-
-    .ua.other, .os.other{
-        background-color: #ccc!important;
-        border: 1px solid #BBB!important;
-    }
-}
-
-
-#comments #ds-reset {
-    .ds-avatar {
-        top: 15px;
-        left: -20px;
-        padding: 5px;
-        width: 36px;
-        height: 36px;
-        box-shadow: -1px 0 1px rgba(0,0,0,0.15) inset;
-        border-radius: 46px;
-        background: #F6F8FA;/*头像旁边圆圈颜色*/
-        img {
-            width: 32px !important;
-            height: 32px !important;
-            border-radius: 32px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
-            -webkit-transition: .8s all ease-in-out;
-            -moz-transition: .4s all ease-in-out;
-            -o-transition: .4s all ease-in-out;
-            -ms-transition: .4s all ease-in-out;
-            transition: .4s all ease-in-out;
-        }
-    }
-    .ds-replybox {
-        &.ds-inline-replybox a.ds-avatar {
-            left: 0;
-            top: 0;
-            padding: 0;
-            width: 32px !important;
-            height: 32px !important;
-            background: none;
-            box-shadow: none;
-            img {
+            a.ds-avatar, .ds-avatar img {
+                padding: 0;
                 width: 32px !important;
                 height: 32px !important;
-                border-radius: 50%;
+                border-radius: 5px;
             }
         }
-        a.ds-avatar, .ds-avatar img {
-            padding: 0;
-            width: 32px !important;
-            height: 32px !important;
-            border-radius: 5px;
-        }
+        #ds-hot-posts .ds-gradient-bg {background: none;}
     }
-    #ds-hot-posts .ds-gradient-bg {background: none;}
+
+
+    #comments .ds-post-self:hover .ds-avatar img {
+        -webkit-transform: rotateX(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+
+    #comments .ds-sync {display:none !important;}
+    /*隐藏评论框底部分享*/
 }
-
-
-#comments .ds-post-self:hover .ds-avatar img {
-    -webkit-transform: rotateX(360deg);
-    -moz-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    transform: rotate(360deg);
-}
-
-#comments .ds-sync {display:none !important;}
-/*隐藏评论框底部分享*/

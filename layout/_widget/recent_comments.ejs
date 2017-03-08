@@ -1,10 +1,12 @@
-<% if(theme.duoshuo.shortname || theme.disqus_api_key) { %>
+<% if(theme.duoshuo.shortname || theme.disqus_api_key || theme.github_comment.repo) { %>
 <div class="widget widget-comments">
     <h3><%= __('recent_comments') %></h3>
     <% if(theme.duoshuo.shortname) { %>
     <ul class="list ds-recent-comments" data-num-items="5"></ul>
-    <% } else { %>
+    <% } else if(theme.disqus_api_key) { %>
     <ul class="list dq-recent-comments" data-api-key="<%- theme.disqus_api_key %>" data-forum="<%- theme.disqus_shortname %>" data-num-items="5"></ul>
+    <% } else { %>
+    <ul class="list gh-recent-comments" data-num-items="5"></ul>
     <% } %>
 </div>
 <% } %>

@@ -1,0 +1,140 @@
+if(hexo-config('github_comment.repo')) {
+    #comments {
+        .comment-container {
+            position: relative;
+            padding-left: 60px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            border-top: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+        }
+        
+        .comment-post {
+            border-color: #bfccd1;
+            position: relative;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            &:before {
+                border-width: 8px;
+                border-color: transparent #bfccd1 transparent transparent;
+            }
+            &:after {
+                margin-top: 1px;
+                margin-left: 2px;
+                border-width: 7px;
+                border-color: transparent #f7f7f7 transparent transparent;
+            }
+            &:before, &:after {
+                position: absolute;
+                top: 11px;
+                right: 100%;
+                // left: -16px;
+                display: block;
+                width: 0;
+                height: 0;
+                pointer-events: none;
+                content: " ";
+                border-style: solid solid outset;
+            }
+            .comment-header {
+                border-bottom-color: #bfccd1;
+                padding-right: 15px;
+                padding-left: 15px;
+                color: #767676;
+                background-color: #f7f7f7;
+                border-bottom: 1px solid #ddd;
+                border-top-left-radius: 3px;
+                border-top-right-radius: 3px;
+                .comment-time {
+                    max-width: 78%;
+                    padding-top: 10px;
+                    padding-bottom: 10px;
+                    .timestamp {
+                        color: inherit;
+                        white-space: nowrap;
+                    }
+                }
+            }
+            .comment-body {
+                width: 100%;
+                padding: 15px;
+                overflow: visible;
+                display: block !important;
+                .contains-task-list {
+                    padding: 0;
+                }
+                .task-list-item {
+                    padding-right: 15px;
+                    padding-left: 42px;
+                    margin-right: -15px;
+                    margin-left: -15px;
+                    border: 1px solid transparent;
+                    list-style-type: none;
+                }
+                ol, ul {
+                    padding-left: 2em;
+                    margin-top: 0;
+                    margin-bottom: 16px;
+                    &:not(.contains-task-list) li {
+                        margin-left: 0;
+                    }
+                }
+                li{
+                    &:not(.task-list-item) {
+                        margin-left: 26px;
+                    }
+                    &+li {
+                        margin-top: 0.25em;
+                    }
+                }
+            }
+            .comment-reactions {
+                border-top: 1px solid #e5e5e5;
+                &:before {
+                    display: table;
+                    content: "";
+                }
+                &:after {
+                    display: table;
+                    clear: both;
+                    content: "";
+                }
+                .comment-reaction {
+                    float: left;
+                    padding: 9px 15px 7px;
+                    line-height: 18px;
+                    background-color: #f2f8fa;
+                    border-right: 1px solid #e5e5e5;
+                    &:first-child {
+                        border-bottom-left-radius: 2px;
+                    }
+                    .comment-emoji {
+                        margin-right: 4px !important;
+                        font-size: 18px;
+                        font-weight: normal;
+                        line-height: 20px;
+                        vertical-align: middle;
+                    }
+                }
+            }
+        }
+        
+        .comment-user-avatar {
+            float: left;
+            margin-left: -60px;
+            border-radius: 3px;
+            border-style: none;
+        }
+        
+        .comment-button {
+            display: inline-block;
+            color: #4078c0;
+            display: inline-block;
+            text-decoration: none;
+            white-space: nowrap;
+            border: 0;
+            cursor: pointer;
+        }
+    }
+} 

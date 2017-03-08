@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     $(".widget.widget-links").load("/components/links.html");
     
     $(".widget.recent-posts").load("/components/recent-posts.html", function(response, status) {

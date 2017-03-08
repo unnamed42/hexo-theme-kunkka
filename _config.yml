@@ -33,6 +33,10 @@ duoshuo:
 disqus_shortname: # unnamed42-github 
 disqus_api_key: #"1PwNiUJfZNlIZGUH0d0ZfKyOBXhdTclO1F9BJqRJDjcrJ5JVGe45C7YAQO0L5lFc"
 
+github_comment:
+  owner: #unnamed42
+  repo: #"unnamed42.github.io"
+
 search: true
 
 busuanzi: true

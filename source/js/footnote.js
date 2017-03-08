@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(function(){
     if($(".footnotes").length){
         var position = function(){
             var content = $(".fn-content").removeAttr("style");

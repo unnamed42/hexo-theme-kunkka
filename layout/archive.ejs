@@ -11,7 +11,7 @@ layout: layout
        var year = 0, mon = 0, all = {};
        page.posts.forEach(function(post){
            var year_tmp = post.date.year(),
-           mon_tmp = post.date.month() + 1;
+               mon_tmp = post.date.month() + 1;
     %>
         <% if(mon != mon_tmp && mon > 0) { %>
         </div>
@@ -42,11 +42,10 @@ layout: layout
         </div>
     </div>
     <div id="archive-nav">
-        <ul class="archive-nav">
+        <ul>
     <% 
        var year_now = new Date().getFullYear(); 
-       var keys = Object.keys(all).sort(function(a,b){return b-a;});
-       keys.forEach(function(key) {
+       Object.keys(all).sort(function(a,b){return b-a;}).forEach(function(key) {
     %>
             <li class="year" id="year-<%- key %>">
                 <a href="#" class="year-toogle" id="yeto-<%- key %>"><%- key %></a>

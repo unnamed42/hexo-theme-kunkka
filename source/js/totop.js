@@ -59,7 +59,7 @@ var bigfa_scroll = {
     }
 };
 
-$(document).ready(function() {
+$(function() {
     var T = bigfa_scroll,
         totop = $("#backtoTop"),
         percent = totop.children(".percentage");

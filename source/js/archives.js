@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     if ($(window).width() > 768) {
         var top = $("#content").offset().top,
             year_selected = parseInt($(".year:first").attr("id").replace("year-", ""));
@@ -25,11 +25,16 @@ $(document).ready(function() {
             }
         });
         $(window).scroll(function() {
-            var scroll_top = $(this).scrollTop();
-            if(scroll_top >= top + 60)
-                $(".archive-nav").css({top: 60});
+//             var scroll_top = $(this).scrollTop();
+//             if(scroll_top >= top + 60)
+//                 $(".archive-nav").css({top: 60});
+//             else
+//                 $(".archive-nav").css({top: top + 60 - scroll_top});
+            var scroll_top = $(window).scrollTop();
+            if(scroll_top < 55) // 55 == header.height(55px)
+                $("#archive-nav").css({top: 115 - scroll_top});
             else
-                $(".archive-nav").css({top: top + 60 - scroll_top});
+                $("#archive-nav").css({top: 60}); // 35 == archive-nav.top(115px) - header.height(55px)
             $(".archive-title").each(function() {
                 var t = $(this),
                     id = t.attr("id"),

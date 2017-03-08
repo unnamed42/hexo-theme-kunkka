@@ -3,7 +3,7 @@
    if(page.categories.length){
        var arr = [];
        page.categories.forEach(function(category){
-           arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + escape(category.name) + "\" rel=\"category tag\">" + escape(category.name) + "</a>");
+           arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>");
        });
        categories = arr.join(',');
    } else {

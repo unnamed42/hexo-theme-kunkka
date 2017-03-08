@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
     var timer, selected = false;
     $(".dropdown").hover(function() {
         var dropdown = $(this);

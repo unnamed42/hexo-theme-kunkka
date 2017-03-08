@@ -1,6 +1,6 @@
 <% 
    var year = '';
-   if(theme.since){
+   if(theme.since) {
        year = theme.since + '-';
    }
    year += new Date().getFullYear() + ' ' + config.title + '.';
@@ -17,9 +17,9 @@
                 <% }); %>
                 </a>
             </span>
-            <%= year %>
+            &nbsp;<%= year %>
         <% } else { %>
-            &copy; <%- year %> All Rights Reserved. 
+            &copy;&nbsp;<%- year %> All Rights Reserved. 
         <% } %></p>
         <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
         <%- partial('_partial/sns') %>

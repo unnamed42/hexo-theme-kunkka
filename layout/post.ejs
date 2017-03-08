@@ -1,9 +1,10 @@
 ---
 layout: base
 ---
+<% var toc_str = page.toc ? toc_fix(page.content, {list_number: false}) : ""; %>
 <div id="content">
     <div class="container clearfix">
-        <div id="primary" class="<% if(page.toc) { %>has-toc<% } else { %>no-toc<% } %>">
+        <div id="primary" class="<% if(toc_str) { %>has-toc<% } else { %>no-toc<% } %>">
             <div class="breadcrumb-navigation">
                 <a rel="bookmark" href="<%- config.root %>"><%= __('home') %></a>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
@@ -62,9 +63,9 @@ layout: base
             <%- partial('_partial/comments') %>
         </div>
         <!-- #primary -->
-        <% if(page.toc) { %>
+        <% if(toc_str) { %>
         <div id="toc">
-            <%- toc_fix(page.content,{list_number: false}) %>
+            <%- toc_str %>
         </div>
         <script src="/js/toc.js" type="text/javascript" async></script>
         <% } %>
