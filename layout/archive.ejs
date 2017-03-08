@@ -7,55 +7,53 @@ layout: layout
 <div id="primary">
     <div class="post-content">
         <div id="archives">
-    <% 
-       var year = 0, mon = 0, all = {};
-       page.posts.forEach(function(post){
-           var year_tmp = post.date.year(),
-               mon_tmp = post.date.month() + 1;
-    %>
-        <% if(mon != mon_tmp && mon > 0) { %>
-        </div>
-    </div>
-        <% } %>
-        <% 
-           if(year != year_tmp) {
-               year = year_tmp;
-               all[year] = [];
-           }
-           if(mon != mon_tmp) { 
-               mon = mon_tmp;
-               all[year].push(mon);
-        %>
-            <div class="archive-title" id="arti-<%- year %>-<%- mon %>">
-                <h3 class="archive-time"><%- year %>-<%- mon %></h3>
-                <div class="archives archives-<%- mon %>" data-date="<%- year %>-<%- mon %>"> <% //输出月份 %>
-        <% } %>
+        <% var year = 0, month = 0, nav = ""; %>
+        <% page.posts.sort("date", "desc").forEach(function(post) { %>
+            <% var pyear = post.date.year(), pmonth = post.date.month() + 1; %>
+            <% if(month != pmonth || year != pyear) { %>
+                <% if(year) { %>
+                </div><!-- enclosing tag for div.archive-title -->
+            </div><!-- enclosing tag for div.archives -->
+                <% } %>
+                <% 
+                    if(year != pyear) {
+                        if(year) {
+                            nav += '</ul>'; // enclosing tag for ul.months
+                            nav += '</li>'; // enclosing tag for li.year
+                        }
+                        nav += '<li class="year" id="year-' + pyear + '">';
+                        nav += '<a href="#archive-' + pyear + '-' + pmonth + '" class="year-anchor">' + pyear + '</a>';
+                        nav += '<ul class="months">';
+                    }
+                    if(month != pmonth) {
+                        nav += '<li class="month" id="month-' + pyear + '-' + pmonth + '">';
+                        nav += '<a href="#archive-' + pyear + '-' + pmonth + '" class="month-anchor">' + pmonth + '</a>';
+                        nav += '</li>';
+                    }
+                %>
+                <% year = pyear, month = pmonth; %>
+            <div class="archive-title" id="archive-<%- year %>-<%- month %>">
+                <h3 class="archive-time"><%- year %>-<%- month %></h3>
+                <div class="archives">
+            <% } %>
                     <div class="brick">
-                        <a href="<%- url_for(post.path) %>">
-                            <span class="time"><%- post.date.month() + 1 %>-<%- post.date.date() %></span>
-                            <%= post.title %>
-                        </a>
-                    </div> <% //输出文章日期和标题 %>
-    <% }); %>
-                </div>
-            </div>
+                        <span class="time"><%- month %>-<%- post.date.date() %></span>
+                        <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                    </div>
+        <% }); %>
+        <% if(year) { %>
+                </div><!-- enclosing tag for the last div.archive-title -->
+            </div><!-- enclosing tag for the last div.archives -->
+        <% } %>
         </div>
     </div>
-    <div id="archive-nav">
-        <ul>
-    <% 
-       var year_now = new Date().getFullYear(); 
-       Object.keys(all).sort(function(a,b){return b-a;}).forEach(function(key) {
-    %>
-            <li class="year" id="year-<%- key %>">
-                <a href="#" class="year-toogle" id="yeto-<%- key %>"><%- key %></a>
-                <ul class="monthall">
-        <% all[key].sort(function(a,b){return b-a;}).forEach(function(month) { %>
-                    <li class="month monthed" id="mont-<%- key %>-<%- month %>"><%- month %></li>
-        <% }); %>
-                </ul>
-            </li>
-    <% }); %>
-        </ul>
-    </div>
+    <% if(nav) { %>
+    <ul id="archive-nav">
+        <%- nav %>
+        <% if(year) { %>
+            </ul><!-- enclosing tag for ul.months -->
+        </li><!-- enclosing tag for li.year -->
+        <% } %>
+    </ul>
+    <% } %>
 </div>

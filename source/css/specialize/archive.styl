@@ -1,5 +1,3 @@
-ol, li, ul {list-style: none;}
-
 .post-content {
     float: right;
     width: 90%; // origin: 550px
@@ -17,70 +15,70 @@ ol, li, ul {list-style: none;}
 
 #archives h3 {padding-bottom: 10px;}
 
-.archives a {
+.brick {
+    margin-bottom: 10px;
     position: relative;
     display: block;
     padding: 10px;
     background-color: #f9f9f9;
-    color: #333;
     font-style: normal;
     line-height: 18px;
-    &:hover {background: #eee;}
-
+    .time {
+        color: #888;
+        padding-right: 10px;
+    }
+    a {
+        color: #333;
+        &:hover {text-decoration: underline;}
+    }
+    em {
+        color: #aaa;
+        padding-left: 10px;
+    }
 }
 
 #archive-nav {
     float: left;
+    left: 7%;
     width: 45px;
     display: block;
     position: fixed;
     background: #f9f9f9;
-    //width: 40px;
     text-align: center;
     top: 115px; // 60px + #header.height
-    //margin-top: 90px;
+    list-style: none;
+    ol, li, ul {list-style: none;}
+    a:hover {text-decoration: none;}
 }
 
 .archive-title {
     padding-bottom: 10px; // original: 40px;
 }
 
-.time {
-    color: #888;
-    padding-right: 10px;
-}
+.months {display: none;}
 
 .year {
     border-top: 1px solid #ddd;
-    &.selected .monthall {display: block;}
+    &.selected .months {display: block;}
 }
 
 .month {
-    color: #ccc;
     padding: 5px;
-    cursor: pointer;
-    background: #f9f9f9;
-    &.monthed {color: #777;}
+    background-color: #f9f9f9;
     &.selected, &:hover {background: #f2f2f2;}
 }
 
-.monthall {display: none;}
-
-.year-toogle {
+.year-anchor {
     display: block;
     padding: 5px;
     text-decoration: none;
-    background: #eee;
+    background-color: #eee;
     color: #333;
     font-weight: bold;
 }
 
-.brick {
-    margin-bottom: 10px;
-    em {
-        color: #aaa;
-        padding-left: 10px;
-    }
+.month-anchor {
+    color: #777;
 }
 
 @media screen and (max-width: 769px) {
