@@ -1,33 +1,31 @@
 .pager {
     padding: 0 !important;
-    padding-left: 0;
     margin: 20px 0;
     text-align: center;
     list-style: none;
-    &:before, &:after {
+    clear: both;
+/*    &:before, &:after {
         display: table;
         content: " ";
         box-sizing: border-box;
-    }
-    .previous {
+    }*/
+/*    .previous {
         > a, > span {float: left;}
     }
     .next {
         > a, > span {float: right;}
-    }
-    li {
+    }*/
+    .previous {float: left;}
+    .next {float: right;}
+    .previous, .next {
         display: inline;
-        > a, > span {
-            line-height: 1.7;
+        a {
             text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.7em;
             font-size: 13px;
             font-weight: 800;
-            letter-spacing: 1px;
             padding: 10px;
-            background-color: white;
-            border-radius: 0;
-        }
-        > a {
             color: #fff;
             border: 2px solid #404040;
             border-radius: 3px;

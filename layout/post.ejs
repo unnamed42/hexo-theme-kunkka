@@ -58,11 +58,10 @@ layout: base
                     <%= __('no_tags') %>
                 <% } %>
                 </div>
-                <%- partial('_partial/pager') %>
             </div>
-            <%- partial('_partial/comments') %>
-        </div>
-        <!-- #primary -->
+        </div><!-- div#primary -->
+        <%- partial('_partial/pager') %>
+        <%- partial('_partial/comments') %>
         <% if(toc_str) { %>
         <div id="toc">
             <%- toc_str %>
