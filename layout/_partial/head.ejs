@@ -28,7 +28,7 @@
     <link href="/css/responsive.css" rel="stylesheet" type="text/css" media="screen and (max-width: 768px)">
     <link href="https://cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <% if(theme.creative_commons) { %><link href="https://cdn.bootcss.com/cc-icons/1.2.1/css/cc-icons.min.css" rel="stylesheet" type="text/css"><% } %>
-    <script src="https://cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
     <script src="/js/dropdown.js" type="text/javascript" async></script>
     <script src="<%- url_for('/js/sidebar.js') %>" type="text/javascript" async></script>
@@ -39,24 +39,25 @@
     <script src="/js/totop.js" type="text/javascript" async></script>
 
     <% if(theme.mathjax) { %>
-    <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
     <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-                processEscapes: true,
-                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-            }
-        });
+    MathJax.Hub.Config({
+        showProcessingMessages: false,
+        jax: ["input/TeX","output/HTML-CSS", "output/PreviewHTML"], 
+        extensions: ["tex2jax.js","MathMenu.js","MathZoom.js", "fast-preview.js", "AssistiveMML.js", "[Contrib]/a11y/accessibility-menu.js"],
+        TeX: {
+            extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+        }, 
+        tex2jax: {
+            inlineMath: [['$','$']],
+            displayMath: [['$$','$$']], 
+            processEscapes: true,
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        },
+        "HTML-CSS": {linebreaks: {automatic: true}},
+        SVG: {linebreaks: {automatic: true}}
+    });
     </script>
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Queue(function() {
-            var all = MathJax.Hub.getAllJax(), i;
-            for (i=0; i < all.length; i += 1) {
-                all[i].SourceElement().parentNode.className += ' has-jax';
-            }
-        });
-    </script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" async></script>
     <% } %>
 
     <% if(theme.duoshuo.shortname) { %>
@@ -73,9 +74,9 @@
             || document.getElementsByTagName('body')[0]).appendChild(ds);
         })();
     </script>
-    <%     if(theme.duoshuo.ua) { %>
+    <% if(theme.duoshuo.ua) { %>
     <script src="/js/duoshuo-hook.js" async></script>
-    <%     } %>
+    <% } %>
     <% } %>
 
     <% if(theme.disqus_shortname) { %>
