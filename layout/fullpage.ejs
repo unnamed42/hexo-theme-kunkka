@@ -6,24 +6,16 @@ layout: base
     <div class="container clearfix">
         <!-- Main Content -->
         <div id="primary" class="full-page">
-            <% if(theme.notice.enabled) { %>
-            <div id="notice">
-                <% theme.notice.content.forEach(function(string) { %>
-                <%- markdown(string) %>
-                <% }); %>
-            </div>
-            <% } %>
+            <%- partial('_widget/notice') %>
             <% page.posts.forEach(function(post){ %>
-            <div>
-                <div class="post-header">
-                    <h2 class="post-title">
-                        <a href="<%- url_for(post.path) %>" title="<%= post.title %>"><%= post.title %></a>
-                    </h2>
-                </div>
-                <div class="post-body clearfix">
-                    <div class="post-content">
-                        <%- post.content %>
-                    </div>
+            <div class="post-header">
+                <h2 class="post-title">
+                    <a href="<%- url_for(post.path) %>" title="<%= post.title %>"><%= post.title %></a>
+                </h2>
+            </div>
+            <div class="post-body clearfix">
+                <div class="post-content">
+                    <%- post.content %>
                 </div>
             </div>
             <% }); %>
