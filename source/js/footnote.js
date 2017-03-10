@@ -2,7 +2,7 @@ $(function(){
     if(!$(".footnotes").length) 
         return;
     
-    var position = function() {
+    function position() {
         var content = $(".fn-content").removeAttr("style");
         if($(window).width() < 640)
             content.css("width",$(window).width()/2);
@@ -26,9 +26,9 @@ $(function(){
     position();
     $(window).resize(position);
     
+    var target = $(".fn-content");
     $(document).click(function(t) {
-        var target = $(".fn-content"),
-            clicked = $(t.target);
+        var clicked = $(t.target);
         if(target.is(clicked) || target.has(clicked).length)
             t.stopPropagation();
         else {

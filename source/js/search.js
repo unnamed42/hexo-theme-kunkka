@@ -33,10 +33,9 @@ function searchFunc(path, search_str, content_id) {
                 container = $('#' + content_id);
             if(search_str.trim().length == 0) 
                 return;
-            
+
             var html = '<div class="search-result-list">',
                 keywords = search_str.trim().toLowerCase().split(/[\s\-]+/);
-            container.html('');
             query.forEach(function(data) {
                 var isMatch = true;
                 var data_title = data.title.trim().toLowerCase();
@@ -45,19 +44,17 @@ function searchFunc(path, search_str, content_id) {
                 var index_content = -1;
                 var first_occur = -1;
                 // only match articles with non-empty titles and contents
-                if(data_title != '' && data_content != '') {
+                if(data_title && data_content) {
                     keywords.forEach(function(keyword, i) {
                         index_title = data_title.indexOf(keyword);
                         index_content = data_content.indexOf(keyword);
-                        if( index_title < 0 && index_content < 0 ){
+                        if( index_title < 0 && index_content < 0 )
                             isMatch = false;
-                        } else {
-                            if (index_content < 0) {
+                        else {
+                            if (index_content < 0) 
                                 index_content = 0;
-                            }
-                            if (i == 0) {
+                            if (!i) 
                                 first_occur = index_content;
-                            }
                         }
                     });
                 }
@@ -70,17 +67,15 @@ function searchFunc(path, search_str, content_id) {
                         // cut out 100 characters
                         var start = first_occur - 20;
                         var end = first_occur + 80;
-                        if(start < 0){
+                        if(start < 0)
                             start = 0;
-                        } else if(start == 0){
+                        else if(!start)
                             end = 100;
-                        }
-                        if(end > content.length){
+                        if(end > content.length)
                             end = content.length;
-                        }
                         var match_content = content.substring(start, end); 
                         // highlight all keywords
-                        keywords.forEach(function(keyword){
+                        keywords.forEach(function(keyword) {
                             match_content = match_content.replace(new RegExp(keyword, "gi"), '<span class="search-keyword">' + keyword + '</span>');
                         });
                         html += '<div class="post-body">' + (0 == start ? "" : "...") + match_content + (end == content.length ? "" : "...") + '</div>';
@@ -92,6 +87,5 @@ function searchFunc(path, search_str, content_id) {
             html += "</div>"; // div.search-result-list
             container.html(html);
         }
-        
-    })
+    });
 }

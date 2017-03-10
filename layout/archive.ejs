@@ -21,17 +21,18 @@ layout: layout
                             nav += '</ul>'; // enclosing tag for ul.months
                             nav += '</li>'; // enclosing tag for li.year
                         }
-                        nav += '<li class="year" id="year-' + pyear + '">';
+                        nav += '<li class="year" id="anchor-' + pyear + '">';
                         nav += '<a href="#archive-' + pyear + '-' + pmonth + '" class="year-anchor">' + pyear + '</a>';
                         nav += '<ul class="months">';
+                        year = pyear;
                     }
                     if(month != pmonth) {
-                        nav += '<li class="month" id="month-' + pyear + '-' + pmonth + '">';
+                        nav += '<li class="month" id="anchor-' + pyear + '-' + pmonth + '">';
                         nav += '<a href="#archive-' + pyear + '-' + pmonth + '" class="month-anchor">' + pmonth + '</a>';
                         nav += '</li>';
+                        month = pmonth;
                     }
                 %>
-                <% year = pyear, month = pmonth; %>
             <div class="archive-title" id="archive-<%- year %>-<%- month %>">
                 <h3 class="archive-time"><%- year %>-<%- month %></h3>
                 <div class="archives">

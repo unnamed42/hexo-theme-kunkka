@@ -3,12 +3,13 @@ $(function() {
         return;
     
     var top = $("#content").offset().top,
-        nav = $("#archive-nav");
+        nav = $("#archive-nav"),
         page_height = $("#primary").position().top + $("#primary").outerHeight(),
         nav_max = page_height - nav.height();
-    var year_selected = $(".year:first"),
-        month_selected = year_selected.find(".month:first");
-    year_selected.addClass("selected"); month_selected.addClass("selected");
+    var year_active = $(".year:first"),
+        month_active = year_active.find(".month:first"),
+        headers = $(".archive-title");
+    year_active.addClass("active"); month_active.addClass("active");
     $(window).scroll(function() {
         var scroll_top = $(window).scrollTop();
         if(scroll_top < 55) // 55 == header.height(55px)
@@ -17,22 +18,23 @@ $(function() {
             nav.css({top: 60}); // 60 == archive-nav.top(115px) - header.height(55px)
         else
             nav.css({top: nav_max - scroll_top});
-        $(".archive-title").each(function() {
+        headers.each(function() {
             var t = $(this),
                 offset = t.offset().top - 40,
                 bottom = offset + t.height();
             if(offset <= scroll_top && scroll_top < bottom) {
                 var id = t.attr("id"),
                     year = id.replace(/archive-(\d+)-\d+/, "$1"),
-                    selected_year = year_selected.attr("id").substr(5); // remove "year-" from id
-                if(year !== selected_year) {
-                    year_selected.removeClass("selected");
-                    year_selected = $("#year-" + year);
-                    year_selected.addClass("selected");
+                    active_year = year_active.attr("id").substr(7); // remove "anchor-" from id
+                if(year !== active_year) {
+                    year_active.removeClass("active");
+                    year_active = $("#anchor-" + year);
+                    year_active.addClass("active");
                 }
-                month_selected.removeClass("selected");
-                month_selected = $("#" + id.replace("archive", "month"));
-                month_selected.addClass("selected");
+                month_active.removeClass("active");
+                month_active = $("#" + id.replace("archive", "anchor"));
+                month_active.addClass("active");
+                return false; // terminate loop
             }
         });
     });
