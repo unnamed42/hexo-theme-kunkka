@@ -3,16 +3,14 @@ $(function() {
         canvas = $("#totop-canvas"),
         percent = $("#totop-percent"),
         width = canvas.width(),
-        heigth = canvas.height(),
+        height = canvas.height(),
+        center = width / 2,
         radius = parseInt((width - 3) / 2),
         ctx = canvas[0].getContext("2d"),
         doc_height = $(document).height() - $(window).height();
-    
-    ctx.translate(width / 2, width / 2); // change center
-    ctx.rotate(-1 / 2 * Math.PI); // rotate -90 deg
     function draw_circle(color, percent) {
         ctx.beginPath();
-        ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+        ctx.arc(center, center, radius, - Math.PI / 2, Math.PI * 1.5 * percent, false);
         ctx.strokeStyle = color;
         ctx.lineCap = 'round'; // butt, round or square
         ctx.lineWidth = 3;
@@ -34,6 +32,7 @@ $(function() {
             per = parseInt($(window).scrollTop() / doc_height * 100);
         if (per >= 10) {
             totop.addClass("display");
+            ctx.clearRect(0, 0, width, height);
             draw_circle('#efefef', 1);
             draw_circle('#555555', per/100);
         } else
