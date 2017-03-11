@@ -1,75 +1,48 @@
-var bigfa_scroll = {
-    drawCircle: function(id, percentage, color) {
-        var width = $(id).width();
-        var height = $(id).height();
-        var radius = parseInt(width / 2.20);
-        var position = width;
-        var positionBy2 = position / 2;
-        var bg = $(id)[0];
-        id = id.split("#");
-        var ctx = bg.getContext("2d");
-        var imd = null;
-        var circ = Math.PI * 2;
-        var quart = Math.PI / 2;
-        ctx.clearRect(0, 0, width, height);
-        ctx.beginPath();
-        ctx.strokeStyle = color;
-        ctx.lineCap = "square";
-        ctx.closePath();
-        ctx.fill();
-        ctx.lineWidth = 3;
-        imd = ctx.getImageData(0, 0, position, position);
-        var draw = function(current, ctxPass) {
-            ctxPass.putImageData(imd, 0, 0);
-            ctxPass.beginPath();
-            ctxPass.arc(positionBy2, positionBy2, radius, -(quart), ((circ) * current) - quart, false);
-            ctxPass.stroke();
-        }
-        draw(percentage / 100, ctx);
-    },
-    backToTop: function($this) {
-        $this.click(function() {
-            $("body,html").animate({
-                scrollTop: 0
-            },
-            800);
-            return false;
-        });
-    },
-    scrollHook: function($this, color) {
-        color = color ? color: "#000000";
-        $this.scroll(function() {
-            var docHeight = ($(document).height() - $(window).height()),
-            $windowObj = $this,
-            $per = $(".percentage"),
-            percentage = 0;
-            defaultScroll = $windowObj.scrollTop();
-            percentage = parseInt((defaultScroll / docHeight) * 100);
-            var backToTop = $("#backtoTop");
-            if (backToTop.length > 0) {
-                if ($windowObj.scrollTop() > 200) {
-                    backToTop.addClass("display");
-                } else {
-                    backToTop.removeClass("display");
-                }
-                $per.attr("data-percent", percentage);
-                bigfa_scroll.drawCircle("#backtoTopCanvas", percentage, color);
-            }
-        });
-    }
-};
-
 $(function() {
-    var T = bigfa_scroll,
-        totop = $("#backtoTop"),
-        percent = totop.children(".percentage");
-    T.backToTop(totop);
-    T.scrollHook($(window), "#99ccff");
-    percent.hover(function(){
-        percent.addClass("fa-long-arrow-up");
-        percent.css({"font-family":"FontAwesome"});
-    },function(){
-        percent.removeClass("fa-long-arrow-up");
-        percent.removeAttr("style");
+    var totop = $("#totop"),
+        canvas = $("#totop-canvas"),
+        percent = $("#totop-percent"),
+        width = canvas.width(),
+        heigth = canvas.height(),
+        radius = parseInt((width - 3) / 2),
+        ctx = canvas[0].getContext("2d"),
+        doc_height = $(document).height() - $(window).height();
+    
+    ctx.translate(width / 2, width / 2); // change center
+    ctx.rotate(-1 / 2 * Math.PI); // rotate -90 deg
+    function draw_circle(color, percent) {
+        ctx.beginPath();
+        ctx.arc(0, 0, radius, 0, Math.PI * 2 * percent, false);
+        ctx.strokeStyle = color;
+        ctx.lineCap = 'round'; // butt, round or square
+        ctx.lineWidth = 3;
+        ctx.stroke();
+    }
+    
+    totop.click(function() {
+        $("body, html").animate({
+            scrollTop: 0
+        }, 800);
+    });
+    
+    $(window).resize(function() {
+        doc_height = $(document).height() - $(window).height();
+    });
+    
+    $(window).scroll(function() {
+        var scroll_top = $(window).scrollTop(),
+            per = parseInt($(window).scrollTop() / doc_height * 100);
+        if (per >= 10) {
+            totop.addClass("display");
+            draw_circle('#efefef', 1);
+            draw_circle('#555555', per/100);
+        } else
+            totop.removeClass("display");
+        percent.attr("data-percent", per);
     });
 });
+
+
+
+
+

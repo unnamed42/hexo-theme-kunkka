@@ -1,4 +1,4 @@
-#backtoTop {
+#totop {
     background-color: #eee;
     border-radius: 100%;
     bottom: 5%;
@@ -13,7 +13,7 @@
     &.display {right: 10px;}
 }
 
-.percentage {
+#totop-percent {
     font-size: 16px;
     height: 48px;
     line-height: 48px;
@@ -24,7 +24,7 @@
     color: #555;
     cursor: pointer;
     &:before {content:attr(data-percent);}
-/*    &:hover:before {
+    &:hover:before {
         display: inline-block;
         font: normal normal normal 14px/1 FontAwesome;
         font-size: inherit;
@@ -32,5 +32,5 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         content: "\f176";
-    }*/
+    }
 }

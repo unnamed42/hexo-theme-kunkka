@@ -6,11 +6,7 @@
         display: none;
         max-width: 280px;
         padding: 5px 10px;
-        font-style: normal;
-        font-variant: normal;
-        font-size: 11px;
-        font-family: $TooltipFont;
-        line-height: 1.5em;
+        font: normal normal 13px/1.5 $TooltipFont;
         color: #fff;
         text-align: center;
         text-decoration: none;
@@ -23,7 +19,7 @@
         content: attr(aria-label);
         background: rgba(0, 0, 0, 0.8);
         border-radius: 3px;
-        -webkit-font-smoothing: subpixel-antialiased;
+        opacity: 0;
     }
     &:before {
         position: absolute;
@@ -35,11 +31,13 @@
         pointer-events: none;
         content: "";
         border: 5px solid transparent;
+        opacity: 0;
     }
     &:hover, &:active, &:focus {
         &:before, &:after {
             display: inline-block;
             text-decoration: none;
+            opacity: 1;
         }
     }
 }
