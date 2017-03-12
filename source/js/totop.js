@@ -6,8 +6,7 @@ $(function() {
         height = canvas.height(),
         center = width / 2,
         radius = parseInt((width - 3) / 2),
-        ctx = canvas[0].getContext("2d"),
-        doc_height = $(document).height() - $(window).height();
+        ctx = canvas[0].getContext("2d");
     function draw_circle(color, percent) {
         ctx.beginPath();
         ctx.arc(center, center, radius, - Math.PI / 2, Math.PI * 1.5 * percent, false);
@@ -23,14 +22,10 @@ $(function() {
         }, 800);
     });
     
-    $(window).resize(function() {
-        doc_height = $(document).height() - $(window).height();
-    });
-    
     $(window).scroll(function() {
-        var scroll_top = $(window).scrollTop(),
+        var doc_height = $(document).height() - $(window).height(),
             per = parseInt($(window).scrollTop() / doc_height * 100);
-        if (per >= 10) {
+        if (per >= 8) {
             totop.addClass("display");
             ctx.clearRect(0, 0, width, height);
             draw_circle('#efefef', 1);
@@ -40,8 +35,3 @@ $(function() {
         percent.attr("data-percent", per);
     });
 });
-
-
-
-
-

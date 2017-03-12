@@ -1,6 +1,6 @@
 <div id="header">
     <div class="container clearfix">
-        <div class="logo" <%- !(theme.logo)?'style=\"width: auto;\"':'' %>>
+        <div class="logo" <%- !(theme.logo) ? 'style="width: auto;"' : '' %>>
             <a href="<%- config.root %>" title="<%= config.title %>" rel="home" style="text-decoration: none;">
                 <% if(theme.logo) { %>
                 <img src="<%- theme.logo %>" alt="<%= config.title %>" width="102" height="30"/>
@@ -9,7 +9,7 @@
                     <% if(config.title) { %>
                     <%= config.title %>
                     <% } else { %>
-                    <%= trim(config.author) %>'s Blog
+                    <%= trim(config.author) %>&#39;s Blog
                     <% } %>
                 <% } %>
                 </span>
@@ -17,7 +17,7 @@
         </div>
         <div class="global-nav">
             <ul class="gnul">
-                <li class="gnli <% if(is_home()) { %> current<% } %>">
+                <li class="gnli <% if(is_home()) { %>current<% } %>">
                     <a class="gna" href="<%- config.root %>" title="<%= config.title %>">
                         <span class="fa fa-home"></span><span><%= __('home') %></span>
                     </a>
@@ -27,8 +27,6 @@
                     <a class="gna dropdown-link fa fa-bars" href="javascript:;">
                         <span><%= __('navigation') %></span>
                     </a>
-                    <div class="dropdown-arrow1"></div>
-                    <div class="dropdown-arrow2"></div>
                     <div class="submenu">
                         <div class="tab-content">
                             <table>
@@ -37,15 +35,13 @@
                                     <tr class="trline">
                                         <td class="tdleft"><%= __('categories') %></td>
                                         <td class="tdright">
-                                            <div class="tab-categories">
-                                                <ul>
-                                                <% site.categories.sort('name').each(function(item){ %>
-                                                    <li class="cat-item">
-                                                        <a href="<%- url_for(item.path) %>"><%= item.name %></a>
-                                                    </li>
-                                                <% }); %>
-                                                </ul>
-                                            </div>
+                                            <ul class="tab-categories">
+                                            <% site.categories.sort('name').each(function(item){ %>
+                                                <li class="cat-item">
+                                                    <a href="<%- url_for(item.path) %>"><%= item.name %></a>
+                                                </li>
+                                            <% }); %>
+                                            </ul>
                                         </td>
                                     </tr>
                                     <% } %>
@@ -54,9 +50,9 @@
                                         <td class="tdright">
                                             <div class="tab-tags">
                                                 <%- tagcloud({
-                                                    unit: 'px',
-                                                    min_font: 12,
+                                                    unit: "px",
                                                     max_font: 12,
+                                                    min_font: 12,
                                                     amount: theme.tag_number,
                                                     orderby: 'count',
                                                     order: 'desc'
