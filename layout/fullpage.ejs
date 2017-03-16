@@ -9,9 +9,9 @@ layout: base
             <%- partial('_widget/notice') %>
             <% page.posts.forEach(function(post){ %>
             <div class="post-header">
-                <h2 class="post-title">
+                <h1 class="post-title">
                     <a href="<%- url_for(post.path) %>" title="<%= post.title %>"><%= post.title %></a>
-                </h2>
+                </h1>
             </div>
             <div class="post-body clearfix">
                 <div class="post-content">

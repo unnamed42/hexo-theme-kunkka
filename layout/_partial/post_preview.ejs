@@ -3,12 +3,12 @@
    if(!theme.full_content && post.thumbnail) {post_class += ' post-has-thumbnail';}
    if(theme.full_content) {post_class += 'full-content';}
 %>
-<div class="<%- post_class %>">
+<div class="<%- trim(post_class) %>">
     <div class="post-header">
-        <h2 class="post-title">
+        <h1 class="post-title">
             <% if(post.link) { %><a href="<%- post.link %>" title="<%= post.link %>"><%= post.link %></a>
             <% } else { %><a href="<%- url_for(post.path) %>" title="<%= post.title || __('untitled') %>"><%= post.title || __('untitled') %></a><% } %>
-        </h2>
+        </h1>
     </div>
     <div class="post-meta">
         <ul class="inline-ul">
