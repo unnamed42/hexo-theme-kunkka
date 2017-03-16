@@ -20,11 +20,11 @@
             <% var url = sns_settings[item].url, icon = sns_settings[item].icon; %>
     <span class="sns-icon fa-stack">
         <a target="_blank" href="<%- printf(url,username) %>">
-            <i class="fa fa-square fa-stack-2x"></i>
+            <span class="fa fa-square fa-stack-2x"></span>
             <% if(icon.match(/fa-\w+/g)) { %>
-            <i class="fa <%- icon %> fa-stack-1x fa-inverse"></i>
+            <span class="fa <%- icon %> fa-stack-1x fa-inverse"></span>
             <% } else { %>
-            <i class="fa fa-stack-1x fa-inverse"><%= icon %></i>
+            <span class="fa fa-stack-1x fa-inverse"><%= icon %></span>
             <% } %>
         </a>
     </span>

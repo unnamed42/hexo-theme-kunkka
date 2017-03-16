@@ -23,14 +23,4 @@ hexo.extend.filter.register('after_generate',function(){
     if(!buttons.base || !buttons.dropdown) {
         hexo.route.remove('js/buttons.js');
     }
-}); 
-
-hexo.extend.filter.register('after_render:html',function(str,data){
-    
-    var html = "<script src=\"/js/footnote.js\" type=\"text/javascript\" async></script>";
-    
-    if(str.indexOf("footnote-ref") != -1)
-        str = str.replace(/<\s*\/\s*head\s*>/i, html + "</head>");
-    
-    return str;
 });

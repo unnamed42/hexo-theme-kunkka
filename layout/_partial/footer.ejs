@@ -11,9 +11,9 @@
         <p><% if(theme.creative_commons) { %>
             <span class="cc-license">
                 <a href="https://creativecommons.org/licenses/<%- theme.creative_commons %>/4.0" target="_blank" title="Creative Commons license <%- theme.creative_commons %>">
-                <i class="cc cc-cc"></i>
+                <span class="cc cc-cc"></span>
                 <% theme.creative_commons.split('-').forEach(function(icon){ %>
-                    <i class="cc cc-<%- icon %>"></i>
+                    <span class="cc cc-<%- icon %>"></span>
                 <% }); %>
                 </a>
             </span>
