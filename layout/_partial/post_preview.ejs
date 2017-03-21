@@ -32,9 +32,7 @@
         <% if (post.thumbnail) { %>
         <div class="post-thumbnail">
             <a href="<%- url_for(post.path) %>" rel="bookmark">
-                <img class="lazy"
-                     src="<%- theme.cdn || '' %><%- theme.placeholder %>"
-                     data-original="<%- theme.cdn || '' %><%- post.thumbnail %>"
+                <img src="<%- post.thumbnail %>"
                      alt="<%= post.title %>" width="130" height="130"/>
             </a>
         </div>

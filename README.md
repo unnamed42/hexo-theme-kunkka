@@ -75,9 +75,6 @@ full_content: false
 # Provided colors: red, green, blue, purple
 color_theme: blue
 
-cdn: 
-placeholder: 
-
 mathjax: true
 
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
@@ -132,8 +129,6 @@ links:
 + **tag_number** - Set the maximum number of tags displayed in navigation area.
 + **full_content** - Display the whole post content in preview page when set to `true`.
 + **color_theme** - Determines the color of nearly all anchors. If empty, will use a default color instead.
-+ **cdn** - cdn of your own. It's a global setting.
-+ **placeholder** - The default thumbnail image of a post, set to empty if you don't want this.
 + **mathjax** - Enables [MathJax](https://www.mathjax.org/) support.
 + **creative_commons** - The Creative Commons icon. When disabled, the footer license will be copyright. 
 + **toc** - **collapse** - Set to false if you don't want to hide toc of contents not displayed currently.
@@ -142,6 +137,22 @@ links:
 + **links** - Links to your friends.
 
 ## Features
+
+#### Post thumbnail
+
+To add a thumbnail picture to your post in index page, simply add an entry named `thumbnail` in the corresponding post's front-matter. For example:
+
+```yaml
+thumbnail: "http://domaingang.com/wp-content/uploads/2012/02/example.png"
+```
+
+Or refer to an image inside your own server:
+
+```yaml
+thumbnail: "/img/example.png"
+```
+
+The thumbnail picture will *NOT* be displayed in your post page.
 
 #### SNS Label
 

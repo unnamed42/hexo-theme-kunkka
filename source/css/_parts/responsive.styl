@@ -88,17 +88,18 @@
         height: auto;
     }
 
-    .post-has-thumbnail {
-        .post-body {
-            padding-left: 105px;
-            height: 85px;
-        }
-        &, & a, & img, & a:after {
+    .post-has-thumbnail .post-body {
+        padding-left: 105px;
+        height: 85px;
+    }
+    
+    .post-thumbnail {
+        &, & a, & a:after, & img {
             width: 85px;
             height: 85px;
         }
     }
-
+    
     .pager li {
         > a, > span {font-size: 14px;}
     }

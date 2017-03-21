@@ -44,11 +44,8 @@ busuanzi: true
 tag_number: 25
 full_content: false
 
-# Provided colors: red, green, blue, purple
+# Available: red, green, blue, purple
 color_theme: blue
-
-cdn: 
-placeholder: 
 
 mathjax: true
 
