@@ -183,7 +183,3 @@ Only required scripts are generated. You no longer need to upload lots of script
 To use footnote, you have to switch your markdown renderer to `hexo-renderer-markdown-it`, and enable the `markdown-it-footnote` plugin first. 
 
 We have made a special style for footnotes, just for you to enjoy.
-
-#### Separated widgets
-
-HTML contents of widgets are generated inside `[path_to_blog]/public/componets` folder, especially the `recent_posts` widget. They're loaded dynamically using jQuery. Thanks to this, there's no need to generate all posts over and over on single post modification.
