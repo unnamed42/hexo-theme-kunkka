@@ -15,10 +15,7 @@ img {border: 0 none;}
 body {
     background: #fff;
     color: #444;
-    font-weight: 400;
-    font-size: 15px;
-    font-family: $MainFont;
-    line-height: 1.8em;
+    font: 400 15px/1.8em $MainFont;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
@@ -54,8 +51,6 @@ cite:before {
     padding: 0.3 em;
 }
 
-/*h1, h2, h3, h4, h5, h6 {clear: both;}*/
-
 hr {
     margin: 2.4em auto;
     border: none;
@@ -71,38 +66,4 @@ a {
         color: $color-theme;
         text-decoration: underline;
     }
-}
-
-::-webkit-scrollbar-track-piece {
-    width: 13px;
-    border-right: 1px solid #eee;
-    border-left: 1px solid #e4e4e4;
-    background-color: #f0f0f0;
-    background-image: -webkit-linear-gradient(left, #f0f0f0, #fff);
-}
-
-::-webkit-scrollbar {
-    width: 13px;
-    height: 13px;
-}
-
-::-webkit-scrollbar-thumb {
-    position: relative;
-    min-height: 25px;
-    border-radius: 9999px;
-    background-color: #c2c2c2;
-    background-clip: padding-box;
-    &:vertical {
-        border-top: 0 solid transparent;
-        border-right: 2px solid transparent;
-        border-bottom: 0 solid transparent;
-        border-left: 3px solid transparent;
-    }
-    &:horizontal {
-        border-top: 3px solid transparent;
-        border-right: 0 solid transparent;
-        border-bottom: 2px solid transparent;
-        border-left: 0 solid transparent;
-    }
-    &:active {background-color: #7d7d7d;}
 }

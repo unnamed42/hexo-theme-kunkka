@@ -14,14 +14,8 @@ $highlight-purple       = #cc99cc
 colors = {
     green: #37c936,
     red: #dd4b39,
-    purple: #858,/* candidate #563d7c*/
+    purple: #858, /* candidate #563d7c */
     blue: #177ee6
 }
 
-$color-theme = hexo-config("color_theme")
-
-if($color-theme) {
-    $color-theme = colors[$color-theme]
-} else {
-    $color-theme = #5895be
-}
+$color-theme = colors[hexo-config("color_theme")] || #5895be

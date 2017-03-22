@@ -1,20 +1,28 @@
 blockquote {
-    display:block;
+    display: block;
     background: #fff;
     padding: 15px 20px 15px 45px;
     margin: 0 0 20px;
     position: relative;
     overflow: hidden;
-    font-family: $SerifFont;
-    font-size: 16px;
-    line-height: 1.2;
+    font: 16px/1.2em $SerifFont;
     color: #666;
-    text-align: justify;
     border-left: 15px solid $color-theme;
     border-right: 2px solid $color-theme;
     -webkit-text-size-adjust: 100%;
     -webkit-box-shadow: 2px 2px 15px #ccc;
        -moz-box-shadow: 2px 2px 15px #ccc;
             box-shadow: 2px 2px 15px #ccc;
-    &:after {content: "";}
+    &:before {
+        content: "\201c"; /*Unicode for Left Double Quote*/
+        font: bold 60px $SerifFont;
+        color: #999;
+        position: absolute;
+        left: 10px;
+        top:5px;
+    }
+    &:after {
+        /*Reset to make sure*/
+        content: "";
+    }
 } 

@@ -1,0 +1,16 @@
+
+.left {float: left;}
+
+.right {float: right;}
+
+.clearfix {
+    zoom: 1;
+    &:after, &:before {
+        display: table;
+        content: ' ';
+    }
+    &:after {
+        clear: both;
+        overflow: hidden;
+    }
+}

@@ -1,13 +1,11 @@
 #sidebar {
     float: right;
     padding-left: 40px;
-}
-
-#sidebar, #sidebar-fixed {width: 30%;}
-
-#sidebar-fixed.fixed {
-    position: fixed;
-    top: 20px;
+    width: 30%;
+    &.fixed {
+        position: fixed;
+        top: 20px;
+    }
 }
 
 .widget {
@@ -16,11 +14,6 @@
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     hyphens: auto;
-    h3 {
-        color: #636363;
-        text-transform: uppercase;
-        font-size: 15px;
-    }
     .avatar {
         border-radius: 50%;
         vertical-align: middle;
@@ -33,15 +26,15 @@
             li {list-style: square;}
         }
     }
-    a {
-        color: #666;
-        &:hover {color: $color-theme;}
-    }
-    li, p {
-        font-size: 13px;
-        line-height: 1.846153846;
-    }
+    a {color: #666;}
+    li, p {font: 13px/1.8em;}
     p {color: #999;}
+}
+
+.widget-title {
+    color: #636363;
+    text-transform: uppercase;
+    font-size: 15px;
 }
 
 .widget-links ul li {

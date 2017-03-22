@@ -600,6 +600,103 @@
         }
     }
 }
+::-webkit-scrollbar-track-piece {
+    width: 13px;
+    border-right: 1px solid #eee;
+    border-left: 1px solid #e4e4e4;
+    background-color: #f0f0f0;
+    background-image: -webkit-linear-gradient(left, #f0f0f0, #fff);
+}
+
+::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+    position: relative;
+    min-height: 25px;
+    border-radius: 9999px;
+    background-color: #c2c2c2;
+    background-clip: padding-box;
+    &:vertical {
+        border-top: 0 solid transparent;
+        border-right: 2px solid transparent;
+        border-bottom: 0 solid transparent;
+        border-left: 3px solid transparent;
+    }
+    &:horizontal {
+        border-top: 3px solid transparent;
+        border-right: 0 solid transparent;
+        border-bottom: 2px solid transparent;
+        border-left: 0 solid transparent;
+    }
+    &:active {background-color: #7d7d7d;}
+}
+
+.dropdown-link {
+    display: block;
+    .icon {
+        padding-left: 10px;
+        vertical-align: middle;
+        font-size: 15px;
+    }
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        /*line-height: 30px;*/
+        vertical-align: middle;
+    }
+}
+
+.tab-formats {
+    li {
+        float: left;
+        display: block;
+        padding-right: 45px;
+        width: 36px;
+        text-align: center;
+        &.tab-part {padding-right: 0;}
+        a {
+            color: #999;
+            &:hover {
+                text-decoration: none;
+                .icon-home {background-position: 0 -4pc;}
+                .icon-twitter {background-position: -62px -4pc;}
+                .icon-film {background-position: -122px -4pc;}
+                .icon-inbox {background-position: -182px -4pc;}
+            }
+            &.news:hover {color: #fa7c7c;}
+            &.twitter:hover {color: #00acee;}
+            &.films:hover {color: #facc7c;}
+            &.archive:hover {color: #5bcb57;}
+        }
+    }
+    span {
+        display: block;
+        width: 36px;
+        height: 2pc;
+        font-size: 28px;
+    }
+}
+
+.section-title {
+    color: #666;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.tab-more {
+    margin-top: 25px;
+    width: 280px;
+    height: 40px;
+    border-top: 1px dotted #ccc;
+    text-align: center;
+    line-height: 40px;
+}
+
 
 @media screen and (max-width: 768px) {
     #search-input, #search-submit {background: transparent;}
