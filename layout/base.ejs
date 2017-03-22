@@ -7,11 +7,11 @@ layout: false
 <% 
    var body_class = page.class || ' ';
    
-   if(is_home()) {body_class += " home blog";}
-   else if(is_post()) {body_class += " single";}
-   else if(is_archive()) {body_class += " archive page-archive";}
-   else if(is_category()) {body_class += " archive page-category";}
-   else if(is_tag()) {body_class += " archive page-tag";}
+   if(is_home()) {body_class += "home";}
+   else if(is_post()) {body_class += " post";}
+   else if(is_archive()) {body_class += " archive post-archive";}
+   else if(is_category()) {body_class += " archive category-archive";}
+   else if(is_tag()) {body_class += " archive tag-archive";}
    else {body_class += " page";}
 %>
 

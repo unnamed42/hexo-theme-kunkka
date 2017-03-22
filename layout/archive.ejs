@@ -18,7 +18,7 @@ layout: layout
                             nav += '</ul>'; // enclosing tag for ul.months
                             nav += '</li>'; // enclosing tag for li.year
                         }
-                        nav += '<li class="year" id="anchor-' + pyear + '">';
+                        nav += '<li class="year">';
                         nav += '<a href="#archive-' + pyear + '-' + pmonth + '" class="year-anchor">' + pyear + '</a>';
                         nav += '<ul class="months">';
                         year = pyear;
@@ -46,12 +46,14 @@ layout: layout
         </div>
     </div>
     <% if(nav) { %>
-    <ul id="archive-nav">
-        <%- nav %>
-        <% if(year) { %>
-            </ul><!-- enclosing tag for ul.months -->
-        </li><!-- enclosing tag for li.year -->
-        <% } %>
-    </ul>
+    <div id="archive-nav">
+        <ul class="nav"><!-- nav class required for Bootstrap scrollspy -->
+            <%- nav %>
+            <% if(year) { %>
+                </ul><!-- enclosing tag for ul.months -->
+            </li><!-- enclosing tag for li.year -->
+            <% } %>
+        </ul>
+    </div>
     <% } %>
 </div>
