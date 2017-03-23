@@ -139,7 +139,7 @@ $(function() {
         }
     });
     
-    $(".global-nav").click(function() {
+    $("#global-nav").click(function() {
         // to make this still effective on window resize,
         // don't put the if-condition below out of click listener
         if ($(window).width() < 768) {
