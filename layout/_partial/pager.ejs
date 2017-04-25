@@ -1,4 +1,4 @@
-<ul class="pager">
+<ul id="pager">
 <% if (page.prev){ %>
     <li class="previous">
         <a href="<%- url_for(page.prev.path) %>" title="<%= page.prev.title %>" class="tooltipped tooltipped-n" aria-label="<%= page.prev.title %>"><span class="fa fa-chevron-left"></span> <%= __('prev_post')%></a>

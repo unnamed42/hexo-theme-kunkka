@@ -1,11 +1,9 @@
 #toc {
-    line-height: 1em;
     position: fixed;
     right: 5%;
     width: 20%;
     height: 90%;
     top: 90px;
-    overflow: hidden;
 }
 
 for i in (1..6) {
@@ -16,16 +14,18 @@ for i in (1..6) {
 
 .toc-link {
     color: #999;
+    display: inline-block; // stretch to parent height
     &:hover {text-decoration: none;}
 }
 
 .toc {
     padding: 0;
+    margin: 0;
     line-height: 1.8em;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
     width: 100%;
     height: 100%;
-    li {list-style-type: none;}
 }
 
 .toc-child {
@@ -35,10 +35,13 @@ for i in (1..6) {
 }
 
 .toc-item {
-    &:hover {border-left: 1px solid $color-theme;}
+    list-style-type: none;
+    &:hover > .toc-link {border-left: 1px solid $color-theme;}
     &.active {
-        border-left: 2px solid $color-theme;
-        > .toc-link {color: $color-theme;}
-        .toc-child {if(hexo-config('toc.collapse')) {display: block;}}
+        > .toc-link {
+            color: $color-theme;
+            border-left: 2px solid $color-theme;
+        }
+        if(hexo-config('toc.collapse')) { .toc-child {display: block;} }
     }
 }

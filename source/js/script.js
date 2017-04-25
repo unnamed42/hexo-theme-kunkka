@@ -7,13 +7,6 @@ if("undefined"==typeof jQuery)throw new Error("Bootstrap's JavaScript requires j
 
 "use strict";
 
-function stripper(content){
-    var wrapper = $("<div>"+ content +"</div>"); // .html() can oly get its first child, so wrap in a div
-    wrapper.find("script,style").remove(); // remove style/script in post content
-    $(".gutter",wrapper).remove(); // remove code line number
-    return wrapper.html();
-}
-
 /* https://stackoverflow.com/a/901144 */
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -33,10 +26,18 @@ function searchFunc(path, search_str, content_id) {
             var query = $("entry", response).map(function() {
                 return {
                     title: $("title", this).text(),
-                    content: stripper($("content", this).text()),
+                    content: function(html) {
+                        // .html() can oly get its first child, so wrap in a div
+                        var wrapper = $("<div>"+ html +"</div>"); 
+                        // remove style/script in post content
+                        wrapper.find("script,style").remove(); 
+                        // remove code line number
+                        $(".gutter",wrapper).remove(); 
+                        return wrapper.html();
+                    }($("content", this).text()), 
                     url: $("url", this).text()
                 }
-            }).get(),
+                }).get(),
                 container = $('#' + content_id);
             if(search_str.trim().length == 0) 
                 return;
@@ -114,8 +115,10 @@ $(function() {
             });
         }
     });
-    
-    // dropdown navigation menu
+});
+
+// dropdown navigation menu
+$(function() {
     var timer, selected = false;
     $(".dropdown").hover(function() {
         var dropdown = $(this);
@@ -123,7 +126,7 @@ $(function() {
             clearTimeout(timer);
             timer = null;
         }
-        if(!dropdown.hasClass("selected")){
+        if(!dropdown.hasClass("selected")) {
             dropdown.addClass("selected");
             selected = true;
         }
@@ -146,8 +149,10 @@ $(function() {
             $(this).children(".gnul").toggleClass("collapse");
         }
     });
-    
-    // totop widget
+});
+
+// totop widget
+$(function() {
     var totop = $("#totop"),
         canvas = $("#totop-canvas"),
         percent = $("#totop-percent"),
@@ -160,7 +165,7 @@ $(function() {
         ctx.beginPath();
         ctx.arc(center, center, radius, - Math.PI / 2, Math.PI * 1.5 * percent, false);
         ctx.strokeStyle = color;
-        ctx.lineCap = 'round'; // butt, round or square
+        ctx.lineCap = "round"; // butt, round or square
         ctx.lineWidth = 3;
         ctx.stroke();
     }
@@ -187,30 +192,55 @@ $(function() {
 });
 
 // toc 
-$(function(){
-    var toc = $("#toc");
-    if(!toc.length)
+$(function() {
+    var tocContainer = $("#toc");
+    if(!tocContainer.length || tocContainer.is(":hidden"))
         return;
-    var post = $(".post-body"), pos_max;
+    var toc = tocContainer.children(), tocHeight,
+        post = $(".post-body"), pos_max;
     function update_max() {
         var post_height = post.position().top + post.outerHeight(),
-            toc_height = toc.height();
-        pos_max = post_height - toc_height;
+            container_height = tocContainer.height();
+        pos_max = post_height - container_height;
+        tocHeight = toc.height();
     };
     update_max();
-    toc.children().addClass("nav"); // required for scrollspy
+    // update pos_max on window resizing
+    toc.addClass("nav"); // required by scrollspy
+    $(window).resize(update_max);
     $("body").scrollspy({target:"#toc", offset:40});
     $(window).scroll(function() {
         var scroll_top = $(window).scrollTop();
-        toc.css("top", scroll_top<55 ? 90-scroll_top: (pos_max>scroll_top ? 35: pos_max-scroll_top));
+        var top;
+        if(scroll_top < 55) // 55 == header.height(55px)
+            top = 90 - scroll_top; // 90 == #toc.top(90px)
+        else if(pos_max > scroll_top)
+            top = 35;
+        else
+            top = pos_max - scroll_top;
+        tocContainer.css("top", top);
     });
-    // update pos_max on window resizing
-    $(window).resize(update_max);
+    
+    $(".toc-item").on("activate.bs.scrollspy", function() {
+        var tocTop = toc.scrollTop(),
+            link = $(this).children(".toc-link"),
+            thisTop = link.position().top;
+        // make sure the highlighted element contains no child
+        if($(this).height() != link.height())
+            return;
+        // if the highlighted element is above current view of toc
+        if(thisTop <= 0)
+            toc.scrollTop(tocTop + thisTop);
+        // else if below current view of toc
+        else if(tocHeight <= thisTop) 
+            toc.scrollTop(tocTop + thisTop + link.outerHeight() - tocHeight);
+    });
 });
 
 // footnotes
 $(function(){
-    if(!$(".footnotes").length) 
+    var tester = $(".footnotes");
+    if(!tester.length || tester.is(":hidden")) 
         return;
     
     function position() {
@@ -254,9 +284,9 @@ $(function(){
 });
 
 // archive navigator
- $(function() {
+$(function() {
     var nav = $("#archive-nav");
-    if(!nav.length || $(window).width() <= 768)
+    if(!nav.length || nav.is(":hidden"))
         return;
     
     var page_height = $("#primary").position().top + $("#primary").outerHeight(),
