@@ -42,7 +42,7 @@ function searchFunc(path, search_str, content_id) {
             if(search_str.trim().length == 0) 
                 return;
 
-            var html = '<div class="search-result-list">',
+            var html = '',
                 keywords = search_str.trim().toLowerCase().split(/[\s\-]+/);
             query.forEach(function(data) {
                 var isMatch = true;
@@ -68,8 +68,8 @@ function searchFunc(path, search_str, content_id) {
                 }
                 // show search results
                 if (isMatch) {
-                    html += '<div class="post">';
-                    html += '<div class="post-header"><h2 class="post-title"><a href="' + data.url + '" class="search-result-title">' + data.title + "</a></h2></div>";
+                    html += '<section class="post">';
+                    html += '<header class="post-header"><h2 class="post-title"><a href="' + data.url + '" class="search-result-title">' + data.title + "</a></h2></header>";
                     var content = data.content.trim().replace(/<[^>]+>/g,"");
                     if (first_occur >= 0) {
                         // cut out 100 characters
@@ -86,14 +86,14 @@ function searchFunc(path, search_str, content_id) {
                         keywords.forEach(function(keyword) {
                             match_content = match_content.replace(new RegExp(keyword, "gi"), '<span class="search-keyword">' + keyword + '</span>');
                         });
-                        html += '<div class="post-body">' + (0 == start ? "" : "...") + match_content + (end == content.length ? "" : "...") + '</div>';
+                        html += '<article class="post-body">' + (0 == start ? "" : "...") + match_content + (end == content.length ? "" : "...") + '</article>';
                     }
-                    html += "</div>"; // div.post
-                    $("#no-match").addClass("matched");
+                    html += "</section>"; // section.post
                 }
             });
-            html += "</div>"; // div.search-result-list
-            container.html(html);
+            if(!html)
+                $("#no-match").removeClass("matched");
+            container.html('<div class="search-result-list">' + html + "</div>");
         }
     });
 }

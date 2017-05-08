@@ -1,14 +1,16 @@
 ---
 layout: layout
 ---
-<div id="primary">
-    <h1 class="post-title">
-        <a href="<%- url_for(page.path) %>" title="<%= page.title %>"><%= page.title %></a>
-    </h1>
-    <div class="post-body clearfix">
+<main id="primary">
+    <header>
+        <h1 class="post-title">
+            <a href="<%- url_for(page.path) %>" title="<%= page.title %>"><%= page.title %></a>
+        </h1>
+    </header>
+    <article class="post-body clearfix">
         <div class="post-content">
             <%- page.content || body %>
         </div>
-    </div>
+    </article>
     <%- partial('_partial/comments') %>
-</div><!-- #primary -->
+</main><!-- #primary -->

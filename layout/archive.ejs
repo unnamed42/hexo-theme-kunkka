@@ -1,7 +1,7 @@
 ---
 layout: layout
 ---
-<div id="primary">
+<main id="primary">
     <div class="post-content">
         <div id="archives">
         <% var year = 0, month = 0, nav = ""; %>
@@ -46,7 +46,7 @@ layout: layout
         </div>
     </div>
     <% if(nav) { %>
-    <div id="archive-nav">
+    <nav id="archive-nav">
         <ul class="nav"><!-- nav class required for Bootstrap scrollspy -->
             <%- nav %>
             <% if(year) { %>
@@ -54,6 +54,6 @@ layout: layout
             </li><!-- enclosing tag for li.year -->
             <% } %>
         </ul>
-    </div>
+    </nav>
     <% } %>
-</div>
+</main>

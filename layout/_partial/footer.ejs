@@ -6,7 +6,7 @@
    year += new Date().getFullYear() + ' ' + config.title + '.';
 %>
 <!-- #content -->
-<div id="footer">
+<footer id="footer">
     <div class="container">
         <p><% if(theme.creative_commons) { %>
             <span class="cc-license">
@@ -19,10 +19,10 @@
             </span>
             &nbsp;<%= year %>
         <% } else { %>
-            &copy;&nbsp;<%- year %> All Rights Reserved. 
+            &copy; <%- year %> All Rights Reserved. 
         <% } %></p>
         <p>Themed by <a href="https://github.com/unnamed42/hexo-theme-kunkka">Kunkka</a> | Powered by <a href="https://hexo.io/">Hexo</a>.</p>
         <%- partial('_partial/sns') %>
     </div>
-</div>
+</footer>
 <!-- #footer -->

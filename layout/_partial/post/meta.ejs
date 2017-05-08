@@ -1,0 +1,23 @@
+<div class="post-meta">
+    <ul class="inline-ul">
+        <li class="inline-li">
+            <time><%- page.date.format(config.date_format) %><time>
+        </li>
+        <% if(page.categories.length) { %>
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <%- partial('_partial/post/categories', {page: page}) %>
+        </li>
+        <% } %>
+        <% if(theme.busuanzi && has_vcount) { %>
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span id="busuanzi_value_page_pv"></span> Views
+        </li>
+        <% } %>
+    </ul>
+</div> 

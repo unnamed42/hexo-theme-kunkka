@@ -1,12 +1,12 @@
 ---
 layout: layout
 ---
-<div id="primary">
+<main id="primary">
     <%- partial('_widget/notice') %>
     <div id="postlist">
     <% page.posts.each(function(post){ %>
-    <%- partial('_partial/post_preview',{post: post}) %>
+    <%- partial('_partial/post/preview', {post: post}) %>
     <% }); %>
     </div>
-</div>
+</main>
 <%- partial('_partial/pagination') %>

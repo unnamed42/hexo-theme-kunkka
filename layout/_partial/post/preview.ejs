@@ -3,29 +3,15 @@
    if(!theme.full_content && post.thumbnail) {post_class += ' post-has-thumbnail';}
    if(theme.full_content) {post_class += 'full-content';}
 %>
-<div class="<%- trim(post_class) %>">
-    <div class="post-header">
+<section class="<%- trim(post_class) %>">
+    <header class="post-header">
         <h1 class="post-title">
             <% if(post.link) { %><a href="<%- post.link %>" title="<%= post.link %>"><%= post.link %></a>
             <% } else { %><a href="<%- url_for(post.path) %>" title="<%= post.title || __('untitled') %>"><%= post.title || __('untitled') %></a><% } %>
         </h1>
-    </div>
-    <div class="post-meta">
-        <ul class="inline-ul">
-            <li class="inline-li">
-                <%- post.date.format(config.date_format) %>
-            </li>
-            <% if(post.categories.length) { %>
-            <li class="inline-li">
-                <span class="post-span">·</span>
-            </li>
-            <li class="inline-li">
-                <%- partial('_script/categories',{page:post}) %>
-            </li>
-            <% } %>
-        </ul>
-    </div>
-    <div class="post-body">
+    </header>
+    <%- partial('_partial/post/meta', {page: post, has_vcount: false}) %>
+    <article class="post-body">
     <% if (theme.full_content) { %>
         <%- post.content %>
     <% } else { %>
@@ -50,5 +36,5 @@
         <% } %>
         </div>
     <% } %>
-    </div>
-</div>
+    </article>
+</section>
