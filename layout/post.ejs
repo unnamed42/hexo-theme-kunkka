@@ -12,21 +12,21 @@ layout: base
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
                 <%= page.title %>
             </nav>
-            <section class="single-post">
+            <article class="single-post">
                 <header class="post-header">
                     <h1 class="post-title">
                         <a href="<%- url_for(page.path) %>" title="<%= page.title %>"><%= page.title %></a>
                     </h1>
                 </header>
                 <%- partial('_partial/post/meta', {page: page, has_vcount: true}) %>
-                <article class="post-body clearfix">
+                <div class="post-body clearfix">
                     <div class="post-content">
                         <% page.photos.forEach(function(link){ %>
                         <img src="<%- url_for(link) %>">
                         <% }); %>
                         <%- page.content || body %>
                     </div>
-                </article>
+                </div>
                 <nav class="post-tags">
                 <% if(page.tags.length) { %>
                     <% page.tags.forEach(function(tag){ %>
@@ -36,7 +36,7 @@ layout: base
                     <%= __('no_tags') %>
                 <% } %>
                 </nav>
-            </section>
+            </article>
         </div><!-- div#primary -->
         <%- partial('_partial/pager') %>
         <%- partial('_partial/comments') %>

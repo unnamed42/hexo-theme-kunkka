@@ -3,7 +3,7 @@
    if(!theme.full_content && post.thumbnail) {post_class += ' post-has-thumbnail';}
    if(theme.full_content) {post_class += 'full-content';}
 %>
-<section class="<%- trim(post_class) %>">
+<article class="<%- trim(post_class) %>">
     <header class="post-header">
         <h1 class="post-title">
             <% if(post.link) { %><a href="<%- post.link %>" title="<%= post.link %>"><%= post.link %></a>
@@ -11,7 +11,7 @@
         </h1>
     </header>
     <%- partial('_partial/post/meta', {page: post, has_vcount: false}) %>
-    <article class="post-body">
+    <div class="post-body">
     <% if (theme.full_content) { %>
         <%- post.content %>
     <% } else { %>
@@ -36,5 +36,5 @@
         <% } %>
         </div>
     <% } %>
-    </article>
-</section>
+    </div>
+</article>

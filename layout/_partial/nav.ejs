@@ -1,4 +1,4 @@
-<header id="header">
+<nav id="header">
     <div class="container clearfix">
         <div class="logo" <%- !(theme.logo) ? 'style="width: auto;"' : '' %>>
             <a href="<%- config.root %>" title="<%= config.title %>" rel="home" style="text-decoration: none;">
@@ -15,7 +15,7 @@
                 </span>
             </a>
         </div>
-        <nav id="global-nav">
+        <div id="global-nav">
             <ul class="gnul">
                 <li class="gnli <% if(is_home()) { %>current<% } %>">
                     <a class="gna fa fa-home" href="<%- config.root %>" title="<%= config.title %>">
@@ -76,7 +76,7 @@
                 <% } %>
                 <% } %>
             </ul>
-        </nav>
+        </div>
         <%- partial('_widget/search') %>
     </div>
-</header>
+</nav>
