@@ -19,7 +19,7 @@ $(function() {
                 var msg = comment.message.length > 20 ? comment.message.substring(0, 18) + "..." : comment.message;
                 msg = msg.replace(/<\/?p>/g, "");
                 html += '<li>';
-                html +=     '<p><a href="' + comment.thread.link + '/#comments" aria-label="于 ' + comment.thread.title + ' 中的评论" class="tooltipped tooltipped-n">' + msg + '</p>';
+                html +=     '<p><a href="' + comment.thread.link + '#comments" aria-label="于 ' + comment.thread.title + ' 中的评论" class="tooltipped tooltipped-n">' + msg + '</p>';
                 html +=     '<p class="comment-meta"><a rel="nofollow author" target="_blank" href="' + comment.author.profileUrl + '">' + comment.author.name + "</a> ";
                 html +=     '<span class="comment-time" title="' + comment.createdAt + '">' + comment.createdAt + "</span>";
                 html += "</p></li>";
