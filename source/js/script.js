@@ -238,9 +238,8 @@ $(function() {
 });
 
 // footnotes
-$(function(){
-    var tester = $(".footnotes");
-    if(!tester.length || tester.is(":hidden")) 
+$(function() {
+    if(!$(".footnotes").length) 
         return;
     
     function position() {
