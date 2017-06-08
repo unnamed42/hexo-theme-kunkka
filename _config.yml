@@ -1,6 +1,6 @@
 keywords: 
 
-since: 2015
+since: 
 
 logo: 
 
@@ -10,32 +10,24 @@ nav:
   - title: 归档
     url: archives/index.html
     icon: fa-archive
+    description: 
   - title: 关于
     url: about/index.html
     icon: fa-user
-  - title: 订阅
-    url: atom.xml
-    icon: fa-rss
+    description: 
 
-notice: 
+notice:
+  - "**Notice** one"
+  - "~~Notice~~ two"
 
 global_navigation: true
 
 sidebar: true
 
-duoshuo: 
-  shortname: #unnamed42-github
-  ua: #true
-  user_id: #"6224035036874670849"
-
 # Register at https://disqus.com/api/applications to get disqus_api_key
 # Use the API Key, not the API Secret
-disqus_shortname: unnamed42-github 
-disqus_api_key: "1PwNiUJfZNlIZGUH0d0ZfKyOBXhdTclO1F9BJqRJDjcrJ5JVGe45C7YAQO0L5lFc"
-
-github_comment:
-  owner: #unnamed42
-  repo: #"unnamed42.github.io"
+disqus_shortname: 
+disqus_api_key: 
 
 search: true
 
@@ -44,27 +36,27 @@ busuanzi: true
 tag_number: 25
 full_content: false
 
-# Available: red, green, blue, purple
+# Provided colors: red, green, blue, purple
 color_theme: blue
 
 mathjax: true
 
-# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero 
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
 creative_commons: by-sa
 
 toc:
   collapse: false
 
 sns: 
-  github: unnamed42
+  github: 
   twitter:
   facebook:
   linkedin:
-  googleplus_id: "101538012089625781458"
+  googleplus_id: 
   steam_id:
   weibo:
-  zhihu: huang-wen-rui-74
-  tieba: Xelnagaman
+  zhihu: 
+  tieba: 
 
 buttons:
   base: true
@@ -79,9 +71,6 @@ buttons:
   shadow: false
 
 links:
-  - title: Tony
-    url: https://tonyzzx.github.io
-    description: 美国留学的高富帅
-  - title: 不知
-    url: http://maokwen.tk
-    description: 谜之小伙伴
+  - title: Friend1
+    url: https://www.friend1.com
+    description: My only friend
