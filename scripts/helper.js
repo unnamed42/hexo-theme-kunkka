@@ -1,3 +1,5 @@
+'use strict';
+
 // Code from http://stackoverflow.com/a/4673436
 // Example: printf('{0} is dead, but {1} is alive! {0} {2}', 'ASP', 'ASP.NET');
 // Result: "ASP is dead, but ASP.NET is alive! ASP {2}"
@@ -12,9 +14,15 @@ hexo.extend.helper.register('printf',function(format){
     });
 });
 
+hexo.extend.helper.register("stringify", function(str) {
+    str = typeof str == "String" ? str : str.toString();
+    if(str.charAt(0) == '"' && str.charAt(str.length - 1) == '"')
+        return str;
+    else
+        return '"' + str + '"';
+});
 
 // The default toc() helper does not escape correctly
-'use strict';
 
 var cheerio;
 var escapeHtml = require('hexo-util').escapeHTML;

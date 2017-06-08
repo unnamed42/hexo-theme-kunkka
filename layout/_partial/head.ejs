@@ -36,7 +36,28 @@
     <% if(theme.buttons.base && theme.buttons.dropdown) { %><script src="/js/buttons.js" type="text/javascript" async></script><% } %>
     
     <script src="<%- url_for('/js/script.js') %>" type="text/javascript" async></script>
-
+    
+    <!-- Global javascript config object -->
+    <script type="text/javascript">
+    var CONFIG = {
+    <% if(theme.disqus_shortname) { %>
+        disqus: {
+            api_key: <%- stringify(theme.disqus_api_key) %>, 
+            forum: <%- stringify(theme.disqus_shortname) %>
+        },
+    <% } %>
+    <% if(theme.github_comment.repo) { %>
+        gitment: {
+            owner: <%- stringify(theme.github_comment.owner) %>,
+            repo: <%- stringify(theme.github_comment.repo) %>,
+            <% if(page.issue) { %>
+            issue: <%- page.issue %>
+            <% } %>
+        },
+    <% } %>
+    };
+    </script>
+    
     <% if(theme.mathjax) { %>
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -59,24 +80,6 @@
     <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js" async></script>
     <% } %>
 
-    <% if(theme.duoshuo.shortname) { %>
-    <script type="text/javascript">
-    var duoshuo_admin_id = "<%- theme.duoshuo.user_id %>";
-    var duoshuoQuery = {short_name: '<%- theme.duoshuo.shortname %>' };
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = '//static.duoshuo.com/embed.js';
-        ds.id = "duoshuo-script";
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-    </script>
-    <% if(theme.duoshuo.ua) { %>
-    <script src="/js/duoshuo-hook.js" async></script>
-    <% } %>
-    <% } %>
-
     <% if(theme.disqus_shortname) { %>
     <script type="text/javascript">
     (function() { 
@@ -92,15 +95,6 @@
     <% } %>
     
     <% if(theme.github_comment.repo) { %>
-    <script type="text/javascript">
-    var github_comment = {
-        owner: "<%- theme.github_comment.owner %>",
-        repo: "<%- theme.github_comment.repo %>",
-        <% if(page.issue) { %>
-        issue: "<%- page.issue %>"
-        <% } %>
-    };
-    </script>
     <script src="/js/github-comment.js" type="text/javascript" async></script>
     <% } %>
 

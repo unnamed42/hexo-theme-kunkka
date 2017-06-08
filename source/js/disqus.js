@@ -1,18 +1,16 @@
 $(function() {
     var comments = $(".dq-recent-comments"),
         config = {
-            "api_key": comments.attr("data-api-key"),
-            "forum": comments.attr("data-forum"),
+            "api_key": CONFIG.disqus.api_key,
+            "forum": CONFIG.disqus.forum,
             "limit": comments.attr("data-num-items")
         };
     if(comments.length) {
         $.ajax({
-            type: "GET",
             url: "https://disqus.com/api/3.0/forums/listPosts.jsonp",
             data: $.param({"limit": config.limit, "forum": config.forum, "related": "thread", "api_key": config.api_key}),
             dataType: "jsonp",
             contentType: "text/javascript; charset=utf-8",
-            cache: true
         }).done(function(data) {
             var html = "";
             $.each(data.response, function(index, comment){

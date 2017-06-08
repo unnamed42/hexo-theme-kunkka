@@ -417,7 +417,7 @@ $(function() {
                             html += '<li>';
                             html += '<p><a href="' + post.path + id + '" aria-label="于 ' + post.title + ' 中的评论" class="tooltipped tooltipped-n">' + msg + "</p>";
                             html += '<p class="comment-meta"><a rel="nofollow author" target="_blank" href="' + d.user.html_url + '">' + d.user.login + "</a> ";
-                            html += '<span class="comment-time" title="' + d.updated_at + '">' + new Date(d.updated_at).toLocaleString(); + "</span>";
+                            html += '<span class="comment-time" title="' + d.updated_at + '">' + new Date(d.updated_at).toLocaleString() + "</span>";
                             html += "</p></li>";
                         }
                         comment_list.append(html);

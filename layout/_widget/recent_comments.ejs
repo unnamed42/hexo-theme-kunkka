@@ -4,7 +4,7 @@
     <% if(theme.duoshuo.shortname) { %>
     <ul class="list ds-recent-comments" data-num-items="5"></ul>
     <% } else if(theme.disqus_api_key) { %>
-    <ul class="list dq-recent-comments" data-api-key="<%- theme.disqus_api_key %>" data-forum="<%- theme.disqus_shortname %>" data-num-items="5"></ul>
+    <ul class="list dq-recent-comments" data-num-items="5"></ul>
     <% } else { %>
     <ul class="list gh-recent-comments" data-num-items="5"></ul>
     <% } %>
