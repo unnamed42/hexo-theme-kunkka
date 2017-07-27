@@ -2,15 +2,15 @@
 
 hexo.extend.generator.register('kunkka_customed', function(locals) {
     var customed = [{path: '/404.html', data: {}, layout: ['404', 'base']}],
-        config = hexo.theme.config;
+        theme = hexo.theme.config;
     
-    if(config.sidebar) {
+    if(theme.sidebar) {
         customed.push({
             path: 'components/recent-posts.html', 
             data: {}, 
             layout: ['_widget/recent_posts']
         });
-        if(config.links) {
+        if(theme.links) {
             customed.push({
                 path: 'components/links.html',
                 data: {},
@@ -18,7 +18,7 @@ hexo.extend.generator.register('kunkka_customed', function(locals) {
             });
         }
     }
-    if(config.search) {
+    if(theme.search || hexo.config.search) {
         customed.push({
             path: '/search.html', 
             data: {}, 
@@ -39,11 +39,9 @@ hexo.extend.generator.register('github_comment_db', function(locals) {
     var json = [];
     function addItem(item) {
         if(item.hasOwnProperty('issue')) {
-            var res = '';
-            res += '"' + item.issue + '":{';
+            var res = '"' + item.issue + '":{';
             res += '"path":"' + item.permalink + '",';
-            res += '"title":"' + item.title + '"';
-            res += '}';
+            res += '"title":"' + item.title + '"}';
             json.push(res);
         }
     }
