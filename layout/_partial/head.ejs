@@ -46,7 +46,7 @@
             forum: <%- stringify(theme.disqus_shortname) %>
         },
     <% } %>
-    <% if(theme.github_comment.repo) { %>
+    <% if(theme.github_comment && theme.github_comment.repo) { %>
         gitment: {
             owner: <%- stringify(theme.github_comment.owner) %>,
             repo: <%- stringify(theme.github_comment.repo) %>,
@@ -94,7 +94,7 @@
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <% } %>
     
-    <% if(theme.github_comment.repo) { %>
+    <% if(theme.github_comment && theme.github_comment.repo) { %>
     <script src="/js/github-comment.js" type="text/javascript" async></script>
     <% } %>
 

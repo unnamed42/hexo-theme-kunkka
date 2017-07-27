@@ -32,7 +32,8 @@ hexo.extend.generator.register('kunkka_customed', function(locals) {
 var PassThrough = require('stream').PassThrough;
 
 hexo.extend.generator.register('github_comment_db', function(locals) {
-    if(!hexo.theme.config.github_comment.repo) 
+    var github_comment = hexo.theme.config.github_comment;
+    if(!github_comment || !github_comment.repo) 
         return {};
     
     var json = [];
