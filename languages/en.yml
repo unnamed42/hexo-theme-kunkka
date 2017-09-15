@@ -18,3 +18,7 @@ to_top: Back to top
 no_match: No matched content
 page_non_exist: The content you request does not exist!
 jump_back_home: Will jump back %2$s in %1$s
+author: Author
+posted_at: Posted at
+updated_at: Updated at
+license: Licensed under

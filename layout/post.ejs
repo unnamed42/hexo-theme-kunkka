@@ -27,6 +27,7 @@ layout: base
                         <%- page.content || body %>
                     </div>
                 </div>
+                <%- partial('_partial/license', {page: page}) %>
                 <nav class="post-tags">
                 <% if(page.tags.length) { %>
                     <% page.tags.forEach(function(tag){ %>

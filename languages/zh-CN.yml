@@ -21,3 +21,7 @@ no_match: 搜索未能找到匹配结果
 page_non_exist: 您所要访问的页面不存在！
 jump_back_home: 将在%s后跳回%s
 seconds: 秒
+author: 作者
+posted_at: 发布日期
+updated_at: 修改日期
+license: 发布协议

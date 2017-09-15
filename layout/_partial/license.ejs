@@ -1,0 +1,15 @@
+<% var license = parse_license(page.license || theme.license || "copyright") %>
+
+<div class="license-notice">
+    <span><%= __('author') %>: </span><%= config.author %><br>
+    <span><%= __('posted_at') %>: </span><%= page.date.format(config.date_format) %><br>
+    <span><%= __('updated_at') %>: </span><%= page.updated.format(config.date_format) %><br>
+    <span><%= __('license') %>: </span>
+    <% if(license.url) { %>
+    <a href="<%- license.url %>" target="_blank">
+    <% } %>
+    <%= license.name %>
+    <% if(license.url) { %>
+    </a>
+    <% } %>
+</div>

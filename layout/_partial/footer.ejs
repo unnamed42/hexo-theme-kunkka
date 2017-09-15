@@ -8,11 +8,11 @@
 <!-- #content -->
 <footer id="footer">
     <div class="container">
-        <p><% if(theme.creative_commons) { %>
+        <p><% if(is_cc(theme.license)) { %>
             <span class="cc-license">
-                <a href="https://creativecommons.org/licenses/<%- theme.creative_commons %>/4.0" target="_blank" title="Creative Commons license <%- theme.creative_commons %>">
+                <a href="https://creativecommons.org/licenses/<%- theme.license %>/4.0" target="_blank" title="Creative Commons license <%- theme.license %>">
                 <span class="cc cc-cc"></span>
-                <% theme.creative_commons.split('-').forEach(function(icon){ %>
+                <% theme.license.split('-').forEach(function(icon){ %>
                     <span class="cc cc-<%- icon %>"></span>
                 <% }); %>
                 </a>

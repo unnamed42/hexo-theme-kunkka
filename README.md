@@ -72,8 +72,9 @@ color_theme: blue
 
 mathjax: true
 
-# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
-creative_commons: by-sa
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero | copyright
+# Any other words are valid but do not have a special style
+license: by-sa
 
 toc:
   collapse: false
