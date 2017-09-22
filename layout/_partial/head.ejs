@@ -58,7 +58,8 @@
     };
     </script>
     
-    <% if(theme.mathjax) { %>
+    <% if(theme.math) { %>
+    <%     if(theme.math == "mathjax") { %>
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         showProcessingMessages: false,
@@ -78,7 +79,11 @@
     });
     </script>
     <script type="text/javascript" src="https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js" async></script>
+    <%     } else if(theme.math == "katex") { %>
+    <link href="https://cdn.bootcss.com/KaTeX/0.8.3/katex.min.css" rel="stylesheet" type="text/css">
+    <%     } %>
     <% } %>
+    
 
     <% if(theme.disqus_shortname) { %>
     <script type="text/javascript">
