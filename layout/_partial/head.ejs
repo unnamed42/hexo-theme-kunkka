@@ -31,10 +31,10 @@
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <% if(theme.creative_commons) { %><link href="https://cdn.jsdelivr.net/npm/cc-icons@1.0.0/css/css-icons.min.css" rel="stylesheet" type="text/css"><% } %>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js"></script>
-    <% if(theme.buttons.base && theme.buttons.dropdown) { %><script src="/js/buttons.js" type="text/javascript" async></script><% } %>
     
-    <script src="<%- url_for('/js/script.js') %>" type="text/javascript" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" defer></script>
+    <% if(theme.buttons.base && theme.buttons.dropdown) { %><script src="/js/buttons.js" type="text/javascript" async></script><% } %>
+    <script src="<%- url_for('/js/script.js') %>" type="text/javascript" defer></script>
     
     <!-- Global javascript config object -->
     <script type="text/javascript">
@@ -71,9 +71,9 @@
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <%     } %>
     <%     if(theme.github_comment && theme.github_comment.repo) { %>
-    <script src="/js/github-comment.js" type="text/javascript" async></script>
+    <script src="/js/github-comment.js" type="text/javascript" defer></script>
     <%     } %>
-    <script src="/js/disqus.js" type="text/javascript" async></script>
+    <script src="/js/disqus.js" type="text/javascript" defer></script>
     <% } %>
     
     <% if(theme.math) { %>
