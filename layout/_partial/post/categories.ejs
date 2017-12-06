@@ -1,13 +1,7 @@
-<% 
-   var categories = '';
-   if(page.categories.length){
-       var arr = [];
-       page.categories.forEach(function(category){
-           arr.push("<a href=\"" + url_for(category.path) + "\" title=\"" + category.name + "\" rel=\"category tag\">" + category.name + "</a>");
-       });
-       categories = arr.join(',');
-   } else {
-       categories = __('uncategorized');
-   }
-%> 
-<%- categories %>
+<%-
+   page.categories.length ? 
+   page.categories.map(function(category) {
+       return printf('<a href="{0}" title="{1}" rel="category tag">{1}</a>', url_for(category.path), escapeHTML(category.name));
+   }).join(',') : 
+   __('uncategorized');
+%>
