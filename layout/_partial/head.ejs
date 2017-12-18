@@ -32,9 +32,24 @@
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <% if(theme.creative_commons) { %><link href="https://cdn.jsdelivr.net/npm/cc-icons@1.0.0/css/css-icons.min.css" rel="stylesheet" type="text/css"><% } %>
     
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" defer></script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async></script>
+    
+    <script type="text/javascript">
+    if(!("jQuery" in window)) {
+        window._jqueryQueue = [];
+        window.jQuery = window.$ = function() {
+            _jqueryQueue.push(arguments);
+        };
+        document.getElementById("jquery-src").addEventListener("load", function() {
+            var len = _jqueryQueue.length;
+            for(var i=0; i<len; ++i)
+                jQuery.apply(document, _jqueryQueue[i]);
+        });
+    }
+    </script>
+    
     <% if(theme.buttons.base && theme.buttons.dropdown) { %><script src="/js/buttons.js" type="text/javascript" async></script><% } %>
-    <script src="<%- url_for('/js/script.js') %>" type="text/javascript" defer></script>
+    <script src="<%- url_for('/js/script.js') %>" type="text/javascript" async></script>
     
     <!-- Global javascript config object -->
     <script type="text/javascript">
