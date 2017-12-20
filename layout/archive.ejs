@@ -46,14 +46,12 @@ layout: layout
         </div>
     </div>
     <% if(nav) { %>
-    <nav id="archive-nav">
-        <ul class="nav"><!-- nav class required for Bootstrap scrollspy -->
-            <%- nav %>
-            <% if(year) { %>
-                </ul><!-- enclosing tag for ul.months -->
-            </li><!-- enclosing tag for li.year -->
-            <% } %>
-        </ul>
-    </nav>
+    <ul id="archive-nav">
+        <%- nav %>
+        <% if(year) { %>
+            </ul><!-- enclosing tag for ul.months -->
+        </li><!-- enclosing tag for li.year -->
+        <% } %>
+    </ul>
     <% } %>
 </main>

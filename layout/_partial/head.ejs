@@ -44,6 +44,7 @@
             var len = _jqueryQueue.length;
             for(var i=0; i<len; ++i)
                 jQuery.apply(document, _jqueryQueue[i]);
+            delete window._jqueryQueue;
         });
     }
     </script>
