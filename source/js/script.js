@@ -20,7 +20,7 @@ function scrollSpy(menuSelector, offset, activeClassName) {
     offset = offset || 0;
     activeClassName = activeClassName || "active";
 
-    var lastId, active = $(),
+    var lastId = null, active = $(),
     menuHeight = menu.outerHeight() + offset,
     scollTarget = menu.find("a").map(function() {
         var item = $($(this).attr("href"));
@@ -61,7 +61,7 @@ function makeSticky(stickySelector, options) {
     var belowHeight = $(options.below || "#header").height(),
         within = $(options.within || "#primary"),
         originTop = sticky.position().top,
-        posMax;
+        posMax = 0;
     initAndUpdate(function() {
         var withinHeight = within.position().top + within.outerHeight();
         posMax = withinHeight - sticky.height();
@@ -75,98 +75,6 @@ function makeSticky(stickySelector, options) {
         else
             top = posMax - scrollTop;
         sticky.css("top", top);
-    });
-}
-
-/* from https://stackoverflow.com/a/901144 */
-function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
-
-function searchFunc(path, search_str, content_id) {
-    $.ajax({
-        url: path,
-        dataType: "xml",
-        success: function(response) {
-            var query = $("entry", response).map(function() {
-                return {
-                    title: $("title", this).text(),
-                    content: function(html) {
-                        // .html() can oly get its first child, so wrap in a div
-                        var wrapper = $("<div>"+ html +"</div>");
-                        // remove style/script in post content
-                        wrapper.find("script,style").remove();
-                        // remove code line number
-                        $(".gutter",wrapper).remove();
-                        return wrapper.html();
-                    }($("content", this).text()),
-                    url: $("url", this).text()
-                }
-                }).get(),
-                container = $('#' + content_id);
-            search_str = search_str.trim();
-            if(search_str.length == 0)
-                return;
-
-            var html = '',
-                keywords = search_str.toLowerCase().split(/[\s\-]+/);
-            query.forEach(function(data) {
-                var isMatch = true;
-                var data_title = data.title.trim().toLowerCase();
-                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
-                var index_title = -1;
-                var index_content = -1;
-                var first_occur = -1;
-                // only match articles with non-empty titles and contents
-                if(data_title && data_content) {
-                    keywords.forEach(function(keyword, i) {
-                        index_title = data_title.indexOf(keyword);
-                        index_content = data_content.indexOf(keyword);
-                        if( index_title < 0 && index_content < 0 )
-                            isMatch = false;
-                        else {
-                            if (index_content < 0)
-                                index_content = 0;
-                            if (!i)
-                                first_occur = index_content;
-                        }
-                    });
-                }
-                // show search results
-                if (isMatch) {
-                    html += '<section class="post">';
-                    html += '<header class="post-header"><h2 class="post-title"><a href="' + data.url + '" class="search-result-title">' + data.title + "</a></h2></header>";
-                    var content = data.content.trim().replace(/<[^>]+>/g,"");
-                    if (first_occur >= 0) {
-                        // cut out 100 characters
-                        var start = first_occur - 20;
-                        var end = first_occur + 80;
-                        if(start < 0)
-                            start = 0;
-                        else if(!start)
-                            end = 100;
-                        if(end > content.length)
-                            end = content.length;
-                        var match_content = content.substring(start, end);
-                        // highlight all keywords
-                        keywords.forEach(function(keyword) {
-                            match_content = match_content.replace(new RegExp(keyword, "gi"), '<span class="search-keyword">' + keyword + '</span>');
-                        });
-                        html += '<article class="post-body">' + (0 == start ? "" : "...") + match_content + (end == content.length ? "" : "...") + '</article>';
-                    }
-                    html += "</section>"; // section.post
-                }
-            });
-            if(!html)
-                $("#no-match").removeClass("matched");
-            container.html('<div class="search-result-list">' + html + "</div>");
-        }
     });
 }
 
@@ -232,7 +140,7 @@ $(function() {
         center = width / 2,
         radius = parseInt((width - 3) / 2),
         ctx = canvas[0].getContext("2d");
-    function draw_circle(color, percent) {
+    function drawCircle(color, percent) {
         ctx.beginPath();
         ctx.arc(center, center, radius, - Math.PI / 2, Math.PI * 1.5 * percent, false);
         ctx.strokeStyle = color;
@@ -254,8 +162,8 @@ $(function() {
         if (scrollTop >= 200) {
             totop.addClass("display");
             ctx.clearRect(0, 0, width, height);
-            draw_circle('#efefef', 1);
-            draw_circle('#555555', per/100);
+            drawCircle("#efefef", 1);
+            drawCircle("#555555", per/100);
         } else
             totop.removeClass("display");
         percent.attr("data-percent", per);
