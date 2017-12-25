@@ -4,7 +4,15 @@ function visible(jqueryElem) {
     return jqueryElem.length && !jqueryElem.is(":hidden");
 }
 
-// https://jsfiddle.net/mekwall/up4nu/
+/**
+ * Initialize on page fully loaded and update on window resize
+ */
+function initAndUpdate(initializers) {
+    $(window).on("load", initializers)
+             .resize(initializers);
+}
+
+// inspired by https://jsfiddle.net/mekwall/up4nu/
 function scrollSpy(menuSelector, offset, activeClassName) {
     var menu = $(menuSelector);
     if(!visible(menu))
@@ -45,7 +53,32 @@ function scrollSpy(menuSelector, offset, activeClassName) {
     });
 }
 
-/* https://stackoverflow.com/a/901144 */
+function makeSticky(stickySelector, options) {
+    var sticky = $(stickySelector);
+    if(!visible(sticky))
+        return;
+    options = options || {};
+    var belowHeight = $(options.below || "#header").height(),
+        within = $(options.within || "#primary"),
+        originTop = sticky.position().top,
+        posMax;
+    initAndUpdate(function() {
+        var withinHeight = within.position().top + within.outerHeight();
+        posMax = withinHeight - sticky.height();
+    });
+    $(window).scroll(function() {
+        var scrollTop = $(window).scrollTop(), top;
+        if(scrollTop < belowHeight)
+            top = originTop - scrollTop;
+        else if(posMax > scrollTop)
+            top = originTop - belowHeight;
+        else
+            top = posMax - scrollTop;
+        sticky.css("top", top);
+    });
+}
+
+/* from https://stackoverflow.com/a/901144 */
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
@@ -234,30 +267,12 @@ $(function() {
     var tocContainer = $("#toc");
     if(!visible(tocContainer))
         return;
-    var toc = tocContainer.children(), tocHeight,
-        post = $(".post-body"), posMax;
-    function updateMax() {
-        var postHeight = post.position().top + post.outerHeight(),
-            containerHeight = tocContainer.height();
-        posMax = postHeight - containerHeight;
+    var toc = tocContainer.children(), tocHeight;
+    initAndUpdate(function() {
         tocHeight = toc.height();
-    };
-    // initialize when full loaded
-    $(window).on("load", updateMax);
-    // update posMax on window resizing
-    $(window).resize(updateMax);
-    scrollSpy(tocContainer);
-    $(window).scroll(function() {
-        var scrollTop = $(window).scrollTop();
-        var top;
-        if(scrollTop < 55) // 55 == header.height(55px)
-            top = 90 - scrollTop; // 90 == #toc.top(90px)
-        else if(posMax > scrollTop)
-            top = 35;
-        else
-            top = posMax - scrollTop;
-        tocContainer.css("top", top);
     });
+    scrollSpy(tocContainer);
+    makeSticky(tocContainer, {within: ".post-body"});
 
     $(".toc-item").on("scrollspy", function() {
         var tocTop = toc.scrollTop(),
@@ -277,11 +292,21 @@ $(function() {
 
 // footnotes
 $(function() {
-    if(!$(".footnotes").length)
+    if(!visible($(".footnotes")))
         return;
 
-    function position() {
-        var content = $(".fn-content").removeAttr("style");
+    var target = $(".fn-content");
+
+    $(".footnote-ref").each(function() {
+        var footnote = $($(this).children("a").attr("href")),
+            outer_wrapper = $("<span>", {"class" :"fn-content"}),
+            inner_wrapper = $("<span>", {"class" :"fn-text"});
+        footnote.find(".footnote-backref").remove();
+        $(this).append(outer_wrapper.append(inner_wrapper.html(footnote.html())));
+    });
+
+    initAndUpdate(function() {
+        var content = target.removeAttr("style");
         if($(window).width() < 640)
             content.css("width",$(window).width()/2);
         else
@@ -293,18 +318,8 @@ $(function() {
                 "margin-left": width/-2
             });
         });
-    };
-    $(".footnote-ref").each(function() {
-        var footnote = $($(this).children("a").attr("href")),
-            outer_wrapper = $("<span>", {"class" :"fn-content"}),
-            inner_wrapper = $("<span>", {"class" :"fn-text"});
-        footnote.find(".footnote-backref").remove();
-        $(this).append(outer_wrapper.append(inner_wrapper.html(footnote.html())));
     });
-    position();
-    $(window).resize(position);
 
-    var target = $(".fn-content");
     $(document).click(function(t) {
         var clicked = $(t.target);
         if(target.is(clicked) || target.has(clicked).length)
@@ -325,17 +340,6 @@ $(function() {
     var nav = $("#archive-nav");
     if(!visible(nav))
         return;
-
-    var pageHeight = $("#primary").position().top + $("#primary").outerHeight(),
-        navMax = pageHeight - nav.height();
-    scrollSpy("#archive-nav");
-    $(window).scroll(function() {
-        var scrollTop = $(window).scrollTop();
-        if(scrollTop < 55) // 55 == header.height(55px)
-            nav.css({top: 115 - scrollTop});
-        else if(navMax > scrollTop)
-            nav.css({top: 60}); // 60 == archive-nav.top(115px) - header.height(55px)
-        else
-            nav.css({top: navMax - scrollTop});
-    });
+    scrollSpy(nav);
+    makeSticky(nav);
 });
