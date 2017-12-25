@@ -1,50 +1,49 @@
 "use strict";
 
+function visible(jqueryElem) {
+    return jqueryElem.length && !jqueryElem.is(":hidden");
+}
+
 // https://jsfiddle.net/mekwall/up4nu/
-$(function() {
-    $.scrollspy = function(menuSelector, offset, activeClassName) {
-        var menu = $(menuSelector);
-        if(!menu.length || menu.is(":hidden"))
-            return;
-        
-        offset = offset || 0;
-        activeClassName = activeClassName || "active";
-        
-        var lastId, active = $(),
-            menuHeight = menu.outerHeight() + offset,
-            scollTarget = menu.find("a").map(function() {
-                var item = $($(this).attr("href"));
-                if (item.length) 
-                    return item[0]; // avoid becoming 2-dim jquery array
-            });
-        
-        $(window).resize(function() {
-            menuHeight = menu.outerHeight() + offset;
-        });
-        
-        $(window).scroll(function() {
-            // Get container scroll position
-            var fromTop = $(this).scrollTop() + menuHeight;
-            
-            // Get id of current scroll item
-            var id = scollTarget.filter(function() {
-                return $(this).offset().top < fromTop;
-            }).last().attr("id") || "";
-            
-            if (lastId !== id) {
-                active.removeClass(activeClassName);
-                var newActive = [];
-                
-                for(var target = menu.find("[href='#" + id + "']"); target.length && !target.is(menu); target = target.parent()) {
-                    if(target.is("li"))
-                        newActive.push(target[0]);
-                }
-                active = $(newActive).addClass(activeClassName).trigger("scrollspy");
-                lastId = id;
+function scrollSpy(menuSelector, offset, activeClassName) {
+    var menu = $(menuSelector);
+    if(!visible(menu))
+        return;
+    offset = offset || 0;
+    activeClassName = activeClassName || "active";
+
+    var lastId, active = $(),
+    menuHeight = menu.outerHeight() + offset,
+    scollTarget = menu.find("a").map(function() {
+        var item = $($(this).attr("href"));
+        if (item.length)
+            return item[0]; // avoid becoming 2-dim jquery array
+    });
+
+    $(window).scroll(function() {
+        // Get container scroll position
+        var fromTop = $(this).scrollTop() + menuHeight;
+
+        // Get id of current scroll item
+        var id = scollTarget.filter(function() {
+            return $(this).offset().top < fromTop;
+        }).last().attr("id") || "";
+
+        if (lastId !== id) {
+            active.removeClass(activeClassName);
+            var newActive = [];
+
+            for(var target = menu.find("[href='#" + id + "']");
+                target.length && !target.is(menu);
+                target = target.parent()) {
+                if(target.is("li"))
+                    newActive.push(target[0]);
             }
-        });
-    };
-});
+            active = $(newActive).addClass(activeClassName).trigger("scrollspy");
+            lastId = id;
+        }
+    });
+}
 
 /* https://stackoverflow.com/a/901144 */
 function getParameterByName(name, url) {
@@ -69,17 +68,17 @@ function searchFunc(path, search_str, content_id) {
                         // .html() can oly get its first child, so wrap in a div
                         var wrapper = $("<div>"+ html +"</div>");
                         // remove style/script in post content
-                        wrapper.find("script,style").remove(); 
+                        wrapper.find("script,style").remove();
                         // remove code line number
-                        $(".gutter",wrapper).remove(); 
+                        $(".gutter",wrapper).remove();
                         return wrapper.html();
-                    }($("content", this).text()), 
+                    }($("content", this).text()),
                     url: $("url", this).text()
                 }
                 }).get(),
                 container = $('#' + content_id);
             search_str = search_str.trim();
-            if(search_str.length == 0) 
+            if(search_str.length == 0)
                 return;
 
             var html = '',
@@ -99,9 +98,9 @@ function searchFunc(path, search_str, content_id) {
                         if( index_title < 0 && index_content < 0 )
                             isMatch = false;
                         else {
-                            if (index_content < 0) 
+                            if (index_content < 0)
                                 index_content = 0;
-                            if (!i) 
+                            if (!i)
                                 first_occur = index_content;
                         }
                     });
@@ -121,7 +120,7 @@ function searchFunc(path, search_str, content_id) {
                             end = 100;
                         if(end > content.length)
                             end = content.length;
-                        var match_content = content.substring(start, end); 
+                        var match_content = content.substring(start, end);
                         // highlight all keywords
                         keywords.forEach(function(keyword) {
                             match_content = match_content.replace(new RegExp(keyword, "gi"), '<span class="search-keyword">' + keyword + '</span>');
@@ -180,7 +179,7 @@ $(function() {
             }, 100);
         }
     });
-    
+
     $("#global-nav").click(function() {
         // to make this still effective on window resize,
         // don't put the if-condition below out of click listener
@@ -208,13 +207,13 @@ $(function() {
         ctx.lineWidth = 3;
         ctx.stroke();
     }
-    
+
     totop.click(function() {
         $("body, html").animate({
             scrollTop: 0
         }, 800);
     });
-    
+
     $(window).scroll(function() {
         var docHeight = $(document).height() - $(window).height(),
             scrollTop = $(window).scrollTop(),
@@ -230,10 +229,10 @@ $(function() {
     });
 });
 
-// toc 
+// toc
 $(function() {
     var tocContainer = $("#toc");
-    if(!tocContainer.length || tocContainer.is(":hidden"))
+    if(!visible(tocContainer))
         return;
     var toc = tocContainer.children(), tocHeight,
         post = $(".post-body"), posMax;
@@ -247,7 +246,7 @@ $(function() {
     $(window).on("load", updateMax);
     // update posMax on window resizing
     $(window).resize(updateMax);
-    $.scrollspy(tocContainer);
+    scrollSpy(tocContainer);
     $(window).scroll(function() {
         var scrollTop = $(window).scrollTop();
         var top;
@@ -259,7 +258,7 @@ $(function() {
             top = posMax - scrollTop;
         tocContainer.css("top", top);
     });
-    
+
     $(".toc-item").on("scrollspy", function() {
         var tocTop = toc.scrollTop(),
             link = $(this).children(".toc-link"),
@@ -271,16 +270,16 @@ $(function() {
         if(thisTop <= 0)
             toc.scrollTop(tocTop + thisTop);
         // else if below current view of toc
-        else if(tocHeight <= thisTop) 
+        else if(tocHeight <= thisTop)
             toc.scrollTop(tocTop + thisTop + link.outerHeight() - tocHeight);
     });
 });
 
 // footnotes
 $(function() {
-    if(!$(".footnotes").length) 
+    if(!$(".footnotes").length)
         return;
-    
+
     function position() {
         var content = $(".fn-content").removeAttr("style");
         if($(window).width() < 640)
@@ -304,7 +303,7 @@ $(function() {
     });
     position();
     $(window).resize(position);
-    
+
     var target = $(".fn-content");
     $(document).click(function(t) {
         var clicked = $(t.target);
@@ -324,12 +323,12 @@ $(function() {
 // archive navigator
 $(function() {
     var nav = $("#archive-nav");
-    if(!nav.length || nav.is(":hidden"))
+    if(!visible(nav))
         return;
-    
+
     var pageHeight = $("#primary").position().top + $("#primary").outerHeight(),
         navMax = pageHeight - nav.height();
-    $.scrollspy("#archive-nav");
+    scrollSpy("#archive-nav");
     $(window).scroll(function() {
         var scrollTop = $(window).scrollTop();
         if(scrollTop < 55) // 55 == header.height(55px)
