@@ -7,17 +7,19 @@ layout: layout
 #no-match.matched {display: none;}
 </style>
 
+<script id="result-template" type="text/custom-template">
+<section class="post">
+    <header class="post-header">
+        <h2 class="post-title">
+            <a href="{{url}}" class="search-result-title">{{title}}</a>
+        </h2>
+    </header>
+    <article class="post-body">{{result}}</article>
+</section>
+</script>
+
 <main id="primary">
-    <div id="search-result">
-        <section class="post" id="pattern" style="display:none">
-            <header class="post-header">
-                <h2 class="post-title">
-                    <a class="search-result-title"></a>
-                </h2>
-            </header>
-            <article class="post-body"></article>
-        </section>
-    </div>
+    <div id="search-result"></div>
     <h1 id="no-match" class="matched"><%= __('no_match') %></h1>
 </main>
 <!-- #primary -->
@@ -38,19 +40,19 @@ function doSearch(path, keyword, containerSelector) {
         return;
 
     $.get({
-        url: path, dataType: "xml",
-        success: function(data) {
-            return $("entry", data).map(function() {
-                var content = $($("content", this).text()).wrapAll("<div>").parent();
-                // remove style/script/code line number in post content
-                content.find("script,style,.gutter").remove();
-                return {
-                    title: $("title", this).text(),
-                    url: $("url", this).text(),
-                    // .html() can oly get its first child, so wrap in a div
-                    content: content.text()
-                }
-            }).get();
+        url: path, dataType: "xml"
+    }).then(function(data) {
+        return $("entry", data).map(function() {
+            var content = $($("content", this).text()).wrapAll("<div>").parent();
+            // remove style/script/code line number in post content
+            content.find("script,style,.gutter").remove();
+            return {
+                title: $("title", this).text(),
+                url: $("url", this).text(),
+                // .html() can oly get its first child, so wrap in a div
+                content: content.text()
+            }
+        }).get();
     }).then(function(data) {
         var keywords = keyword.toLowerCase().split(/\s+/);
         return data.reduce(function(result, item) {
@@ -85,18 +87,16 @@ function doSearch(path, keyword, containerSelector) {
             return result;
         }, []);
     }).then(function(data) {
-        var pattern = $("#pattern"), container = $(containerSelector);
-        if(data.length)
+        if(!data.length)
             $("#no-match").removeClass("matched");
-        data.forEach(function(item) {
-            if(item.result) {
-                var res = pattern.clone().removeAttr("id").removeAttr("style");
-                res.find(".search-result-title").attr("href", item.url)
-                                              .html(item.title);
-                res.find(".post-body").html(item.result);
-                container.append(res);
-            }
-        });
+        else {
+            var template = $("#result-template").html().split(/\{\{([^\}]+)\}\}/g);
+            $(containerSelector).append(data.map(function(item) {
+                return template.map(function(tok, i) {
+                    return (i % 2) ? item[tok] : tok;
+                }).join('');
+            }));
+        }
     });
 }
 
