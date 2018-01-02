@@ -90,16 +90,18 @@ function makeSticky(stickySelector, options) {
 
 // let's be violent!
 $(function() {
+    var cached = $("<b>").text("-1s").css({
+        color: "red", position: "absolute", "z-index": 999
+    });
     $("#primary").click(function(e) {
-        var elem = $("<b>").text("-1s"), y = e.pageY;
-        elem.css({
-            top: y-15, left: e.pageX, color: "red",
-            position: "absolute", "z-index": 999
-        });
+        var y = e.pageY,
+            elem = cached.clone().css({
+                top: y-15, left: e.pageX
+            });
         $("body").append(elem);
         elem.animate({
             top: y-180, opacity: 0
-        }, 1500, elem.remove.bind(elem));
+        }, 1000, function() { elem.remove(); });
     });
 });
 
@@ -224,10 +226,8 @@ $(function() {
 
 // footnotes
 $(function() {
-    if(!visible($(".footnotes")))
+    if(!$(".footnotes").length)
         return;
-
-    var target = $(".fn-content");
 
     $(".footnote-ref").each(function() {
         var footnote = $($(this).children("a").attr("href")),
@@ -238,7 +238,7 @@ $(function() {
     });
 
     initAndUpdate(function() {
-        var content = target.removeAttr("style");
+        var content = $(".fn-content").removeAttr("style");
         if($(window).width() < 640)
             content.css("width",$(window).width()/2);
         else
@@ -252,18 +252,16 @@ $(function() {
         });
     });
 
-    $(document).click(function(t) {
-        var clicked = $(t.target);
-        if(target.is(clicked) || target.has(clicked).length)
-            t.stopPropagation();
-        else {
-            var parent = clicked.parents(".footnote-ref"),
-                active = $(".footnote-ref.active");
-            if(!active.is(parent))
-                active.removeClass("active");
-            if(parent.length)
-                parent.toggleClass("active");
-        }
+    var active = $(); // current visible footnote
+    $("#primary").click(function(e) {
+        var clicked = $(e.target),
+            fn = clicked.closest(".footnote-ref");
+        if(!active.is(fn)) { // if clicked on another footnote
+            active.removeClass("active");
+            fn.addClass("active");
+            active = fn;
+        } else if(clicked.is("a")) // if clicked on self
+            active.toggleClass("active");
     });
 });
 
