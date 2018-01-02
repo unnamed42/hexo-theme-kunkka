@@ -40,7 +40,7 @@
         };
     }
     </script>
-    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach($.apply.bind($,$));delete window._jqQ;"></script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply(args)});delete window._jqQ;"></script>
 
     <% if(theme.buttons.base && theme.buttons.dropdown) { %><script src="/js/buttons.js" type="text/javascript" async></script><% } %>
     <script src="<%- url_for('/js/script.js') %>" type="text/javascript" async></script>
