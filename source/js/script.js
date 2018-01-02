@@ -5,6 +5,16 @@ function visible(jqueryElem) {
 }
 
 /**
+ * Calculate difference between two Javascript Date Object in days
+ * copied from https://stackoverflow.com/a/15289883
+ */
+function dateDiffInDays(a, b) {
+    var ua = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate()),
+        ub = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+    return Math.floor((ub - ua) / 86400000);
+}
+
+/**
  * Initialize on page fully loaded and update on window resize
  */
 function initAndUpdate(initializers) {
@@ -21,12 +31,12 @@ function scrollSpy(menuSelector, offset, activeClassName) {
     activeClassName = activeClassName || "active";
 
     var lastId = null, active = $(),
-    menuHeight = menu.outerHeight() + offset,
-    scollTarget = menu.find("a").map(function() {
-        var item = $($(this).attr("href"));
-        if (item.length)
-            return item[0]; // avoid becoming 2-dim jquery array
-    });
+        menuHeight = menu.outerHeight() + offset,
+        scollTarget = menu.find("a").map(function() {
+            var item = $($(this).attr("href"));
+            if (item.length)
+                return item[0]; // avoid becoming 2-dim jquery array
+        });
 
     $(window).scroll(function() {
         // Get container scroll position
@@ -78,18 +88,32 @@ function makeSticky(stickySelector, options) {
     });
 }
 
+// let's be violent!
+$(function() {
+    $("#primary").click(function(e) {
+        var elem = $("<b>").text("-1s"), y = e.pageY;
+        elem.css({
+            top: y-15, left: e.pageX, color: "red",
+            position: "absolute", "z-index": 999
+        });
+        $("body").append(elem);
+        elem.animate({
+            top: y-180, opacity: 0
+        }, 1500, elem.remove.bind(elem));
+    });
+});
+
 // common widgets
 $(function() {
     // sidebar part
     $(".widget.widget-links").load("/components/links.html");
     $(".widget.recent-posts").load("/components/recent-posts.html", function(response, status) {
         if ("success" === status) {
-            var suffix = $(this).find("ul.list").attr("data-suffix"),
-                now = new Date().getTime();
-            $(this).find("span.update-time").each(function() {
-                var time = new Date($(this).attr("data-date")).getTime(),
-                    diff = Math.ceil((now - time) / 864e5);
-                if(10 >= diff)
+            var suffix = $(this).find(".list").attr("data-suffix");
+            $(this).find(".update-time").each(function() {
+                var time = new Date($(this).attr("data-date")),
+                    diff = dateDiffInDays(time, new Date());
+                if(30 >= diff)
                     $(this).html(diff + suffix);
             });
         }
