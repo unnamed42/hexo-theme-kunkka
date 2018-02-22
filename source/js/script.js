@@ -88,23 +88,6 @@ function makeSticky(stickySelector, options) {
     });
 }
 
-// let's be violent!
-$(function() {
-    var cached = $("<b>").text("-1s").css({
-        color: "red", position: "absolute", "z-index": 999
-    });
-    $("#primary").click(function(e) {
-        var y = e.pageY,
-            elem = cached.clone().css({
-                top: y-15, left: e.pageX
-            });
-        $("body").append(elem);
-        elem.animate({
-            top: y-180, opacity: 0
-        }, 1000, function() { elem.remove(); });
-    });
-});
-
 // common widgets
 $(function() {
     // sidebar part
