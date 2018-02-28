@@ -1,0 +1,15 @@
+<div class="logo" <%- !(theme.logo) ? 'style="width: auto;"' : '' %>>
+    <a href="<%- config.root %>" title="<%= config.title %>" rel="home" style="text-decoration: none;">
+    <% if(theme.logo) { %>
+        <img src="<%- theme.logo %>" alt="<%= config.title %>" width="102" height="30"/>
+    <% } else { %>
+        <span class="brand-logo">
+        <% if(config.title) { %>
+            <%= config.title %>
+        <% } else { %>
+            <%= trim(config.author) %>&#39;s Blog
+        <% } %>
+        </span>
+    <% } %>
+    </a>
+</div>

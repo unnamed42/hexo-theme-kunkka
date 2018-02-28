@@ -1,0 +1,25 @@
+<table id="dropdown-menu">
+    <tbody>
+        <% if (site.categories.length) { %>
+        <tr class="trline">
+            <td class="tdleft"><%= __('categories') %></td>
+            <td class="tdright tab-ul tab-categories">
+                <% site.categories.sort('name').each(function(item){ %>
+                <a href="<%- url_for(item.path) %>"><%= item.name %></a>
+                <% }); %>
+            </td>
+        </tr>
+        <% } %>
+        <tr>
+            <td class="tdleft"><%= __('tags') %></td>
+            <td class="tdright tab-ul tab-tags">
+                <%- tagcloud({
+                    unit: "px",
+                    amount: theme.tag_number,
+                    max_font: 12, min_font: 12,
+                    order: 'desc', orderby: 'count',
+                }) %>
+            </td>
+        </tr>
+    </tbody>
+</table>

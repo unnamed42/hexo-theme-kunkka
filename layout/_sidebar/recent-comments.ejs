@@ -1,11 +1,11 @@
 <% if(theme.disqus_api_key || (theme.github_comment && theme.github_comment.repo)) { %>
-<div class="widget widget-comments">
+<div class="widget" id="recent-comments">
     <h3 class="widget-title"><%= __('recent_comments') %></h3>
     <% if(theme.disqus_api_key) { %>
     <ul class="list dq-recent-comments" data-num-items="5"></ul>
     <script id="dq-recent-comments-template" type="text/custom-template">
     <li>
-        <p><a href="{{link}}#comments" aria-label="于 {{title}} 中的评论" class="tooltipped tooltipped-n">{{comment}}</a></p>
+        <p><a href="{{link}}#comments" aria-label="<%= __('comment_in', '{{title}}')%>" class="tooltipped tooltipped-n">{{comment}}</a></p>
         <p class="comment-meta">
             <a rel="nofollow author" target="_blank" href="{{profileUrl}}">{{name}}</a>
             <span class="comment-time" title="{{createdAt}}">{{createdAt}}</span>

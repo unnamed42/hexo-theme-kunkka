@@ -1,11 +1,11 @@
 <% if(theme.sidebar) { %>
 <div id="sidebar">
-<%- partial('_widget/recent_comments') %>
+<%- partial('_sidebar/recent-comments') %>
 <% if (site.posts.length){ %>
-    <div class="widget recent-posts"></div>
+    <div class="widget" id="recent-posts"></div>
 <% } %>
 <% if(theme.links) { %>
-    <div class="widget widget-links"></div>
+    <div class="widget" id="friend-links"></div>
 <% }%>
 </div>
 <!-- end #sidebar -->

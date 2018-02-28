@@ -4,9 +4,9 @@ layout: false
 <!DOCTYPE html>
 <html lang="<%= config.lang %>">
 
-<% 
+<%
    var body_class = page.class || ' ';
-   
+
    if(is_home()) {body_class += "home";}
    else if(is_post()) {body_class += " post";}
    else if(is_archive()) {body_class += " archive post-archive";}
@@ -16,14 +16,14 @@ layout: false
 %>
 
 <!-- Head tag -->
-<%- partial('_partial/head',{cache: !config.relative_link}) %>
+<%- partial('_head/head',{cache: !config.relative_link}) %>
 
 <body class="<%- trim(body_class) %>">
-    <%- partial('_partial/nav') %>
+    <%- partial('_nav/nav') %>
     <%- body || page.content %>
     <!-- Footer -->
-    <%- partial('_partial/footer',{cache: !config.relative_link}) %>
-    <%- partial('_partial/totop') %>
+    <%- partial('_footer/footer',{cache: !config.relative_link}) %>
+    <%- partial('_addon/totop') %>
 </body>
 
 </html>

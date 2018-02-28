@@ -8,7 +8,7 @@ layout: base
             <nav class="breadcrumb-navigation">
                 <a rel="bookmark" href="<%- config.root %>"><%= __('home') %></a>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
-                <%- partial('_partial/post/categories', {page: page}) %>
+                <%- partial('_post/categories', {page: page}) %>
                 <span class="breadcrumb-arrow fa fa-angle-right"></span>
                 <%= page.title %>
             </nav>
@@ -18,7 +18,7 @@ layout: base
                         <a href="<%- url_for(page.path) %>" title="<%= page.title %>"><%= page.title %></a>
                     </h1>
                 </header>
-                <%- partial('_partial/post/meta', {page: page, has_vcount: true}) %>
+                <%- partial('_post/meta', {page: page, has_vcount: true}) %>
                 <div class="post-body clearfix">
                     <div class="post-content">
                         <% page.photos.forEach(function(link){ %>
@@ -27,7 +27,7 @@ layout: base
                         <%- page.content || body %>
                     </div>
                 </div>
-                <%- partial('_partial/license', {page: page}) %>
+                <%- partial('_addon/license', {page: page}) %>
                 <nav class="post-tags">
                 <% if(page.tags.length) { %>
                     <% page.tags.forEach(function(tag){ %>
@@ -39,8 +39,8 @@ layout: base
                 </nav>
             </article>
         </div><!-- div#primary -->
-        <%- partial('_partial/pager') %>
-        <%- partial('_partial/comments') %>
+        <%- partial('_post/pager') %>
+        <%- partial('_addon/comments') %>
         <% if(toc_str) { %>
         <nav id="toc" class="sticky">
             <%- toc_str %>
