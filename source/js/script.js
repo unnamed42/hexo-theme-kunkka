@@ -23,20 +23,19 @@ function initAndUpdate(initializers) {
 }
 
 // inspired by https://jsfiddle.net/mekwall/up4nu/
-function scrollSpy(menuSelector, offset, activeClassName) {
+function scrollSpy(menuSelector, options) {
     var menu = $(menuSelector);
     if(!visible(menu))
         return;
-    offset = offset || 0;
-    activeClassName = activeClassName || "active";
+    options = options || {};
+    var offset = options.offset || 0;
+    var activeClassName = options.activeClassName || "active";
 
-    var lastId = null, active = $(),
-        menuHeight = menu.outerHeight() + offset,
-        scollTarget = menu.find("a").map(function() {
+    var scollTarget = menu.find("a").map(function() {
             var item = $($(this).attr("href"));
             if (item.length)
                 return item[0]; // avoid becoming 2-dim jquery array
-        });
+        }), lastId = null, active = $(), menuHeight = menu.outerHeight() + offset;
 
     $(window).scroll(function() {
         // Get container scroll position
@@ -70,8 +69,7 @@ function makeSticky(stickySelector, options) {
     options = options || {};
     var belowHeight = $(options.below || "#header").height(),
         within = $(options.within || "#primary"),
-        originTop = sticky.position().top,
-        posMax = 0;
+        originTop = sticky.position().top, posMax = 0;
     initAndUpdate(function() {
         var withinHeight = within.position().top + within.outerHeight();
         posMax = withinHeight - sticky.height();
@@ -88,11 +86,26 @@ function makeSticky(stickySelector, options) {
     });
 }
 
+/**
+ * Create HTML Elements according to template and data
+ * @param {tmplSelector} selector of template string, type: string/jQuery
+ * @param {dataSource} data, type: Array (or classes have map method) of plain object
+ * @return array of resulting HTML elements, type: Array of String
+ */
+function template(tmplSelector, dataSource) {
+    var tmpl = $(tmplSelector).html().split(/\{\{([^\}]+)\}\}/g);
+    return dataSource.map(function(data) {
+        return tmpl.map(function(tok, i) {
+            return (i % 2) ? item[tok] : tok;
+        }).join('');
+    });
+}
+
 // common widgets
 $(function() {
     // sidebar part
-    $(".widget.widget-links").load("/components/links.html");
-    $(".widget.recent-posts").load("/components/recent-posts.html", function(response, status) {
+    $("#friend-links").load("/parts/links.html");
+    $("#recent-posts").load("/parts/recent-posts.html", function(response, status) {
         if ("success" === status) {
             var suffix = $(this).find(".list").attr("data-suffix");
             $(this).find(".update-time").each(function() {
@@ -107,23 +120,23 @@ $(function() {
 
 // dropdown navigation menu
 $(function() {
-    var timer, selected = false;
-    $(".dropdown").hover(function() {
+    var timer, active = false;
+    $("#dropdown").hover(function() {
         var dropdown = $(this);
         if(timer) {
             clearTimeout(timer);
             timer = null;
         }
-        if(!dropdown.hasClass("selected")) {
-            dropdown.addClass("selected");
-            selected = true;
+        if(!dropdown.hasClass("active")) {
+            dropdown.addClass("active");
+            active = true;
         }
     }, function() {
         var dropdown = $(this);
-        if(dropdown.hasClass("selected") && selected) {
+        if(dropdown.hasClass("active") && active) {
             timer = setTimeout(function() {
-                dropdown.removeClass("selected");
-                selected = false;
+                dropdown.removeClass("active");
+                active = false;
                 clearTimeout(timer);
                 timer = null;
             }, 100);
@@ -134,7 +147,7 @@ $(function() {
         // to make this still effective on window resize,
         // don't put the if-condition below out of click listener
         if ($(window).width() < 768) {
-            $(this).children(".gnul").toggleClass("collapse");
+            $(this).toggleClass("collapse");
         }
     });
 });
@@ -184,7 +197,7 @@ $(function() {
     var tocContainer = $("#toc");
     if(!visible(tocContainer))
         return;
-    var toc = tocContainer.children(), tocHeight;
+    var toc = tocContainer.children(), tocHeight = 0;
     initAndUpdate(function() {
         tocHeight = toc.height();
     });
