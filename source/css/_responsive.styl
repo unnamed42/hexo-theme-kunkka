@@ -1,5 +1,5 @@
 @media screen and (max-width: 768px) {
-    
+
     body {font-size: 1pc;}
 
     .container {
@@ -42,6 +42,8 @@
 
     #global-nav {
         float: right;
+        overflow: hidden;
+        height: 0;
         &:before {
             position: absolute;
             text-align: center;
@@ -56,29 +58,26 @@
             -moz-osx-font-smoothing: grayscale;
             content: "\f0c9"; /* fa-bars */
         }
-        .gnul {
-            overflow: hidden;
-            height: 0;
-            &.collapse {
-                position: relative;
-                border: none;
-                background: white;
-                box-shadow: rgba(0, 0, 0, 0.2) 0 1px 4px;
-                border-radius: 2px;
-                width: 130px;
-                height: auto;
-                float: right;
-                margin-right: 15px;
-            }
-            .gna {line-height: 28px;}
-            .gnli {
-                display: block;
-                width: 100%;
-                margin-right: 15px;
-                margin-left: 15px;
-            }
-            .dropdown {display: none;}
+        &.collapse {
+            border: none;
+            background: white;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 1px 4px;
+            border-radius: 2px;
+            width: 130px;
+            height: auto;
+            margin-right: 15px;
         }
+    }
+
+    #dropdown {display: none;}
+
+    .gna {line-height: 28px;}
+
+    .gnli {
+         display: block;
+         width: 100%;
+         margin-right: 15px;
+         margin-left: 15px;
     }
 
     .post {border-bottom-color: #f5f5f5;}
@@ -92,14 +91,14 @@
         padding-left: 105px;
         height: 85px;
     }
-    
+
     .post-thumbnail {
         &, & a, & a:after, & img {
             width: 85px;
             height: 85px;
         }
     }
-    
+
     .pager li {
         > a, > span {font-size: 14px;}
     }
@@ -121,7 +120,7 @@
         padding-left: 10px;
         padding-right: 10px;
     }
-    
+
     body.archive .post-content {width: 100%;}
 }
 

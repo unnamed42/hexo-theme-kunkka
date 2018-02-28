@@ -1,0 +1,92 @@
+#global-nav {
+    display: block;
+    float: left;
+    .fa:before {margin-right: 0.25em;} // For FontAwesome icons
+}
+
+.gnli {
+    display: inline-block;
+    margin-right: 25px;
+    zoom: 1;
+}
+
+.gna {
+    display: block;
+    height: 30px;
+    outline: 0;
+    color: #666;
+    text-decoration: none;
+    font-size: 14px;
+    &:hover { text-decoration: none; }
+    .current & { color: $color-theme; }
+}
+
+.gn-item {
+    min-width: 14px;
+    margin-right: 5px;
+}
+
+#dropdown { position: relative; }
+
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 35px;
+    left: 0;
+    padding: 25px;
+    width: 35pc;
+    border: 1px solid #ccc;
+    border-color: rgba(0, 0, 0, .2);
+    border-radius: 2px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    .active & { display: block; }
+    // triangle hacking
+    &:before, &:after {
+        position: absolute;
+        left: 7px;
+        z-index: 1;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: dashed dashed solid;
+        border-width: 0 8px 8px;
+        content: " ";
+    }
+    &:before {
+        top: -9px;
+        border-bottom-color: #ccc;
+        border-bottom-color: rgba(0, 0, 0, .2);
+    }
+    &:after {
+        top: -8px;
+        border-bottom-color: #fff;
+    }
+}
+
+.tdleft {
+    width: 45px;
+    white-space: nowrap;
+    padding-right: 20px;
+    border-right: 1px solid #eee;
+}
+
+.tdright {padding-left: 20px;}
+
+.trline td {padding-bottom: 15px;}
+
+.tab-ul a {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px 10px 0;
+    padding: 2px 10px;
+    background: #f5f5f5;
+    color: #333;
+    font: 13px/1.65em $NavigationFont;
+    line-height: 180%;
+    &:hover {
+        background-color: $color-theme;
+        color: #fff;
+        text-decoration: none;
+    }
+}
