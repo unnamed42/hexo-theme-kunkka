@@ -35,11 +35,11 @@ function scrollSpy(menuSelector, options) {
             var item = $($(this).attr("href"));
             if (item.length)
                 return item[0]; // avoid becoming 2-dim jquery array
-        }), lastId = null, active = $(), menuHeight = menu.outerHeight() + offset;
+        }), lastId = null, active = $();
 
     $(window).scroll(function() {
         // Get container scroll position
-        var fromTop = $(this).scrollTop() + menuHeight;
+        var fromTop = $(this).scrollTop() + offset;
 
         // Get id of current scroll item
         var id = scollTarget.filter(function() {
@@ -201,7 +201,7 @@ $(function() {
     initAndUpdate(function() {
         tocHeight = toc.height();
     });
-    scrollSpy(tocContainer);
+    scrollSpy(tocContainer, {offset: 200});
     makeSticky(tocContainer, {within: ".post-body"});
 
     $(".toc-item").on("scrollspy", function() {
