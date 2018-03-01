@@ -1,0 +1,9 @@
+<% if(config.search || theme.search) { %>
+<form method="get" id="search-form" action="<%- url_for('search.html') %>">
+    <input type="text" name="keywords" id="search-input" placeholder="<%- __('search') %>" />
+    <button type="submit" id="search-submit">
+        <span class="fa fa-search"></span>
+    </button>
+</form>
+<% } %>
+

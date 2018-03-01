@@ -14,6 +14,7 @@
                 </a>
                 <%- partial('_nav/dropdown') %>
             </div>
+            <% } %>
             <% theme.nav.forEach(function(item) { %>
             <div class="gnli<% if(is_current(item.url)) { %> current<% } %>">
                 <a class="gna fa <%- item.icon %>" href="<%- url_for(item.url) %>" title="<%= item.description || '' %>">
@@ -21,15 +22,6 @@
                 </a>
             </div>
             <% }); %>
-            <% } %>
         </div>
-        <% if(config.search || theme.search) { %>
-        <form method="get" id="search-form" action="<%- url_for('search.html') %>">
-            <input type="text" name="keywords" id="search-input" placeholder="<%- __('search') %>" />
-            <button type="submit" id="search-submit">
-                <span class="fa fa-search"></span>
-            </button>
-        </form>
-        <% } %>
     </div>
 </nav>
