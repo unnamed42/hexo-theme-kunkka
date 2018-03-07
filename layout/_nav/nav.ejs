@@ -7,14 +7,12 @@
                     <span class="gn-item"><%= __('home') %></span>
                 </a>
             </div>
-            <% if (theme.global_navigation) { %>
             <div id="dropdown" class="gnli<% if (is_post()) { %> current<% } %>">
                 <a class="gna fa fa-bars" href="#">
                     <span class="gn-item"><%= __('navigation') %></span>
                 </a>
                 <%- partial('_nav/dropdown') %>
             </div>
-            <% } %>
             <% theme.nav.forEach(function(item) { %>
             <div class="gnli<% if(is_current(item.url)) { %> current<% } %>">
                 <a class="gna fa <%- item.icon %>" href="<%- url_for(item.url) %>" title="<%= item.description || '' %>">

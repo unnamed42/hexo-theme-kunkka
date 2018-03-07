@@ -94,27 +94,47 @@ function makeSticky(stickySelector, options) {
  */
 function template(tmplSelector, dataSource) {
     var tmpl = $(tmplSelector).html().split(/\{\{([^\}]+)\}\}/g);
-    return dataSource.map(function(data) {
+    return dataSource.map(function(item) {
         return tmpl.map(function(tok, i) {
             return (i % 2) ? item[tok] : tok;
         }).join('');
     });
 }
 
-// common widgets
+// sidebar loader
 $(function() {
-    // sidebar part
-    $("#friend-links").load("/parts/links.html");
-    $("#recent-posts").load("/parts/recent-posts.html", function(response, status) {
-        if ("success" === status) {
-            var suffix = $(this).find(".list").attr("data-suffix");
-            $(this).find(".update-time").each(function() {
-                var time = new Date($(this).attr("data-date")),
-                    diff = dateDiffInDays(time, new Date());
-                if(30 >= diff)
-                    $(this).html(diff + suffix);
-            });
-        }
+    $("#sidebar").load("/parts/sidebar.html", function() {
+        var suffix = $(this).find(".list").attr("data-suffix");
+        $(this).find(".update-time").each(function() {
+            var time = new Date($(this).attr("data-date")),
+                diff = dateDiffInDays(time, new Date());
+            if(30 >= diff)
+                $(this).html(diff + suffix);
+        });
+
+        // disqus recent comments in sidebar
+        var comments = $(".dq-recent-comments");
+        if(!visible(comments))
+            return;
+        $.get({
+            url: "https://disqus.com/api/3.0/forums/listPosts.jsonp",
+            data: $.param({api_key: CONFIG.disqus.api_key, forum: CONFIG.disqus.forum,
+                        limit: comments.attr("data-num-items"), related: "thread"}),
+            dataType: "jsonp",
+            contentType: "text/javascript; charset=utf-8",
+        }).then(function(data) {
+            comments.append(template("#dq-recent-comments-template", $.map(data.response, function(comment) {
+                var msg = comment.message.length > 20 ? comment.message.substring(0, 18) + "..." : comment.message;
+                return {
+                    comment: msg.replace(/<\/?p>/gi, ""),
+                    link: comment.thread.link,
+                    title: comment.thread.title,
+                    profileUrl: comment.author.profileUrl,
+                    name: comment.author.name,
+                    createdAt: comment.createdAt
+                };
+            })));
+        });
     });
 });
 
@@ -266,6 +286,6 @@ $(function() {
     var nav = $("#archive-nav");
     if(!visible(nav))
         return;
-    scrollSpy(nav);
+    scrollSpy(nav, {offset: 150});
     makeSticky(nav);
 });

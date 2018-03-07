@@ -2,10 +2,12 @@
 layout: none
 ---
 <% if(theme.links) { %>
+<div class="widget" id="friend-links">
     <h3 class="widget-title"><%- __('links') %></h3>
     <ul>
     <% theme.links.forEach(function(link){ %>
         <li><a class="tooltipped tooltipped-n" href="<%- link.url %>" aria-label="<%= link.description || link.title %>"><%= link.title %></a></li>
     <% }); %>
     </ul>
+</div>
 <% }%>

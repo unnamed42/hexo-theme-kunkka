@@ -2,6 +2,7 @@
 layout: none
 ---
 <% if (site.posts.length){ %>
+<div class="widget" id="recent-posts">
     <h3 class="widget-title"><%= __('recent_posts') %></h3>
     <ul class="list" data-suffix="<%- __('days_ago') %>">
         <% site.posts.sort('updated', -1).limit(8).each(function(post){ %>
@@ -12,4 +13,5 @@ layout: none
         </li>
         <% }) %>
     </ul>
+</div>
 <% } %>
