@@ -1,7 +1,7 @@
 ---
 layout: base
 ---
-<% var toc_str = page.toc ? toc_fix(page.content, {list_number: false}) : ""; %>
+<% var toc_str = page.toc ? toc(page.content, {list_number: false}) : ""; %>
 <main id="content">
     <div class="container clearfix">
         <div id="primary" <% if(toc_str) { %> class="has-toc"<% } %>>
