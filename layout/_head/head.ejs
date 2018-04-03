@@ -50,14 +50,14 @@
     var CONFIG = {
     <% if(theme.disqus_shortname) { %>
         disqus: {
-            api_key: <%- stringify(theme.disqus_api_key) %>,
-            forum: <%- stringify(theme.disqus_shortname) %>
+            api_key: <%- quoted(theme.disqus_api_key) %>,
+            forum: <%- quoted(theme.disqus_shortname) %>
         },
     <% } %>
     <% if(theme.github_comment && theme.github_comment.repo) { %>
         gitment: {
-            owner: <%- stringify(theme.github_comment.owner) %>,
-            repo: <%- stringify(theme.github_comment.repo) %>,
+            owner: <%- quoted(theme.github_comment.owner) %>,
+            repo: <%- quoted(theme.github_comment.repo) %>,
             <% if(page.issue) { %>
             issue: <%- page.issue %>
             <% } %>
