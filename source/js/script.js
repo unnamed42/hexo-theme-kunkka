@@ -104,12 +104,12 @@ function template(tmplSelector, dataSource) {
 // sidebar loader
 $(function() {
     $("#sidebar").load("/parts/sidebar.html", function() {
-        var suffix = $(this).find(".list").attr("data-suffix");
+        var suffix = $(this).find("#recent-posts .list").attr("data-suffix");
         $(this).find(".update-time").each(function() {
             var time = new Date($(this).attr("data-date")),
                 diff = dateDiffInDays(time, new Date());
-            if(30 >= diff)
-                $(this).html(diff + suffix);
+            if(100 >= diff)
+                $(this).html(diff.toString() + suffix);
         });
 
         // disqus recent comments in sidebar
