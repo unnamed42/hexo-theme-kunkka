@@ -1,0 +1,456 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Kunkka\n"
+"POT-Creation-Date: 2016-02-11 09:16+0800\n"
+"PO-Revision-Date: 2016-02-11 09:16+0800\n"
+"Last-Translator: \n"
+"Language-Team: mufeng <mufeng.me@gmail.com>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.7\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:4
+msgid "The page not found or not this page"
+msgstr "页面出错或者不是当前页面"
+
+#: 404.php:5
+msgid "You can also try to search the post!"
+msgstr "你可以通过搜索来找到想要的文章!"
+
+#: archive.php:5 header.php:22 search.php:4 single.php:4
+msgid "Home"
+msgstr "首页"
+
+#: archive.php:9
+msgid "Category"
+msgstr "分类"
+
+#: archive.php:14
+msgid "Tag"
+msgstr "标签"
+
+#: archive.php:56 index.php:40 single.php:31
+msgid "0 reply"
+msgstr "0 回复"
+
+#: archive.php:56 index.php:40 single.php:31
+msgid "1 reply"
+msgstr "1 回复"
+
+#: archive.php:56 index.php:40 single.php:31
+msgid "% replies"
+msgstr "% 回复"
+
+#: comments.php:4
+msgid "Please don't directly loading the page, thanks!"
+msgstr "请不要直接加载该页面，谢谢!"
+
+#: comments.php:8
+msgid "This article requires a password, enter the password to access."
+msgstr "这篇文章需要密码，请输入密码访问。"
+
+#: comments.php:16
+msgid "Comments"
+msgstr "评论"
+
+#: comments.php:24 comments.php:33
+msgid "Comments Closed."
+msgstr "评论关闭。"
+
+#: comments.php:27
+msgid "Leave a reply"
+msgstr "发表评论"
+
+#: comments.php:41
+#, php-format
+msgid "You need <a href=\"%s\">login</a> to reply."
+msgstr "你需要<a href=\"%s\">登录</a>来评论."
+
+#: comments.php:44
+#, php-format
+msgid "Welcome <a href=\"%1$s\">%2$s</a> back，"
+msgstr "欢迎<a href=\"%1$s\">%2$s</a>归来，"
+
+#: comments.php:46
+msgid "Log out of this account"
+msgstr "退出帐号"
+
+#: comments.php:46
+msgid "Log out »"
+msgstr "退出 »"
+
+#: comments.php:50
+msgid "Welcome"
+msgstr "欢迎"
+
+#: comments.php:50
+msgid "back, "
+msgstr "归来, "
+
+#: comments.php:51
+msgid "Edit »"
+msgstr "编辑资料 »"
+
+#: comments.php:62
+msgid "Name"
+msgstr "昵称"
+
+#: comments.php:69
+msgid "Email"
+msgstr "邮箱"
+
+#: comments.php:76
+msgid "Website"
+msgstr "网址"
+
+#: comments.php:87
+msgid "Submit / Ctrl+Enter"
+msgstr "提交评论 / Ctrl+Enter"
+
+#: functions.php:91
+msgid "Top menu"
+msgstr "顶部菜单"
+
+#: functions.php:92
+msgid "Dropdown menu"
+msgstr "下拉菜单"
+
+#: functions/libraries/class.tgm.php:164
+msgid "Install Required Plugins"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:165
+msgid "Install Plugins"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:166
+#, php-format
+msgid "Installing Plugin: %s"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:167
+msgid "Something went wrong."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:178 functions/libraries/class.tgm.php:491
+msgid "Return to Required Plugins Installer"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:179 functions/libraries/class.tgm.php:1847
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:180
+#, php-format
+msgid "All plugins installed and activated successfully. %1$s"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:181
+msgid "Dismiss this notice."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:518 functions/libraries/class.tgm.php:2059
+msgid "Return to the Dashboard"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:546
+#, php-format
+msgid "The following plugin was activated successfully: %s."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1092
+msgid "External Link"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1097
+msgid "Private Repository"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1100
+msgid "Pre-Packaged"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1104
+msgid "WordPress Repository"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1107
+msgid "Required"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1107
+msgid "Recommended"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1110
+msgid "Not Installed"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1112
+msgid "Installed But Not Activated"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1282
+#, php-format
+msgid ""
+"No plugins to install or activate. <a href=\"%1$s\" title=\"Return to the "
+"Dashboard\">Return to the Dashboard</a>"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1298
+msgid "Plugin"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1299
+msgid "Source"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1300
+msgid "Type"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1301
+msgid "Status"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1319
+msgid "Install"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1320
+msgid "Activate"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1830
+msgid "Install package not available."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1831
+#, php-format
+msgid "Downloading install package from <span class=\"code\">%s</span>&#8230;"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1832
+msgid "Unpacking the package&#8230;"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1833
+msgid "Installing the plugin&#8230;"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1834
+msgid "Plugin install failed."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1835
+msgid "Plugin installed successfully."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1846
+msgid "Plugin activation failed."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1956
+msgid ""
+"The installation and activation process is starting. This process may take a "
+"while on some hosts, so please be patient."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1957
+#, php-format
+msgid "%1$s installed and activated successfully."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1957
+#: functions/libraries/class.tgm.php:1966
+msgid "Show Details"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1957
+#: functions/libraries/class.tgm.php:1966
+msgid "Hide Details"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1958
+msgid "All installations and activations have been completed."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1959
+#, php-format
+msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1963
+msgid ""
+"The installation process is starting. This process may take a while on some "
+"hosts, so please be patient."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1964
+#, php-format
+msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1965
+#, php-format
+msgid "The installation of %1$s failed."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1966
+#, php-format
+msgid "%1$s installed successfully."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1967
+msgid "All installations have been completed."
+msgstr ""
+
+#: functions/libraries/class.tgm.php:1968
+#, php-format
+msgid "Installing Plugin %1$s (%2$d/%3$d)"
+msgstr ""
+
+#: functions/mutheme-basic.php:18
+msgid "Search&#34;"
+msgstr ""
+
+#: functions/mutheme-basic.php:195
+msgid " days ago"
+msgstr " 天前"
+
+#: functions/mutheme-basic.php:196
+msgid " hours ago"
+msgstr " 小时前"
+
+#: functions/mutheme-basic.php:197
+msgid " minutes ago"
+msgstr " 分钟前"
+
+#: functions/mutheme-basic.php:198
+msgid " seconds ago"
+msgstr " 秒前"
+
+#: functions/mutheme-basic.php:228
+msgid " views"
+msgstr " 阅读"
+
+#: functions/mutheme-function.php:52
+msgid "Sofa"
+msgstr "沙发"
+
+#: functions/mutheme-function.php:55
+msgid "Bench"
+msgstr "板凳"
+
+#: functions/mutheme-function.php:58
+msgid "Floor"
+msgstr "地板"
+
+#: functions/mutheme-function.php:61
+#, php-format
+msgid "%s Floor"
+msgstr "%s 楼"
+
+#: functions/mutheme-function.php:75 functions/mutheme-function.php:87
+msgid "Reply"
+msgstr "回复"
+
+#: functions/mutheme-settings.php:176
+msgid "Save Changes"
+msgstr "保存设置"
+
+#: functions/mutheme-settings.php:329
+msgid "安装推荐插件"
+msgstr ""
+
+#: functions/mutheme-settings.php:330
+msgid "安装插件"
+msgstr ""
+
+#: functions/mutheme-settings.php:331
+#, php-format
+msgid "正在安装插件: %s"
+msgstr ""
+
+#: functions/mutheme-settings.php:333
+msgid "出错了."
+msgstr ""
+
+#: functions/mutheme-settings.php:352
+msgid "继续安装推荐插件。"
+msgstr ""
+
+#: functions/mutheme-settings.php:353
+msgid "成功开启插件。"
+msgstr ""
+
+#: functions/mutheme-settings.php:354
+#, php-format
+msgid "所有插件已成功安装并开启 %s。"
+msgstr ""
+
+#: functions/mutheme-widget.php:23
+msgid "Popular posts"
+msgstr "热门文章"
+
+#: functions/mutheme-widget.php:98
+msgid "Last modified posts"
+msgstr "最近更新文章"
+
+#: functions/mutheme-widget.php:118
+msgid "Update time："
+msgstr "更新时间："
+
+#: functions/mutheme-widget.php:174
+msgid "Latest comments"
+msgstr "最新评论"
+
+#: functions/mutheme-widget.php:245
+msgid "Links"
+msgstr "友情链接"
+
+#: header.php:30
+msgid "Navigation"
+msgstr "导航"
+
+#: header.php:40
+msgid "Categories"
+msgstr "分类"
+
+#: header.php:50
+msgid "Pages"
+msgstr "页面"
+
+#: header.php:59
+msgid "Tags"
+msgstr "标签"
+
+#: header.php:89 search.php:5
+msgid "Search keyword"
+msgstr "搜索关键词"
+
+#: index.php:20
+msgid "Stick"
+msgstr "置顶"
+
+#: sidebar.php:3
+msgid "Please set up widgets at dashboard!"
+msgstr "请在后台设置小工具!"
+
+#~ msgid "Nickname"
+#~ msgstr "昵称"
+
+#~ msgid "The page fault or not this page"
+#~ msgstr "页面出错或者没有此页面"
+
+#~ msgid ""
+#~ "You can also try to through the top of the search to find what you want "
+#~ "to see"
+#~ msgstr "你也可以试着通过上方的搜索找到你想要看到的文章！"
