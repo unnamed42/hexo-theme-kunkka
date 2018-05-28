@@ -7,11 +7,11 @@ logo:
 favicon: false
 
 nav:
-  - title: 归档
+  - title: Archive
     url: archives/index.html
     icon: fa-archive
     description:
-  - title: 关于
+  - title: About
     url: about/index.html
     icon: fa-user
     description:
@@ -35,8 +35,7 @@ full_content: false
 # Provided colors: red, green, blue, purple
 color_theme: blue
 
-# Available: katex | mathjax
-math: mathjax
+mathjax: true
 
 # Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero | copyright
 # Any other words are valid but do not have a special style

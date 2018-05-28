@@ -176,28 +176,28 @@
       var token = /d{1,4}|m{1,4}|yy(?:yy)?|([HhMsTt])\1?|[LloSZWN]|'[^']*'|'[^']*'/g;
       var timezone = /\b(?:[PMCEA][SDP]T|(?:Pacific|Mountain|Central|Eastern|Atlantic) (?:Standard|Daylight|Prevailing) Time|(?:GMT|UTC)(?:[-+]\d{4})?)\b/g;
       var timezoneClip = /[^-+\dA-Z]/g;
-  
+
       // Regexes and supporting functions are cached through closure
       return function (date, mask, utc, gmt) {
-  
+
         // You can't provide utc if you skip other args (use the 'UTC:' mask prefix)
         if (arguments.length === 1 && kindOf(date) === 'string' && !/\d/.test(date)) {
           mask = date;
           date = undefined;
         }
-  
+
         date = date || new Date;
-  
+
         if(!(date instanceof Date)) {
           date = new Date(date);
         }
-  
+
         if (isNaN(date)) {
           throw TypeError('Invalid date');
         }
-  
+
         mask = String(dateFormat.masks[mask] || mask || dateFormat.masks['default']);
-  
+
         // Allow setting the utc/gmt argument via the mask
         var maskSlice = mask.slice(0, 4);
         if (maskSlice === 'UTC:' || maskSlice === 'GMT:') {
@@ -207,7 +207,7 @@
             gmt = true;
           }
         }
-  
+
         var _ = utc ? 'getUTC' : 'get';
         var d = date[_ + 'Date']();
         var D = date[_ + 'Day']();
@@ -251,7 +251,7 @@
           W:    W,
           N:    N
         };
-  
+
         return mask.replace(token, function (match) {
           if (match in flags) {
             return flags[match];
@@ -331,7 +331,7 @@ function getWeek(date) {
 /**
  * Get ISO-8601 numeric representation of the day of the week
  * 1 (for Monday) through 7 (for Sunday)
- * 
+ *
  * @param  {Object} `date`
  * @return {Number}
  */
@@ -425,6 +425,15 @@ $(function() {
                 })
             }
         });
+        /*
+         <li>
+            <p><a href="{{path}}" aria-label=<%= __("comment_in", "{{title}}") %> class="tooltipped tooltipped-n">{{msg}}</a></p>
+            <p class="comment-meta">
+                <a rel="nofollow author" target="_blank" href="{{user_url}}">{{user_login}}</a>
+                <span class="comment-time" title="{{updated_at}}">{{local_updated_at}}</span>
+            </p>
+         </li>
+         */
     }
     if(comments.length) {
         $.ajax({
@@ -470,9 +479,30 @@ $(function() {
                     html +=         '</div>';
                     html +=     '</div>';
                     html += '</div>';
+                    /*
+                     <div id="issuecomment-{{id}}" class="comment-container">
+                        <a href="{{userlink}}">
+                            <img alt="@{{username}}" class="comment-user-avatar" src="{{avatar_url}}" height="44" width="44">
+                        </a>
+                        <div class="comment-post">
+                            <div class="comment-header">
+                                <div class="comment-time">
+                                    <strong><a href="{{userlink}}" class="comment-author">{{username}}</a></strong> commented at <a href="{{html_url}}" class="timestamp">{{postdate}}</a>
+                                    {{ if(created_at != updated_at) }}
+                                    &nbsp;• <span class="tooltipped tooltipped-n" aria-label="edited at {{local_updated_at}}">edited</span>
+                                    {{ endif }}
+                                </div>
+                            </div>
+                            <div class="comment-body">{{body_html}}</div>
+                            {{ if(reactions) }}
+                            <div class="comment-reactions">{{reactions}}</div>
+                            {{ endif }}
+                        </div>
+                     </div>
+                     */
                     comments.append(html);
                 }
             }
         });
     }
-}); 
+});
