@@ -1,8 +1,16 @@
 <div class="post-meta">
     <ul class="inline-ul">
         <li class="inline-li">
-            <time><%- page.date.format(config.date_format) %></time>
+            <span><%= __('posted_at') %></span> <time><%- page.date.format(config.date_format) %></time>
         </li>
+        <% if(page.updated) { %>
+        <li class="inline-li">
+            <span class="post-span">·</span>
+        </li>
+        <li class="inline-li">
+            <span><%= __('updated_at') %></span> <time><%- page.updated.format(config.date_format) %></time>
+        </li>
+        <% } %>
         <% if(page.categories.length) { %>
         <li class="inline-li">
             <span class="post-span">·</span>
