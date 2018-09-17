@@ -1,30 +1,28 @@
 "use strict";
 
-var PassThrough = require('stream').PassThrough;
+var PassThrough = require("stream").PassThrough;
 
-hexo.extend.generator.register('github_comment_db', function(locals) {
-    var github_comment = hexo.theme.config.github_comment;
-    if(!github_comment || !github_comment.repo) 
+hexo.extend.generator.register("github_comment_db", (locals) => {
+    const githubComment = hexo.theme.config.github_comment;
+    if (!githubComment || !githubComment.repo)
         return {};
-    
-    var json = [];
-    function addItem(item) {
-        if(item.hasOwnProperty('issue')) {
-            var res = '"' + item.issue + '":{';
-            res += '"path":"' + item.permalink + '",';
-            res += '"title":"' + item.title + '"}';
-            json.push(res);
-        }
-    }
+
+    let json = [];
+    let addItem = (item) => {
+        if (item.hasOwnProperty("issue"))
+            json.push(`"${item.issue}":{"path":"${item.permalink}","title":"${item.title}"}`);
+    };
+
     locals.posts.forEach(addItem);
     locals.pages.forEach(addItem);
+
     return {
-        path: '/github_comment_db.json',
-        data: function() {
-            var ss = new PassThrough();
-            ss.write('{' + json.join(',') + '}');
+        path: "/github_comment_db.json",
+        data: () => {
+            let ss = new PassThrough();
+            ss.write(`{${json.join(",")}}`);
             ss.end();
             return ss;
         }
-    }
+    };
 });
