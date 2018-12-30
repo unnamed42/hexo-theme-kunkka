@@ -40,7 +40,7 @@
         };
     }
     </script>
-    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
+    <script id="jquery-src" src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" async onload="_jqQ.forEach(function(args){$.apply($,args)});delete window._jqQ;"></script>
 
     <% if(theme.buttons.base && theme.buttons.dropdown) { %><script src="/js/buttons.js" type="text/javascript" async></script><% } %>
     <script src="<%- url_for('/js/script.js') %>" type="text/javascript" async></script>
@@ -103,15 +103,15 @@
         "HTML-CSS": {linebreaks: {automatic: true}}
     });
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.2/MathJax.js?config=TeX-AMS_SVG" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-AMS_SVG" async></script>
     <%     } else if(theme.math == "katex") { %>
-    <link href="https://cdn.jsdelivr.net/npm/katex@0.9.0-alpha2/dist/katex.min.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.9.0-alpha2/dist/katex.min.js" async></script>
+    <link href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" async></script>
     <%     } %>
     <% } %>
 
     <% if(theme.busuanzi) { %>
-    <script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+    <script src="https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/bsz.pure.mini.js" async></script>
     <% } %>
 
 </head>
