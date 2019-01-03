@@ -14,7 +14,7 @@ layout: layout
             <a href="{{url}}" class="search-result-title">{{title}}</a>
         </h2>
     </header>
-    <article class="post-body">{{result}}</article>
+    <article class="post-body">{{body}}</article>
 </section>
 </script>
 
@@ -24,25 +24,25 @@ layout: layout
 </main>
 <!-- #primary -->
 <script type="text/javascript">
-/* from https://stackoverflow.com/a/901144 */
-function URLParam(name, url) {
-    url = url || window.location.href;
-    var regex = new RegExp("[?&]" + name.replace(/[\[\]]/g, "\\$&") + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return "";
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
-}
+$(function() {
+    /* from https://stackoverflow.com/a/901144 */
+    var urlParam = function(name, url) {
+        url = url || window.location.href;
+        var regex = new RegExp("[?&]" + name.replace(/[\[\]]/g, "\\$&") + "(=([^&#]*)|&|#|$)"),
+            results = regex.exec(url);
+        if (!results) return null;
+        if (!results[2]) return "";
+        return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
 
-function doSearch(path, keyword, containerSelector) {
-    keyword = (keyword || "").trim();
-    if(keyword.length == 0)
-        return;
+    var path = '<%- url_for(config.search.path) %>',
+        keyword = (urlParam("keywords") || "").trim(),
+        result = $("#search-result");
 
-    $.get({
-        url: path, dataType: "xml"
-    }).then(function(data) {
-        return $("entry", data).map(function() {
+    if(keyword.length === 0) return;
+
+    $.get({url: path, dataType: "xml"}).then(function(xml) {
+        var data = $("entry", xml).map(function() {
             var content = $($("content", this).text()).wrapAll("<div>").parent();
             // remove style/script/code line number in post content
             content.find("script,style,.gutter").remove();
@@ -53,9 +53,9 @@ function doSearch(path, keyword, containerSelector) {
                 content: content.text()
             }
         }).get();
-    }).then(function(data) {
-        var keywords = keyword.toLowerCase().split(/\s+/);
-        return data.reduce(function(result, item) {
+
+        var keywords = keyword.toLowerCase().split(' ').filter(function(s) { return s.length !== 0; });
+        var html = data.reduce(function(result, item) {
             var title = item.title.toLowerCase(),
                 outputContent = item.content.replace(/<[^>]+>/g,""),
                 content = outputContent.toLowerCase(),
@@ -81,26 +81,22 @@ function doSearch(path, keyword, containerSelector) {
                 keywords.forEach(function(key) {
                     output = output.replace(new RegExp(key, "gi"), '<span class="search-keyword">' + key + '</span>');
                 });
-                item.result = (start ? "..." : "") + output + (end == content.length ? "" : "...");
+                item.body = (start ? "..." : "") + output + (end == content.length ? "" : "...");
                 result.push(item);
             }
             return result;
         }, []);
-    }).then(function(data) {
-        if(!data.length)
+
+        if(html.length === 0)
             $("#no-match").removeClass("matched");
         else {
             var template = $("#result-template").html().split(/\{\{([^\}]+)\}\}/g);
-            $(containerSelector).append(data.map(function(item) {
+            result.append(data.map(function(item) {
                 return template.map(function(tok, i) {
                     return (i % 2) ? item[tok] : tok;
                 }).join('');
             }));
         }
     });
-}
-
-$(function() {
-    doSearch('<%- url_for(config.search.path) %>', URLParam("keywords"), "#search-result");
 });
 </script>
